@@ -1,0 +1,1115 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<gmd:DS_Series xmlns:xlink="http://www.w3.org/1999/xlink"
+  xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:gmd="http://www.isotc211.org/2005/gmd"
+  xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gts="http://www.isotc211.org/2005/gts"
+  xmlns:gmi="http://www.isotc211.org/2005/gmi" xmlns:gmx="http://www.isotc211.org/2005/gmx"
+  xmlns:gss="http://www.isotc211.org/2005/gss" xmlns:gsr="http://www.isotc211.org/2005/gsr"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.isotc211.org/2005/gmd http://www.northwestknowledge.net/iso/xsd/schema.xsd">
+  <gmd:composedOf>
+    <gmd:DS_DataSet>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/59921b14-9900-4298-9792-9e26103086bb/mcc666_07Stan_001.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/2dbc439c-adcb-4616-bd5e-511fc3f70eeb/mcc666_07Stan_002.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/0cb4d9d6-e676-4fe4-b480-4f79f29898a9/mcc666_07Stan_003.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/c3876518-1981-4ba3-a2bc-9be96fa0a9b3/mcc666_07Stan_004.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/9a39c6fd-257b-4bc2-bc7b-2bcc69ed6452/mcc666_07Stan_005.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/d7be00b2-9705-421a-a504-7e17f79a655d/mcc666_07Stan_006.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/00ea6034-12ed-45dd-8998-2119d80f70f4/mcc666_07Stan_007.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/df19ea8c-ce90-465e-9dee-2954c9c3de1b/mcc666_07Stan_008.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/1d95ec83-345d-45f5-94ba-a56ca144f825/mcc666_07Stan_009.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/ed904cda-6f51-4603-bfda-702e71dd0571/mcc666_07Stan_010.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/d271999e-7993-4dc6-acfa-161613f1dd08/mcc666_07Stan_011.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/e4263bfd-1bbf-4247-88bd-aed4b45004c3/mcc666_07Stan_012.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/ee82dd32-e8ba-4e88-843e-ef35b3fb5494/mcc666_07Stan_013.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/248658e4-feea-409f-87db-ae25f30e50b5/mcc666_07Stan_014.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/617fad5d-561f-4be2-832a-e7c6bcfdee4e/mcc666_07Stan_015.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/eb1c6706-3f9f-4a83-91c7-6a18a9bd1ed5/mcc666_07Stan_016.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/5f0ec31d-14d5-4582-9d87-4e916181d484/mcc666_07Stan_017.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/7911969d-07cd-4f13-b674-c14f69a0f1fa/mcc666_07Stan_018.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/56046a61-6592-4842-8cc4-27f6e72d74aa/mcc666_07Stan_019.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/8be314a3-9e63-42af-bfd7-c7e662cd075a/mcc666_07Stan_020.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/ad5ab2e2-6f32-4392-b589-5984b8e36f03/mcc666_07Stan_021.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/1b167909-5479-4104-a094-545f9a8b987d/mcc666_07Stan_022.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/b9cd3ec6-d274-4bd0-8b5c-92986f23e69d/mcc666_07Stan_023.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/ea0ccfd2-40eb-43fb-af4f-ffa43efb9fe1/mcc666_07Stan_024.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/1e52111d-7886-4b56-80b4-9e0ccd9c361b/mcc666_07Stan_025.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/ebfeefaf-949a-4af2-8445-7cce31c669d2/mcc666_07Stan_026.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/2091b87d-6ba9-4e20-aff2-f07612614178/mcc666_07Stan_027.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/8b786a8f-e45e-450b-90da-ef8fca6eb1dd/mcc666_07Stan_028.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/198f8811-00c4-4519-911a-2ab64af06042/mcc666_07Stan_029.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/42cc5a93-8e23-4fef-bdfa-5f28f56c8362/mcc666_07Stan_030.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/1c3c3e8d-5e91-4590-9476-fc0e8f60f056/mcc666_07Stan_031.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/ba57ad70-2019-414d-a3a7-0742c9ccff2b/mcc666_07Stan_032.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/e03b9da2-70cc-42e4-8634-a26276438705/mcc666_07Stan_033.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/a2e04511-d98f-457e-9322-a3e6c0860624/mcc666_07Stan_034.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/251099df-971c-461a-b0b7-2b654b47e752/mcc666_07Stan_035.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/c485f5b3-ffef-4b3d-a2b0-43d7b901d6f8/mcc666_07Stan_036.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/03e3ef7c-bf80-41f8-b041-5b82e2e691ae/mcc666_07Stan_037.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/d03813fe-31eb-469b-85f0-ee5b18905ce4/mcc666_07Stan_038.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/7d663ecd-db04-444d-9072-8855a767f13a/mcc666_07Stan_039.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/ffad1d71-876a-4419-8af7-570f3c33c1a7/mcc666_07Stan_040.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/188b2759-852c-4bda-8994-9f5acd35d2c2/mcc666_07Stan_041.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/a406f7e3-b846-48a2-899b-d7ba97f8dae2/mcc666_07Stan_042.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/72009786-f16d-4acd-bf5d-0d97a9e4c718/mcc666_07Stan_043.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/7cdf54ab-b84f-4193-9ccf-8107e8d34c94/mcc666_07Stan_044.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/3047de65-0d8d-4af9-aa2b-c01dfc5ee3eb/mcc666_07Stan_045.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/c9f95579-1ac9-4034-98b2-0db11ad911b6/mcc666_07Stan_046.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/ee7956bc-12b8-4e39-bbb4-3a093c65cdc4/mcc666_07Stan_047.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/2703cc1f-b7da-4f79-8738-4fd8f287cf43/mcc666_07Stan_048.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/3231e481-7904-47dc-8e4c-f9eefe475d84/mcc666_07Stan_049.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/85814588-44b3-4e8e-abdd-94f43f1acb3e/mcc666_07Stan_050.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/512e7360-18b2-4a1d-a110-6ceff2a83622/mcc666_07Stan_051.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/98327fa5-71cf-46c4-a4ff-d7f2d7d36230/mcc666_07Stan_052.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/47334ed5-d4a8-47bd-a28d-1867c683f04e/mcc666_07Stan_053.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/413077ec-f961-4c28-b3a8-23b20c881ae1/mcc666_07Stan_054.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/8c3db6bc-3d1a-4183-8480-faa3f47e6cf6/mcc666_07Stan_055.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/0e499b4c-d2d2-4c15-a801-04384353a5cb/mcc666_07Stan_056.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/535a2438-3d09-4e00-90e0-8c713e519d53/mcc666_07Stan_057.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/75e1159a-c8c7-40d0-a109-a1f0a86be210/mcc666_07Stan_058.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/9bc311ee-be26-47bd-bb49-4ea016c09e07/mcc666_07Stan_059.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/4f3f2d24-1d43-44d0-9490-2c9b536be63c/mcc666_07Stan_060.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/abbbc654-2c37-4f9d-bb10-5fe6c0529e12/mcc666_07Stan_061.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/e2dfd45b-4b80-4739-a5ad-1def670408ac/mcc666_07Stan_062.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/9f0fe59e-24e6-4981-8292-268aecc96fa3/mcc666_07Stan_063.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/dc64d6c4-30d6-43f9-80fd-3aee7eb49235/mcc666_07Stan_064.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/b54458a0-2798-47de-82bf-3668313060c7/mcc666_07Stan_065.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/f4fe4a32-57bf-4b17-8bcd-6bc0c2493f38/mcc666_07Stan_066.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/157b8551-c4a3-4717-af66-43da5be4919d/mcc666_07Stan_067.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/412faedf-e8a0-4fec-8099-65b3eab6d000/mcc666_07Stan_068.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/1da04cb3-1fd5-494b-8ce5-ccaddb016cd7/mcc666_07Stan_069.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/35a74804-3132-4088-a04d-be435135caef/mcc666_07Stan_070.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/a379be95-a758-4564-9dd8-d5c5e97e20b9/mcc666_07Stan_071.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/459b608a-9767-43bf-a78c-92070c89b81d/mcc666_07Stan_072.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/6f0e6537-fa9a-45c0-8fae-93983fd3256d/mcc666_07Stan_073.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/c5658966-824c-4b0c-86d6-db727440a3c2/mcc666_07Stan_074.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/9f4b58f7-a070-42de-9206-c14fddc2dc5c/mcc666_07Stan_075.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/2b1ce1d5-2231-43b4-8eed-5f989ff24959/mcc666_07Stan_076.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/2a874015-361f-487b-9cb6-06a194861bf5/mcc666_07Stan_077.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/ee63312f-cccf-4517-a325-6d99c3e1a25a/mcc666_07Stan_078.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/cde6504f-209e-4c7a-9c68-743a67a95db3/mcc666_07Stan_079.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/f11beb0f-e6f9-4ae8-b0cd-4979723bc25a/mcc666_07Stan_080.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/3f06a57c-5e6b-4468-9cde-b1801e45c64e/mcc666_07Stan_081.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/b11a2807-ef06-4ee0-a887-832bc7a390f1/mcc666_07Stan_082.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/44158ae7-626f-4fed-849f-1441e09f83cd/mcc666_07Stan_083.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/6360adb5-9e72-451b-bba9-a161a3d0997c/mcc666_07Stan_084.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/ce5dae90-d091-4546-aa83-fedbf5487c71/mcc666_07Stan_085.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/3fe94b49-4b60-4188-b6d4-4e466eb8022c/mcc666_07Stan_086.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/782dbb49-33db-4778-a8b9-c59579e15e00/mcc666_07Stan_087.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/4d609d5b-dc71-4297-a05a-e9c86e8d353f/mcc666_07Stan_088.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/7b4dd3e1-b6a7-4326-b6f2-44f7ea436396/mcc666_07Stan_089.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/f6f1af7c-850f-451a-afe9-dc8b67255cc3/mcc666_07Stan_090.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/eab2739d-63ef-4d44-94a2-c9eb202fab9e/mcc666_07Stan_091.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/a916ef13-7631-4ab9-8b0a-650dfc8531e2/mcc666_07Stan_092.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/8354f844-e1b8-46f9-bc29-ce4208b04252/mcc666_07Stan_093.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/9f04075d-61d9-4a73-b7f2-7811c0b0b4ff/mcc666_07Stan_094.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/b18b9d49-9815-4b97-ab83-8c677fd82045/mcc666_07Stan_095.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/beb16b25-d433-41fc-b059-cafe04853360/mcc666_07Stan_096.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/56ae087c-a681-4177-926d-07b22385eff3/mcc666_07Stan_097.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/285a221b-b356-4d87-a99e-4758a8fd7879/mcc666_07Stan_098.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/1311d71e-4446-4a71-98aa-bbbd37719e60/mcc666_07Stan_099.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/63da337f-9742-4641-90a3-c3cd3e11ba6f/mcc666_07Stan_100.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/1c5392e7-6d69-45fd-b6e5-753853cd2e33/mcc666_07Stan_101.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/102656e5-e6ad-4043-84d9-fe6150c63321/mcc666_07Stan_102.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/0cb7154d-102c-4b9c-b92c-35c28c79345a/mcc666_07Stan_103.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/0ae7fbcc-8698-4802-a787-356e378020d1/mcc666_07Stan_104.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/38231905-e1e8-4239-8fcf-1a7d20d0d88d/mcc666_07Stan_105.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/429c968f-1aea-4bee-99fe-cfc9252cedb5/mcc666_07Stan_106.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/33bee2a6-5857-47a1-8c1a-4b50cd67da0d/mcc666_07Stan_107.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/9f4cffb4-1bc5-48ec-be20-3cb111c7b1b8/mcc666_07Stan_108.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/4b09168d-15ba-4201-900c-f6b3927020ac/mcc666_07Stan_109.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/b08d459d-24d2-4b2e-8c91-876a95508a53/mcc666_07Stan_110.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/861e9189-56a6-44be-bed3-5097e5ac59d4/mcc666_07Stan_111.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/cafebbf8-adfd-4504-b2ff-4b6a73d67f57/mcc666_07Stan_112.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/ccb44df1-ed82-49b3-8a65-ad6a14deb364/mcc666_07Stan_113.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/75d34730-27f9-4908-93c6-3ca36dbb883a/mcc666_07Stan_114.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/34ffeb86-9a36-482e-9b30-87181203dca4/mcc666_07Stan_115.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/7534d5a6-1367-4f7b-8202-31e90af3ede3/mcc666_07Stan_116.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/bddab5c4-9fe3-4154-ac31-6a539fc12893/mcc666_07Stan_117.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/05f31002-12fa-44b8-b04b-87580ddc5200/mcc666_07Stan_118.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/efd99e35-fbb1-41b7-9fc2-16ae2c791379/mcc666_07Stan_119.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/09c782b4-958f-4a31-aa70-1a657fcf446d/mcc666_07Stan_120.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/16952196-6f4c-4d85-a473-51338df7b050/mcc666_07Stan_121.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/618e9f03-83e5-4a97-bff8-6d222a93c168/mcc666_07Stan_122.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/b0b73bb8-9e81-40c8-be44-cae72ac9132b/mcc666_07Stan_123.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/f6cf4559-0e3d-4a89-83ca-39ed9a3d03ce/mcc666_07Stan_124.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/e609ff27-911e-436e-aa6d-85d682182157/mcc666_07Stan_125.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/0ffd2b49-7db6-4a97-b46f-6d04dd29e526/mcc666_07Stan_126.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/293eec90-3404-4eb0-897a-ebadca5f2d7e/mcc666_07Stan_127.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/4ad0a68b-9e74-4acb-95df-2889190673c0/mcc666_07Stan_128.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/8c6f292c-ef95-41c6-8fcb-54b397546497/mcc666_07Stan_129.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/1ad5705b-bd98-413d-ad17-962375ae9d82/mcc666_07Stan_130.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/24123dda-d073-4e3d-9ac1-2711e8d1da51/mcc666_07Stan_131.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/93934366-e675-431c-afd1-e4d0578f1165/mcc666_07Stan_132.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/447e102b-00b3-464b-954c-77c79a16d0e1/mcc666_07Stan_133.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/33a99be4-34f7-4aba-a49f-9187d440fa7b/mcc666_07Stan_134.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/7befa8eb-7650-46e0-b643-f813c6ee1b4c/mcc666_07Stan_135.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/80f92371-0f0e-441c-92e5-946fc21bd793/mcc666_07Stan_136.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/4262249a-07bf-4509-b6d3-14b093ddae55/mcc666_07Stan_137.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/80831b2b-d0d7-4498-90c8-098134a66409/mcc666_07Stan_138.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/ca20d50b-9adf-488b-a621-1d3b42615c2f/mcc666_07Stan_139.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/dc52ff5d-1fb3-4f08-902c-f0a3a38d456d/mcc666_07Stan_140.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/335a100b-5339-4634-93bd-b4d543603a7b/mcc666_07Stan_141.las.xml"/>
+      <gmd:has xlink:href="http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/18a043cb-694c-47ea-b46d-d2b89e7493ef/mcc666_07Stan_142.las.xml"/>
+    </gmd:DS_DataSet>
+  </gmd:composedOf>
+  <gmd:seriesMetadata>
+    <gmi:MI_Metadata>
+      <gmd:fileIdentifier>
+        <gco:CharacterString>nkn:00c2d3eb-60c7-42a6-a97f-90c570dbefea</gco:CharacterString>
+      </gmd:fileIdentifier>
+      <gmd:language>
+        <gmd:LanguageCode codeList="http://www.loc.gov/standards/iso639-2/php/code_list.php" codeListValue="eng">eng</gmd:LanguageCode>
+      </gmd:language>
+      <gmd:characterSet>
+        <gmd:MD_CharacterSetCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_CharacterSetCode" codeListValue="utf8">utf8</gmd:MD_CharacterSetCode>
+      </gmd:characterSet>
+      <gmd:hierarchyLevel>
+        <gmd:MD_ScopeCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_ScopeCode" codeListValue="series">series</gmd:MD_ScopeCode>
+      </gmd:hierarchyLevel>
+      <gmd:contact xlink:title="NKN">
+        <gmd:CI_ResponsibleParty uuid="390bb26a-184d-4c30-8b3e-d74fe0783e28">
+          <gmd:organisationName>
+            <gco:CharacterString>Northwest Knowledge Network</gco:CharacterString>
+          </gmd:organisationName>
+          <gmd:contactInfo>
+            <gmd:CI_Contact>
+              <gmd:phone>
+                <gmd:CI_Telephone>
+                  <gmd:voice>
+                    <gco:CharacterString>(208) 885-8456</gco:CharacterString>
+                  </gmd:voice>
+                </gmd:CI_Telephone>
+              </gmd:phone>
+              <gmd:address>
+                <gmd:CI_Address>
+                  <gmd:deliveryPoint>
+                    <gco:CharacterString>University of Idaho Library</gco:CharacterString>
+                  </gmd:deliveryPoint>
+                  <gmd:deliveryPoint>
+                    <gco:CharacterString>875 Perimeter Drive, MS 2358</gco:CharacterString>
+                  </gmd:deliveryPoint>
+                  <gmd:city>
+                    <gco:CharacterString>Moscow</gco:CharacterString>
+                  </gmd:city>
+                  <gmd:administrativeArea>
+                    <gco:CharacterString>ID</gco:CharacterString>
+                  </gmd:administrativeArea>
+                  <gmd:postalCode>
+                    <gco:CharacterString>83844-2350</gco:CharacterString>
+                  </gmd:postalCode>
+                  <gmd:country>
+                    <gco:CharacterString>USA</gco:CharacterString>
+                  </gmd:country>
+                  <gmd:electronicMailAddress>
+                    <gco:CharacterString>info@northwestknowledge.net</gco:CharacterString>
+                  </gmd:electronicMailAddress>
+                </gmd:CI_Address>
+              </gmd:address>
+              <gmd:onlineResource>
+                <gmd:CI_OnlineResource>
+                  <gmd:linkage>
+                    <gmd:URL>http://www.northwestknowledge.net</gmd:URL>
+                  </gmd:linkage>
+                  <gmd:name>
+                    <gco:CharacterString>The home page for the Northwest Knowledge Network</gco:CharacterString>
+                  </gmd:name>
+                </gmd:CI_OnlineResource>
+              </gmd:onlineResource>
+            </gmd:CI_Contact>
+          </gmd:contactInfo>
+          <gmd:role>
+            <gmd:CI_RoleCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="distributor">distributor</gmd:CI_RoleCode>
+          </gmd:role>
+        </gmd:CI_ResponsibleParty>
+      </gmd:contact>
+      <gmd:dateStamp>
+        <gco:Date>2015-06-08</gco:Date>
+      </gmd:dateStamp>
+      <gmd:metadataStandardName>
+        <gco:CharacterString>ISO 19115-2 Geographic Information - Metadata Part 2 Extensions for imagery and gridded data</gco:CharacterString>
+      </gmd:metadataStandardName>
+      <gmd:metadataStandardVersion>
+        <gco:CharacterString>ISO 19115-2:2009(E)</gco:CharacterString>
+      </gmd:metadataStandardVersion>
+      <gmd:dataSetURI>
+        <gco:CharacterString>00c2d3eb-60c7-42a6-a97f-90c570dbefea</gco:CharacterString>
+      </gmd:dataSetURI>
+      <gmd:spatialRepresentationInfo>
+        <gmd:MD_VectorSpatialRepresentation>
+          <gmd:geometricObjects>
+            <gmd:MD_GeometricObjects>
+              <gmd:geometricObjectType>
+                <gmd:MD_GeometricObjectTypeCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_GeometricObjectTypeCode" codeListValue="point">point</gmd:MD_GeometricObjectTypeCode>
+              </gmd:geometricObjectType>
+              <gmd:geometricObjectCount>
+                <gco:Integer>654072797</gco:Integer>
+              </gmd:geometricObjectCount>
+            </gmd:MD_GeometricObjects>
+          </gmd:geometricObjects>
+        </gmd:MD_VectorSpatialRepresentation>
+      </gmd:spatialRepresentationInfo>
+      <gmd:referenceSystemInfo>
+        <gmd:MD_ReferenceSystem>
+          <gmd:referenceSystemIdentifier>
+            <gmd:RS_Identifier>
+              <gmd:code>
+                <gco:CharacterString>26911</gco:CharacterString>
+              </gmd:code>
+              <gmd:codeSpace>
+                <gco:CharacterString>EPSG</gco:CharacterString>
+              </gmd:codeSpace>
+              <gmd:version>
+                <gco:CharacterString>7.9.4</gco:CharacterString>
+              </gmd:version>
+            </gmd:RS_Identifier>
+          </gmd:referenceSystemIdentifier>
+        </gmd:MD_ReferenceSystem>
+      </gmd:referenceSystemInfo>
+      <gmd:identificationInfo>
+        <gmd:MD_DataIdentification>
+          <gmd:citation>
+            <gmd:CI_Citation>
+              <gmd:title>
+                <gco:CharacterString>LiDAR (MCC) in Challis National Forest, Idaho (142 Tiles)</gco:CharacterString>
+              </gmd:title>
+              <gmd:date>
+                <gmd:CI_Date>
+                  <gmd:date>
+                    <gco:Date>2012-11-21</gco:Date>
+                  </gmd:date>
+                  <gmd:dateType>
+                    <gmd:CI_DateTypeCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_DateTypeCode" codeListValue="publication">publication</gmd:CI_DateTypeCode>
+                  </gmd:dateType>
+                </gmd:CI_Date>
+              </gmd:date>
+              <gmd:date>
+                <gmd:CI_Date>
+                  <gmd:date>
+                    <gco:Date>2010-08</gco:Date>
+                  </gmd:date>
+                  <gmd:dateType>
+                    <gmd:CI_DateTypeCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_DateTypeCode" codeListValue="creation">creation</gmd:CI_DateTypeCode>
+                  </gmd:dateType>
+                </gmd:CI_Date>
+              </gmd:date>
+              <gmd:identifier>
+                <gmd:MD_Identifier>
+                  <gmd:code>
+                    <gco:CharacterString>Downloadable Data</gco:CharacterString>
+                  </gmd:code>
+                </gmd:MD_Identifier>
+              </gmd:identifier>
+              <gmd:citedResponsibleParty>
+                <gmd:CI_ResponsibleParty>
+                  <gmd:organisationName>
+                    <gco:CharacterString>University of Idaho</gco:CharacterString>
+                  </gmd:organisationName>
+                  <gmd:contactInfo>
+                    <gmd:CI_Contact>
+                      <gmd:phone>
+                        <gmd:CI_Telephone>
+                          <gmd:voice>
+                            <gco:CharacterString>(208) 885-4989</gco:CharacterString>
+                          </gmd:voice>
+                        </gmd:CI_Telephone>
+                      </gmd:phone>
+                      <gmd:address>
+                        <gmd:CI_Address>
+                          <gmd:deliveryPoint>
+                            <gco:CharacterString>University of Idaho</gco:CharacterString>
+                          </gmd:deliveryPoint>
+                          <gmd:deliveryPoint>
+                            <gco:CharacterString>Office of Research &amp; Economic Development</gco:CharacterString>
+                          </gmd:deliveryPoint>
+                          <gmd:deliveryPoint>
+                            <gco:CharacterString>875 Perimeter Drive MS 3010</gco:CharacterString>
+                          </gmd:deliveryPoint>
+                          <gmd:city>
+                            <gco:CharacterString>Moscow</gco:CharacterString>
+                          </gmd:city>
+                          <gmd:administrativeArea>
+                            <gco:CharacterString>ID</gco:CharacterString>
+                          </gmd:administrativeArea>
+                          <gmd:postalCode>
+                            <gco:CharacterString>83844-3010</gco:CharacterString>
+                          </gmd:postalCode>
+                          <gmd:country>
+                            <gco:CharacterString>USA</gco:CharacterString>
+                          </gmd:country>
+                          <gmd:electronicMailAddress>
+                            <gco:CharacterString>vpresearch@uidaho.edu</gco:CharacterString>
+                          </gmd:electronicMailAddress>
+                        </gmd:CI_Address>
+                      </gmd:address>
+                      <gmd:onlineResource>
+                        <gmd:CI_OnlineResource>
+                          <gmd:linkage>
+                            <gmd:URL>http://www.uidaho.edu/research</gmd:URL>
+                          </gmd:linkage>
+                        </gmd:CI_OnlineResource>
+                      </gmd:onlineResource>
+                    </gmd:CI_Contact>
+                  </gmd:contactInfo>
+                  <gmd:role>
+                    <gmd:CI_RoleCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="owner">owner</gmd:CI_RoleCode>
+                  </gmd:role>
+                </gmd:CI_ResponsibleParty>
+              </gmd:citedResponsibleParty>
+              <gmd:citedResponsibleParty>
+                <gmd:CI_ResponsibleParty>
+                  <gmd:individualName>
+                    <gco:CharacterString>Jeff Hicke</gco:CharacterString>
+                  </gmd:individualName>
+                  <gmd:contactInfo>
+                    <gmd:CI_Contact>
+                      <gmd:phone>
+                        <gmd:CI_Telephone>
+                          <gmd:voice>
+                            <gco:CharacterString>(208) 885-6240</gco:CharacterString>
+                          </gmd:voice>
+                        </gmd:CI_Telephone>
+                      </gmd:phone>
+                      <gmd:address>
+                        <gmd:CI_Address>
+                          <gmd:deliveryPoint>
+                            <gco:CharacterString>University of Idaho</gco:CharacterString>
+                          </gmd:deliveryPoint>
+                          <gmd:deliveryPoint>
+                            <gco:CharacterString>Department of Geography</gco:CharacterString>
+                          </gmd:deliveryPoint>
+                          <gmd:deliveryPoint>
+                            <gco:CharacterString>P.O. Box 443021</gco:CharacterString>
+                          </gmd:deliveryPoint>
+                          <gmd:city>
+                            <gco:CharacterString>Moscow</gco:CharacterString>
+                          </gmd:city>
+                          <gmd:administrativeArea>
+                            <gco:CharacterString>ID</gco:CharacterString>
+                          </gmd:administrativeArea>
+                          <gmd:postalCode>
+                            <gco:CharacterString>83844-3021</gco:CharacterString>
+                          </gmd:postalCode>
+                          <gmd:country>
+                            <gco:CharacterString>USA</gco:CharacterString>
+                          </gmd:country>
+                          <gmd:electronicMailAddress>
+                            <gco:CharacterString>jhicke@uidaho.edu</gco:CharacterString>
+                          </gmd:electronicMailAddress>
+                        </gmd:CI_Address>
+                      </gmd:address>
+                      <gmd:onlineResource>
+                        <gmd:CI_OnlineResource>
+                          <gmd:linkage>
+                            <gmd:URL>http://www.uidaho.edu/sci/geography/faculty/jeffreyhicke</gmd:URL>
+                          </gmd:linkage>
+                        </gmd:CI_OnlineResource>
+                      </gmd:onlineResource>
+                    </gmd:CI_Contact>
+                  </gmd:contactInfo>
+                  <gmd:role>
+                    <gmd:CI_RoleCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="originator">originator</gmd:CI_RoleCode>
+                  </gmd:role>
+                </gmd:CI_ResponsibleParty>
+              </gmd:citedResponsibleParty>
+              <gmd:citedResponsibleParty>
+                <gmd:CI_ResponsibleParty>
+                  <gmd:individualName>
+                    <gco:CharacterString>Ben Bright</gco:CharacterString>
+                  </gmd:individualName>
+                  <gmd:contactInfo>
+                    <gmd:CI_Contact>
+                      <gmd:phone>
+                        <gmd:CI_Telephone>
+                          <gmd:voice>
+                            <gco:CharacterString>(208) 885-6240</gco:CharacterString>
+                          </gmd:voice>
+                        </gmd:CI_Telephone>
+                      </gmd:phone>
+                      <gmd:address>
+                        <gmd:CI_Address>
+                          <gmd:deliveryPoint>
+                            <gco:CharacterString>University of Idaho</gco:CharacterString>
+                          </gmd:deliveryPoint>
+                          <gmd:deliveryPoint>
+                            <gco:CharacterString>Department of Geography</gco:CharacterString>
+                          </gmd:deliveryPoint>
+                          <gmd:deliveryPoint>
+                            <gco:CharacterString>P.O. Box 443021</gco:CharacterString>
+                          </gmd:deliveryPoint>
+                          <gmd:city>
+                            <gco:CharacterString>Moscow</gco:CharacterString>
+                          </gmd:city>
+                          <gmd:administrativeArea>
+                            <gco:CharacterString>ID</gco:CharacterString>
+                          </gmd:administrativeArea>
+                          <gmd:postalCode>
+                            <gco:CharacterString>83844-3021</gco:CharacterString>
+                          </gmd:postalCode>
+                          <gmd:country>
+                            <gco:CharacterString>USA</gco:CharacterString>
+                          </gmd:country>
+                        </gmd:CI_Address>
+                      </gmd:address>
+                    </gmd:CI_Contact>
+                  </gmd:contactInfo>
+                  <gmd:role>
+                    <gmd:CI_RoleCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="originator">originator</gmd:CI_RoleCode>
+                  </gmd:role>
+                </gmd:CI_ResponsibleParty>
+              </gmd:citedResponsibleParty>
+              <gmd:citedResponsibleParty>
+                <gmd:CI_ResponsibleParty>
+                  <gmd:individualName>
+                    <gco:CharacterString>Linda Tedrow</gco:CharacterString>
+                  </gmd:individualName>
+                  <gmd:contactInfo>
+                    <gmd:CI_Contact>
+                      <gmd:phone>
+                        <gmd:CI_Telephone>
+                          <gmd:voice>
+                            <gco:CharacterString>(208) 885-7085</gco:CharacterString>
+                          </gmd:voice>
+                          <gmd:facsimile>
+                            <gco:CharacterString>(208) 885-6564</gco:CharacterString>
+                          </gmd:facsimile>
+                        </gmd:CI_Telephone>
+                      </gmd:phone>
+                      <gmd:address>
+                        <gmd:CI_Address>
+                          <gmd:deliveryPoint>
+                            <gco:CharacterString>University of Idaho</gco:CharacterString>
+                          </gmd:deliveryPoint>
+                          <gmd:deliveryPoint>
+                            <gco:CharacterString>Department of Forest, Rangeland, and Fire Sciences</gco:CharacterString>
+                          </gmd:deliveryPoint>
+                          <gmd:deliveryPoint>
+                            <gco:CharacterString>875 Perimeter Drive, MS 1133</gco:CharacterString>
+                          </gmd:deliveryPoint>
+                          <gmd:city>
+                            <gco:CharacterString>Moscow</gco:CharacterString>
+                          </gmd:city>
+                          <gmd:administrativeArea>
+                            <gco:CharacterString>ID</gco:CharacterString>
+                          </gmd:administrativeArea>
+                          <gmd:postalCode>
+                            <gco:CharacterString>83844-1133</gco:CharacterString>
+                          </gmd:postalCode>
+                          <gmd:country>
+                            <gco:CharacterString>USA</gco:CharacterString>
+                          </gmd:country>
+                          <gmd:electronicMailAddress>
+                            <gco:CharacterString>ltedrow@uidaho.edu</gco:CharacterString>
+                          </gmd:electronicMailAddress>
+                        </gmd:CI_Address>
+                      </gmd:address>
+                    </gmd:CI_Contact>
+                  </gmd:contactInfo>
+                  <gmd:role>
+                    <gmd:CI_RoleCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="processor">processor</gmd:CI_RoleCode>
+                  </gmd:role>
+                </gmd:CI_ResponsibleParty>
+              </gmd:citedResponsibleParty>
+              <gmd:presentationForm>
+                <gmd:CI_PresentationFormCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_PresentationFormCode" codeListValue="mapDigital">mapDigital</gmd:CI_PresentationFormCode>
+              </gmd:presentationForm>
+            </gmd:CI_Citation>
+          </gmd:citation>
+          <gmd:abstract>
+            <gco:CharacterString>This data series contains 142 Light Detection and Ranging (LiDAR) LAS (version 1.2 format) tiles. The data cover an area of the Challis National Forest near Stanley Idaho. The original LiDAR data was collected by Watershed Sciences, Inc. (WS) on August 4th and 5th, 2010. Ground point classification was done using the command-line tool MCC-LIDAR (http://sourceforge.net/apps/trac/mcclidar/) that incorporates a multiscale curvature algorithm.  This algorithm requires two variables:  a scale parameter and a threshold parameter.  For each of the tiles the scale parameter was 0.66667 and the threshold parameter was 0.07.</gco:CharacterString>
+          </gmd:abstract>
+          <gmd:purpose>
+            <gco:CharacterString>These LiDAR data were collected to measure the effect of bark-beetle outbreak on the aboveground forest carbon stocks and to estimate carbon of a beetle-infested forest. </gco:CharacterString>
+          </gmd:purpose>
+          <gmd:status>
+            <gmd:MD_ProgressCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_ProgressCode" codeListValue="completed">completed</gmd:MD_ProgressCode>
+          </gmd:status>
+          <gmd:pointOfContact>
+            <gmd:CI_ResponsibleParty>
+              <gmd:individualName>
+                <gco:CharacterString>Linda Tedrow</gco:CharacterString>
+              </gmd:individualName>
+              <gmd:contactInfo>
+                <gmd:CI_Contact>
+                  <gmd:phone>
+                    <gmd:CI_Telephone>
+                      <gmd:voice>
+                        <gco:CharacterString>(208) 885-7085</gco:CharacterString>
+                      </gmd:voice>
+                      <gmd:facsimile>
+                        <gco:CharacterString>(208) 885-6564</gco:CharacterString>
+                      </gmd:facsimile>
+                    </gmd:CI_Telephone>
+                  </gmd:phone>
+                  <gmd:address>
+                    <gmd:CI_Address>
+                      <gmd:deliveryPoint>
+                        <gco:CharacterString>University of Idaho</gco:CharacterString>
+                      </gmd:deliveryPoint>
+                      <gmd:deliveryPoint>
+                        <gco:CharacterString>Department of Forest, Rangeland, and Fire Sciences</gco:CharacterString>
+                      </gmd:deliveryPoint>
+                      <gmd:deliveryPoint>
+                        <gco:CharacterString>875 Perimeter Drive, MS 1133</gco:CharacterString>
+                      </gmd:deliveryPoint>
+                      <gmd:city>
+                        <gco:CharacterString>Moscow</gco:CharacterString>
+                      </gmd:city>
+                      <gmd:administrativeArea>
+                        <gco:CharacterString>ID</gco:CharacterString>
+                      </gmd:administrativeArea>
+                      <gmd:postalCode>
+                        <gco:CharacterString>83844-1133</gco:CharacterString>
+                      </gmd:postalCode>
+                      <gmd:country>
+                        <gco:CharacterString>USA</gco:CharacterString>
+                      </gmd:country>
+                      <gmd:electronicMailAddress>
+                        <gco:CharacterString>ltedrow@uidaho.edu</gco:CharacterString>
+                      </gmd:electronicMailAddress>
+                    </gmd:CI_Address>
+                  </gmd:address>
+                </gmd:CI_Contact>
+              </gmd:contactInfo>
+              <gmd:role>
+                <gmd:CI_RoleCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="custodian">custodian</gmd:CI_RoleCode>
+              </gmd:role>
+            </gmd:CI_ResponsibleParty>
+          </gmd:pointOfContact>
+          <gmd:resourceMaintenance>
+            <gmd:MD_MaintenanceInformation>
+              <gmd:maintenanceAndUpdateFrequency>
+                <gmd:MD_MaintenanceFrequencyCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_MaintenanceFrequencyCode" codeListValue="notPlanned">notPlanned</gmd:MD_MaintenanceFrequencyCode>
+              </gmd:maintenanceAndUpdateFrequency>
+            </gmd:MD_MaintenanceInformation>
+          </gmd:resourceMaintenance>
+          <gmd:descriptiveKeywords>
+            <gmd:MD_Keywords>
+              <gmd:keyword>
+                <gco:CharacterString>NSF</gco:CharacterString>
+              </gmd:keyword>
+              <gmd:keyword>
+                <gco:CharacterString>EPSCoR</gco:CharacterString>
+              </gmd:keyword>
+              <gmd:keyword>
+                <gco:CharacterString>EPS-0814387</gco:CharacterString>
+              </gmd:keyword>
+              <gmd:keyword>
+                <gco:CharacterString>Water Resources in a Changing Climate</gco:CharacterString>
+              </gmd:keyword>
+              <gmd:keyword>
+                <gco:CharacterString>lidar</gco:CharacterString>
+              </gmd:keyword>
+              <gmd:keyword>
+                <gco:CharacterString>carbon stock</gco:CharacterString>
+              </gmd:keyword>
+              <gmd:keyword>
+                <gco:CharacterString>bark beetle</gco:CharacterString>
+              </gmd:keyword>
+              <gmd:keyword>
+                <gco:CharacterString>mountain pine beetle</gco:CharacterString>
+              </gmd:keyword>
+              <gmd:keyword>
+                <gco:CharacterString>carbon</gco:CharacterString>
+              </gmd:keyword>
+              <gmd:keyword>
+                <gco:CharacterString>insect outbreak</gco:CharacterString>
+              </gmd:keyword>
+              <gmd:keyword>
+                <gco:CharacterString>tree mortality</gco:CharacterString>
+              </gmd:keyword>
+              <gmd:keyword>
+                <gco:CharacterString>aerial imagery</gco:CharacterString>
+              </gmd:keyword>
+              <gmd:type>
+                <gmd:MD_KeywordTypeCode codeSpace="ISOTC211/19115" codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode" codeListValue="theme">theme</gmd:MD_KeywordTypeCode>
+              </gmd:type>
+            </gmd:MD_Keywords>
+          </gmd:descriptiveKeywords>
+          <gmd:descriptiveKeywords>
+            <gmd:MD_Keywords>
+              <gmd:keyword>
+                <gco:CharacterString>elevation</gco:CharacterString>
+              </gmd:keyword>
+              <gmd:type>
+                <gmd:MD_KeywordTypeCode codeSpace="ISOTC211/19115" codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode" codeListValue="theme">theme</gmd:MD_KeywordTypeCode>
+              </gmd:type>
+              <gmd:thesaurusName>
+                <gmd:CI_Citation>
+                  <gmd:title>
+                    <gco:CharacterString>ISO 19115 Topic Categories</gco:CharacterString>
+                  </gmd:title>
+                  <gmd:date gco:nilReason="unknown"/>
+                </gmd:CI_Citation>
+              </gmd:thesaurusName>
+            </gmd:MD_Keywords>
+          </gmd:descriptiveKeywords>
+          <gmd:descriptiveKeywords>
+            <gmd:MD_Keywords>
+              <gmd:keyword>
+                <gco:CharacterString>Idaho</gco:CharacterString>
+              </gmd:keyword>
+              <gmd:keyword>
+                <gco:CharacterString>Stanley</gco:CharacterString>
+              </gmd:keyword>
+              <gmd:keyword>
+                <gco:CharacterString>Challis National Forest</gco:CharacterString>
+              </gmd:keyword>
+              <gmd:type>
+                <gmd:MD_KeywordTypeCode codeSpace="ISOTC211/19115" codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode" codeListValue="place">place</gmd:MD_KeywordTypeCode>
+              </gmd:type>
+            </gmd:MD_Keywords>
+          </gmd:descriptiveKeywords>
+          <gmd:resourceConstraints>
+            <gmd:MD_LegalConstraints>
+              <gmd:accessConstraints>
+                <gmd:MD_RestrictionCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_RestrictionCode" codeListValue="otherRestrictions">otherRestrictions</gmd:MD_RestrictionCode>
+              </gmd:accessConstraints>
+              <gmd:useConstraints>
+                <gmd:MD_RestrictionCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_RestrictionCode" codeListValue="otherRestrictions">otherRestrictions</gmd:MD_RestrictionCode>
+              </gmd:useConstraints>
+              <gmd:otherConstraints>
+                <gco:CharacterString>Access constraints: Data will be provided to all who agree to appropriately acknowledge the National Science Foundation (NSF), Idaho EPSCoR and the individual investigators responsible for the data set. By downloading these data and using them to produce further analysis and/or products, users agree to appropriately acknowledge the National Science Foundation (NSF), Idaho EPSCoR and the individual investigators responsible for the data set. | Use constraints: Acceptable uses of data provided by Idaho EPSCoR include any academic, research, educational, governmental, recreational, or other not-for-profit activities. Any use of data provided by the Idaho EPSCoR must acknowledge Idaho EPSCoR and the funding source(s) that contributed to the collection of the data. Users are expected to inform the Idaho EPSCoR Office and the PI(s) responsible for the data of any work or publications based on data provided. | For more information, see http://www.idahoepscor.org/uploads/ID%20EPSCoR%20Data%20Policies%20V5%20Final.pdf</gco:CharacterString>
+              </gmd:otherConstraints>
+            </gmd:MD_LegalConstraints>
+          </gmd:resourceConstraints>
+          <gmd:spatialRepresentationType>
+            <gmd:MD_SpatialRepresentationTypeCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_SpatialRepresentationTypeCode" codeListValue="vector">vector</gmd:MD_SpatialRepresentationTypeCode>
+          </gmd:spatialRepresentationType>
+          <gmd:language>
+            <gmd:LanguageCode codeList="http://www.loc.gov/standards/iso639-2/php/code_list.php" codeListValue="eng">eng</gmd:LanguageCode>
+          </gmd:language>
+          <gmd:topicCategory>
+            <gmd:MD_TopicCategoryCode>elevation</gmd:MD_TopicCategoryCode>
+          </gmd:topicCategory>
+          <gmd:environmentDescription>
+            <gco:CharacterString>Microsoft Windows Server 2008 Version 6.0 (Build 6002) Service Pack 2; Esri ArcGIS 10.1.0.3035</gco:CharacterString>
+          </gmd:environmentDescription>
+          <gmd:extent>
+            <gmd:EX_Extent>
+              <gmd:geographicElement>
+                <gmd:EX_GeographicBoundingBox>
+                  <gmd:westBoundLongitude>
+                    <gco:Decimal>-115.1846</gco:Decimal>
+                  </gmd:westBoundLongitude>
+                  <gmd:eastBoundLongitude>
+                    <gco:Decimal>-115.1807</gco:Decimal>
+                  </gmd:eastBoundLongitude>
+                  <gmd:southBoundLatitude>
+                    <gco:Decimal>44.3470</gco:Decimal>
+                  </gmd:southBoundLatitude>
+                  <gmd:northBoundLatitude>
+                    <gco:Decimal>44.3513</gco:Decimal>
+                  </gmd:northBoundLatitude>
+                </gmd:EX_GeographicBoundingBox>
+              </gmd:geographicElement>
+              <gmd:temporalElement>
+                <gmd:EX_TemporalExtent>
+                  <gmd:extent>
+                    <gml:TimePeriod gml:id="boundingTimePeriodExtent">
+                      <gml:beginPosition>2010-08-04</gml:beginPosition>
+                      <gml:endPosition>2010-08-05</gml:endPosition>
+                    </gml:TimePeriod>
+                  </gmd:extent>
+                </gmd:EX_TemporalExtent>
+              </gmd:temporalElement>
+              <gmd:verticalElement>
+                <gmd:EX_VerticalExtent>
+                  <gmd:minimumValue>
+                    <gco:Real>1946.01</gco:Real>
+                  </gmd:minimumValue>
+                  <gmd:maximumValue>
+                    <gco:Real>2420.47</gco:Real>
+                  </gmd:maximumValue>
+                  <gmd:verticalCRS gco:nilReason="unknown"/>
+                </gmd:EX_VerticalExtent>
+              </gmd:verticalElement>
+            </gmd:EX_Extent>
+          </gmd:extent>
+          <gmd:supplementalInformation>
+            <gco:CharacterString>
+Each tile in the dataset includes a supplemental information section with a listing of the LAS headers.
+</gco:CharacterString>
+          </gmd:supplementalInformation>
+        </gmd:MD_DataIdentification>
+      </gmd:identificationInfo>
+      <gmd:contentInfo>
+        <gmd:MD_FeatureCatalogueDescription>
+          <gmd:includedWithDataset>
+            <gco:Boolean>true</gco:Boolean>
+          </gmd:includedWithDataset>
+          <gmd:featureCatalogueCitation>
+            <gmd:CI_Citation>
+              <gmd:title>
+                <gco:CharacterString>Entity and Attribute Information</gco:CharacterString>
+              </gmd:title>
+              <gmd:date gco:nilReason="unknown"/>
+              <gmd:citedResponsibleParty>
+                <gmd:CI_ResponsibleParty>
+                  <gmd:contactInfo>
+                    <gmd:CI_Contact>
+                      <gmd:onlineResource>
+                        <gmd:CI_OnlineResource>
+                          <gmd:linkage>
+                            <gmd:URL>http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/fc.xml</gmd:URL>
+                          </gmd:linkage>
+                        </gmd:CI_OnlineResource>
+                      </gmd:onlineResource>
+                    </gmd:CI_Contact>
+                  </gmd:contactInfo>
+                  <gmd:role gco:nilReason="unknown"/>
+                </gmd:CI_ResponsibleParty>
+              </gmd:citedResponsibleParty>
+            </gmd:CI_Citation>
+          </gmd:featureCatalogueCitation>
+        </gmd:MD_FeatureCatalogueDescription>
+      </gmd:contentInfo>
+      <gmd:distributionInfo>
+        <gmd:MD_Distribution>
+          <gmd:distributor>
+            <gmd:MD_Distributor>
+              <gmd:distributorContact xlink:title="NKN">
+                <gmd:CI_ResponsibleParty uuid="390bb26a-184d-4c30-8b3e-d74fe0783e28">
+                  <gmd:organisationName>
+                    <gco:CharacterString>Northwest Knowledge Network</gco:CharacterString>
+                  </gmd:organisationName>
+                  <gmd:contactInfo>
+                    <gmd:CI_Contact>
+                      <gmd:phone>
+                        <gmd:CI_Telephone>
+                          <gmd:voice>
+                            <gco:CharacterString>(208) 885-8456</gco:CharacterString>
+                          </gmd:voice>
+                        </gmd:CI_Telephone>
+                      </gmd:phone>
+                      <gmd:address>
+                        <gmd:CI_Address>
+                          <gmd:deliveryPoint>
+                            <gco:CharacterString>University of Idaho Library</gco:CharacterString>
+                          </gmd:deliveryPoint>
+                          <gmd:deliveryPoint>
+                            <gco:CharacterString>875 Perimeter Drive, MS 2358</gco:CharacterString>
+                          </gmd:deliveryPoint>
+                          <gmd:city>
+                            <gco:CharacterString>Moscow</gco:CharacterString>
+                          </gmd:city>
+                          <gmd:administrativeArea>
+                            <gco:CharacterString>ID</gco:CharacterString>
+                          </gmd:administrativeArea>
+                          <gmd:postalCode>
+                            <gco:CharacterString>83844-2350</gco:CharacterString>
+                          </gmd:postalCode>
+                          <gmd:country>
+                            <gco:CharacterString>USA</gco:CharacterString>
+                          </gmd:country>
+                          <gmd:electronicMailAddress>
+                            <gco:CharacterString>info@northwestknowledge.net</gco:CharacterString>
+                          </gmd:electronicMailAddress>
+                        </gmd:CI_Address>
+                      </gmd:address>
+                      <gmd:onlineResource>
+                        <gmd:CI_OnlineResource>
+                          <gmd:linkage>
+                            <gmd:URL>http://www.northwestknowledge.net</gmd:URL>
+                          </gmd:linkage>
+                          <gmd:name>
+                            <gco:CharacterString>The home page for the Northwest Knowledge Network</gco:CharacterString>
+                          </gmd:name>
+                        </gmd:CI_OnlineResource>
+                      </gmd:onlineResource>
+                    </gmd:CI_Contact>
+                  </gmd:contactInfo>
+                  <gmd:role>
+                    <gmd:CI_RoleCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="distributor">distributor</gmd:CI_RoleCode>
+                  </gmd:role>
+                </gmd:CI_ResponsibleParty>
+              </gmd:distributorContact>
+              <gmd:distributorFormat>
+                <gmd:MD_Format>
+                  <gmd:name>
+                    <gco:CharacterString>LASer (LAS)</gco:CharacterString>
+                  </gmd:name>
+                  <gmd:version>
+                    <gco:CharacterString>1.2</gco:CharacterString>
+                  </gmd:version>
+                  <gmd:specification>
+                    <gmx:Anchor>http://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/asprs_las_format_v12.pdf</gmx:Anchor>
+                  </gmd:specification>
+                  <gmd:fileDecompressionTechnique>
+                    <gco:CharacterString>The LAS files are compressed in standard ZIP format.</gco:CharacterString>
+                  </gmd:fileDecompressionTechnique>
+                </gmd:MD_Format>
+              </gmd:distributorFormat>
+              <gmd:distributorTransferOptions>
+                <gmd:MD_DigitalTransferOptions>
+                  <gmd:transferSize>
+                    <gco:Real>5.11</gco:Real>
+                  </gmd:transferSize>
+                  <gmd:onLine>
+                    <gmd:CI_OnlineResource>
+                      <gmd:linkage>
+                        <gmd:URL>https://www.northwestknowledge.net/data/00c2d3eb-60c7-42a6-a97f-90c570dbefea/tileIndex.html</gmd:URL>
+                      </gmd:linkage>
+                      <gmd:name><gco:CharacterString>The Tile Index</gco:CharacterString></gmd:name>
+                      <gmd:function>
+                        <gmd:CI_OnLineFunctionCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode" codeListValue="download">download</gmd:CI_OnLineFunctionCode>
+                      </gmd:function>
+                    </gmd:CI_OnlineResource>
+                  </gmd:onLine>
+                </gmd:MD_DigitalTransferOptions>
+              </gmd:distributorTransferOptions>
+              <gmd:distributorTransferOptions>
+                <gmd:MD_DigitalTransferOptions>
+                  <gmd:onLine>
+                    <gmd:CI_OnlineResource>
+                      <gmd:linkage>
+                        <gmd:URL>http://www.northwestknowledge.net/</gmd:URL>
+                      </gmd:linkage>
+                      <gmd:function>
+                        <gmd:CI_OnLineFunctionCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode" codeListValue="search">search</gmd:CI_OnLineFunctionCode>
+                      </gmd:function>
+                    </gmd:CI_OnlineResource>
+                  </gmd:onLine>
+                </gmd:MD_DigitalTransferOptions>
+              </gmd:distributorTransferOptions>
+            </gmd:MD_Distributor>
+          </gmd:distributor>
+        </gmd:MD_Distribution>
+      </gmd:distributionInfo>
+      <gmd:dataQualityInfo>
+        <gmd:DQ_DataQuality>
+          <gmd:scope>
+            <gmd:DQ_Scope>
+              <gmd:level>
+                <gmd:MD_ScopeCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_ScopeCode" codeListValue="dataset">dataset</gmd:MD_ScopeCode>
+              </gmd:level>
+            </gmd:DQ_Scope>
+          </gmd:scope>
+          <gmd:report>
+            <gmd:DQ_QuantitativeAttributeAccuracy>
+              <gmd:nameOfMeasure>
+                <gco:CharacterString>Vertical Accuracy</gco:CharacterString>
+              </gmd:nameOfMeasure>
+              <gmd:result>
+                <gmd:DQ_QuantitativeResult>
+                  <gmd:valueType>
+                    <gco:RecordType/>
+                  </gmd:valueType>
+                  <gmd:valueUnit>
+                    <gml:ConventionalUnit gml:id="cm">
+                      <gml:identifier codeSpace="centimeter"/>
+                      <gml:conversionToPreferredUnit uom="m">
+                        <gml:factor>0.01</gml:factor>
+                      </gml:conversionToPreferredUnit>
+                    </gml:ConventionalUnit>
+                  </gmd:valueUnit>
+                  <gmd:value>
+                    <gco:Record>3.28</gco:Record>
+                  </gmd:value>
+                </gmd:DQ_QuantitativeResult>
+              </gmd:result>
+            </gmd:DQ_QuantitativeAttributeAccuracy>
+          </gmd:report>
+          <gmd:report>
+            <gmd:DQ_QuantitativeAttributeAccuracy>
+              <gmd:nameOfMeasure>
+                <gco:CharacterString>Spatial Resolution</gco:CharacterString>
+              </gmd:nameOfMeasure>
+              <gmd:result>
+                <gmd:DQ_QuantitativeResult>
+                  <gmd:valueType>
+                    <gco:RecordType/>
+                  </gmd:valueType>
+                  <gmd:valueUnit>
+                    <gml:DerivedUnit gml:id="pointDensity">
+                      <gml:identifier codeSpace="point density"/>
+                      <gml:derivationUnitTerm uom="point" exponent="1"/>
+                      <gml:derivationUnitTerm uom="m" exponent="-2"/>
+                    </gml:DerivedUnit>
+                  </gmd:valueUnit>
+                  <gmd:value>
+                    <gco:Record>8.68</gco:Record>
+                  </gmd:value>
+                </gmd:DQ_QuantitativeResult>
+              </gmd:result>
+            </gmd:DQ_QuantitativeAttributeAccuracy>
+          </gmd:report>
+          <gmd:lineage>
+            <gmd:LI_Lineage>
+              <gmd:processStep>
+                <gmd:LI_ProcessStep>
+                  <gmd:description>
+                    <gco:CharacterString>1.	Resolved kinematic corrections for aircraft position data using kinematic aircraft GPS and static ground GPS data. Software: Waypoint GPS v.8.10, Trimble Geomatics Office v.1.62</gco:CharacterString>
+                  </gmd:description>
+                </gmd:LI_ProcessStep>
+              </gmd:processStep>
+              <gmd:processStep>
+                <gmd:LI_ProcessStep>
+                  <gmd:description>
+                    <gco:CharacterString>2. Developed a smoothed best estimate of trajectory (SBET) file that blends post-processed aircraft position with attitude data. Sensor head position and attitude were calculated throughout the survey. The SBET data were used extensively for laser point processing. Software: IPAS v.1.35</gco:CharacterString>
+                  </gmd:description>
+                </gmd:LI_ProcessStep>
+              </gmd:processStep>
+              <gmd:processStep>
+                <gmd:LI_ProcessStep>
+                  <gmd:description>
+                    <gco:CharacterString>3. Calculated laser point position by associating SBET position to each laser point return time, scan angle, intensity, etc. Created raw laser point cloud data for the entire survey in *.las (ASPRS v. 1.2) format. Software: ALS Post Processing Software v.2.70</gco:CharacterString>
+                  </gmd:description>
+                </gmd:LI_ProcessStep>
+              </gmd:processStep>
+              <gmd:processStep>
+                <gmd:LI_ProcessStep>
+                  <gmd:description>
+                    <gco:CharacterString>4. Imported raw laser points into manageable blocks (less than 500 MB) to perform manual relative accuracy calibration and filter for pits/birds. Ground points were then classified for individual flight lines (to be used for relative accuracy testing and calibration). Software: TerraScan v.10.009</gco:CharacterString>
+                  </gmd:description>
+                </gmd:LI_ProcessStep>
+              </gmd:processStep>
+              <gmd:processStep>
+                <gmd:LI_ProcessStep>
+                  <gmd:description>
+                    <gco:CharacterString>5. Using ground classified points per each flight line, the relative accuracy was tested. Automated line-to-line calibrations were then performed for system attitude parameters (pitch, roll, heading), mirror flex (scale) and GPS/IMU drift. Calibrations were performed on ground classified points from paired flight lines. Every flight line was used for relative accuracy calibration. Software: TerraMatch v.10.006</gco:CharacterString>
+                  </gmd:description>
+                </gmd:LI_ProcessStep>
+              </gmd:processStep>
+              <gmd:processStep>
+                <gmd:LI_ProcessStep>
+                  <gmd:description>
+                    <gco:CharacterString>6. Position and attitude data were imported. Resulting data were classified as ground and non-ground points. Statistical absolute accuracy was assessed via direct comparisons of ground classified points to ground RTK survey data. Data were then converted to orthometric elevations (NAVD88) by applying a Geoid03 correction. Software: TerraScan v.10.009, TerraModeler v.10.004</gco:CharacterString>
+                  </gmd:description>
+                </gmd:LI_ProcessStep>
+              </gmd:processStep>
+              <gmd:processStep>
+                <gmd:LI_ProcessStep>
+                  <gmd:description>
+                    <gco:CharacterString>7. Bare Earth models were created as a triangulated surface and exported as ArcInfo ASCII grids at a 1–meter pixel resolution for inspection purposes. Software: TerraScan v.10.009, ArcMap v. 9.3.1, TerraModeler v.10.004</gco:CharacterString>
+                  </gmd:description>
+                </gmd:LI_ProcessStep>
+              </gmd:processStep>
+              <gmd:processStep>
+                <gmd:LI_ProcessStep>
+                  <gmd:description>
+                    <gco:CharacterString>8. Ground points were classified from vendor supplied LiDAR point data using the Multiscale Curvature algorithm developed by Evans and Hudak and the MCC-LIDAR 2.1 software available on Sourceforge.net.  This algorithm requires two variables:  a scale parameter and a threshold parameter.  For each of the tiles the scale parameter was 0.66667 and the threshold parameter was 0.07. Software: MCC-LIDAR 2.1</gco:CharacterString>
+                  </gmd:description>
+                </gmd:LI_ProcessStep>
+              </gmd:processStep>
+            </gmd:LI_Lineage>
+          </gmd:lineage>
+        </gmd:DQ_DataQuality>
+      </gmd:dataQualityInfo>
+      <gmd:metadataConstraints>
+        <gmd:MD_Constraints>
+          <gmd:useLimitation>
+            <gco:CharacterString>This metadata record is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License. For more information, see http://www.northwestknowledge.net/licenses</gco:CharacterString>
+          </gmd:useLimitation>
+        </gmd:MD_Constraints>
+      </gmd:metadataConstraints>
+      <gmd:metadataMaintenance>
+        <gmd:MD_MaintenanceInformation>
+          <gmd:maintenanceAndUpdateFrequency>
+            <gmd:MD_MaintenanceFrequencyCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml" codeListValue="asNeeded">asNeeded</gmd:MD_MaintenanceFrequencyCode>
+          </gmd:maintenanceAndUpdateFrequency>
+          <gmd:maintenanceNote>
+            <gco:CharacterString>This metadata record may be updated when information within it becomes obsolete.</gco:CharacterString>
+          </gmd:maintenanceNote>
+          <gmd:contact xlink:title="NKN">
+            <gmd:CI_ResponsibleParty uuid="0f370b7f-08ed-4727-b3f8-e98932ecd5e7">
+              <gmd:organisationName>
+                <gco:CharacterString>Northwest Knowledge Network</gco:CharacterString>
+              </gmd:organisationName>
+              <gmd:contactInfo>
+                <gmd:CI_Contact>
+                  <gmd:phone>
+                    <gmd:CI_Telephone>
+                      <gmd:voice>
+                        <gco:CharacterString>(208) 885-8456</gco:CharacterString>
+                      </gmd:voice>
+                    </gmd:CI_Telephone>
+                  </gmd:phone>
+                  <gmd:address>
+                    <gmd:CI_Address>
+                      <gmd:deliveryPoint>
+                        <gco:CharacterString>University of Idaho Library</gco:CharacterString>
+                      </gmd:deliveryPoint>
+                      <gmd:deliveryPoint>
+                        <gco:CharacterString>875 Perimeter Drive, MS 2358</gco:CharacterString>
+                      </gmd:deliveryPoint>
+                      <gmd:city>
+                        <gco:CharacterString>Moscow</gco:CharacterString>
+                      </gmd:city>
+                      <gmd:administrativeArea>
+                        <gco:CharacterString>ID</gco:CharacterString>
+                      </gmd:administrativeArea>
+                      <gmd:postalCode>
+                        <gco:CharacterString>83844-2350</gco:CharacterString>
+                      </gmd:postalCode>
+                      <gmd:country>
+                        <gco:CharacterString>USA</gco:CharacterString>
+                      </gmd:country>
+                      <gmd:electronicMailAddress>
+                        <gco:CharacterString>info@northwestknowledge.net</gco:CharacterString>
+                      </gmd:electronicMailAddress>
+                    </gmd:CI_Address>
+                  </gmd:address>
+                  <gmd:onlineResource>
+                    <gmd:CI_OnlineResource>
+                      <gmd:linkage>
+                        <gmd:URL>http://www.northwestknowledge.net</gmd:URL>
+                      </gmd:linkage>
+                      <gmd:name>
+                        <gco:CharacterString>The home page for the Northwest Knowledge Network</gco:CharacterString>
+                      </gmd:name>
+                    </gmd:CI_OnlineResource>
+                  </gmd:onlineResource>
+                </gmd:CI_Contact>
+              </gmd:contactInfo>
+              <gmd:role>
+                <gmd:CI_RoleCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="custodian">custodian</gmd:CI_RoleCode>
+              </gmd:role>
+            </gmd:CI_ResponsibleParty>
+          </gmd:contact>
+          <gmd:contact>
+            <gmd:CI_ResponsibleParty>
+              <gmd:individualName>
+                <gco:CharacterString>Edward Flathers</gco:CharacterString>
+              </gmd:individualName>
+              <gmd:contactInfo>
+                <gmd:CI_Contact>
+                  <gmd:address>
+                    <gmd:CI_Address>
+                      <gmd:deliveryPoint>
+                        <gco:CharacterString>University of Idaho</gco:CharacterString>
+                      </gmd:deliveryPoint>
+                      <gmd:deliveryPoint>
+                        <gco:CharacterString>Department of Forest, Rangeland, and Fire Sciences</gco:CharacterString>
+                      </gmd:deliveryPoint>
+                      <gmd:deliveryPoint>
+                        <gco:CharacterString>875 Perimeter Drive, MS 1133</gco:CharacterString>
+                      </gmd:deliveryPoint>
+                      <gmd:city>
+                        <gco:CharacterString>Moscow</gco:CharacterString>
+                      </gmd:city>
+                      <gmd:administrativeArea>
+                        <gco:CharacterString>ID</gco:CharacterString>
+                      </gmd:administrativeArea>
+                      <gmd:postalCode>
+                        <gco:CharacterString>83844-1133</gco:CharacterString>
+                      </gmd:postalCode>
+                      <gmd:country>
+                        <gco:CharacterString>USA</gco:CharacterString>
+                      </gmd:country>
+                      <gmd:electronicMailAddress>
+                        <gco:CharacterString>flathers@uidaho.edu</gco:CharacterString>
+                      </gmd:electronicMailAddress>
+                    </gmd:CI_Address>
+                  </gmd:address>
+                </gmd:CI_Contact>
+              </gmd:contactInfo>
+              <gmd:role>
+                <gmd:CI_RoleCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="originator">originator</gmd:CI_RoleCode>
+              </gmd:role>
+            </gmd:CI_ResponsibleParty>
+          </gmd:contact>
+        </gmd:MD_MaintenanceInformation>
+      </gmd:metadataMaintenance>
+    </gmi:MI_Metadata>
+  </gmd:seriesMetadata>
+</gmd:DS_Series>
