@@ -8,77 +8,93 @@
   <!-- When the root node in the XML is encountered (the metadata element), the  
        HTML template is set up. -->
   <xsl:template match="/">
-    <div class="content">
+    <div class="meta-container">
       
       <!-- TITLE. If the metadata doesn't have an title element or if it contains no data, no text appears below. -->
       <xsl:if test="/metadata/dataIdInfo[1]/idCitation[1]/resTitle[1] != ''">
-        <h2 class="arcmeta">
+        <h2 class="meta-title">
           <xsl:value-of select="/metadata/dataIdInfo[1]/idCitation[1]/resTitle[1]"
             disable-output-escaping="yes"/>
         </h2>
       </xsl:if>
       
-      <!-- ABSTRACT. If the metadata doesn't have an abstract element or if it contains no data, no text appears below. -->
-      <xsl:if test="/metadata/dataIdInfo[1]/idAbs[1] != ''">
-        <div class="arcmeta_content abstract">
-          <font style="font-weight:bold;">Abstract: </font>
-          
-          <xsl:choose>
-            <xsl:when test="string-length(/metadata/dataIdInfo/idAbs)>400">
-              <!-- if length is longer than 400 (or whatever)-->
-              <!-- Use spans to truncate the abstact and allow the remainder to be shown -->
-              <!-- NOTE: this functionality requires jquery, which is not included in this
-                file because it is assumed to exist in the parent document for the snippet
-                that this XSLT creates -->
-              <div>
-                <span style="display:none">
-                  <xsl:value-of select="/metadata/dataIdInfo/idAbs" 
-                    disable-output-escaping="yes"/>
-                  <a href="#"
-                    onclick="jQuery(this).parent().parent().children().toggle(); return false">
-                    [Less]</a>
-                </span>
-                <span style="display:inline">
-                  <xsl:call-template name="trim-last-word">
-                    <xsl:with-param name="in" 
-                      select="substring(/metadata/dataIdInfo/idAbs, 1, 400)"/>
-                  </xsl:call-template>
-                  <a href="#"
-                    onclick="jQuery(this).parent().parent().children().toggle(); return false">
-                    [More]</a>
-                </span>
-              </div>
-            </xsl:when>
-            <xsl:otherwise>
-              <xsl:value-of select="/metadata/dataIdInfo/idAbs" 
-                disable-output-escaping="yes"/>
-            </xsl:otherwise>
-          </xsl:choose>
-          
-        </div> <!--/arcmeta_content abstract-->
-      </xsl:if>
-
-      <!-- ONLINE RESOURCE(S). If element does not exist or contains no data, no text appears below.  -->
-      <xsl:if 
-        test="/metadata/distInfo/distributor/distorTran/onLineSrc != ''">
-        <dl>
-          <dt>
-            <font style="font-weight:bold;">Online Resource(s):</font>
-          </dt>
-          <xsl:for-each select="/metadata/distInfo/distributor/distorTran">
-            <div class="arcmeta_content links">
-              <dd>
-                <a href="{normalize-space(onLineSrc/linkage)}"
-                  target="_blank" >
-                  <xsl:value-of select="onLineSrc/orDesc" disable-output-escaping="yes"/>
-                </a>
-              </dd>
-            </div>
-          </xsl:for-each>
-        </dl>
-      </xsl:if>
-
-    </div> <!--/content-->
+      <div class="meta-record">
+      
+        <!-- ABSTRACT. If the metadata doesn't have an abstract element or if it contains no data, no text appears below. -->
+        <xsl:if test="/metadata/dataIdInfo[1]/idAbs[1] != ''">
+          <div class="meta-abstract">
+            <div class="meta-abstract-heading">Abstract:</div>
+            
+            <xsl:choose>
+              <xsl:when test="string-length(/metadata/dataIdInfo/idAbs)>400">
+                <!-- if length is longer than 400 (or whatever)-->
+                <!-- Use spans to truncate the abstact and allow the remainder to be shown -->
+                <!-- NOTE: this functionality requires jquery, which is not included in this
+                  file because it is assumed to exist in the parent document for the snippet
+                  that this XSLT creates -->
+                <div>
+                  <span style="display:none">
+                    <xsl:value-of select="/metadata/dataIdInfo/idAbs" 
+                      disable-output-escaping="yes"/>
+                    <a href="#"
+                      onclick="jQuery(this).parent().parent().children().toggle(); return false">
+                      [Less]</a>
+                  </span>
+                  <span style="display:inline">
+                    <xsl:call-template name="trim-last-word">
+                      <xsl:with-param name="in" 
+                        select="substring(/metadata/dataIdInfo/idAbs, 1, 400)"/>
+                    </xsl:call-template>
+                    <a href="#"
+                      onclick="jQuery(this).parent().parent().children().toggle(); return false">
+                      [More]</a>
+                  </span>
+                </div>
+              </xsl:when>
+              <xsl:otherwise>
+                <xsl:value-of select="/metadata/dataIdInfo/idAbs" 
+                  disable-output-escaping="yes"/>
+              </xsl:otherwise>
+            </xsl:choose>
+            
+          </div> <!--/meta-abstract-->
+        </xsl:if>
+  
+        <!-- ONLINE RESOURCE(S). If element does not exist or contains no data, no text appears below.  -->
+        <xsl:if 
+          test="/metadata/distInfo/distributor/distorTran/onLineSrc != ''">
+          <div class="meta-resources">
+            <dl>
+              <dt>
+                <div class="meta-resource-heading">Online Resource(s):</div>
+              </dt>
+              <xsl:for-each select="/metadata/distInfo/distributor/distorTran">
+                <div class="meta-resource">
+                  <dd>
+                    <a href="{normalize-space(onLineSrc/linkage)}"
+                      target="_blank" >
+                      <xsl:choose>
+                        <xsl:when test="onLineSrc/orDesc != ''">
+                          <xsl:value-of select="normalize-space(onLineSrc/orDesc)" disable-output-escaping="yes"/>
+                        </xsl:when>
+                        <xsl:otherwise>
+                          <xsl:value-of select="normalize-space(onLineSrc/linkage)" disable-output-escaping="yes"/>
+                        </xsl:otherwise>
+                      </xsl:choose>
+                    </a>
+                  </dd>
+                </div>
+              </xsl:for-each>
+            </dl>
+          </div>
+        </xsl:if>
+        
+        <!-- FULL METADATA LINK -->
+        <!-- The %META-LINK-HREF% is replaced after the transform by the calling code, which knows the URL to the transformed file -->
+        <a class="meta-link" href="%META-LINK-HREF%" target="_blank">View Full Metadata Record</a>
+        
+      </div> <!--meta-record-->
+    </div> <!--/meta-container-->
 
 
   </xsl:template>
