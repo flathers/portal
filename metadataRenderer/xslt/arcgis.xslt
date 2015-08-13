@@ -62,28 +62,31 @@
   
         <!-- ONLINE RESOURCE(S). If element does not exist or contains no data, no text appears below.  -->
         <xsl:if 
-          test="/metadata/distInfo/distributor/distorTran/onLineSrc != ''">
+          test="(/metadata/distInfo/distributor/distorTran/onLineSrc != '')">
+          
           <div class="meta-resources">
             <dl>
               <dt>
                 <div class="meta-resource-heading">Online Resource(s):</div>
               </dt>
               <xsl:for-each select="/metadata/distInfo/distributor/distorTran">
-                <div class="meta-resource">
-                  <dd>
-                    <a href="{normalize-space(onLineSrc/linkage)}"
-                      target="_blank" >
-                      <xsl:choose>
-                        <xsl:when test="onLineSrc/orDesc != ''">
-                          <xsl:value-of select="normalize-space(onLineSrc/orDesc)" disable-output-escaping="yes"/>
-                        </xsl:when>
-                        <xsl:otherwise>
-                          <xsl:value-of select="normalize-space(onLineSrc/linkage)" disable-output-escaping="yes"/>
-                        </xsl:otherwise>
-                      </xsl:choose>
-                    </a>
-                  </dd>
-                </div>
+                <xsl:if test="not(starts-with(normalize-space(onLineSrc/linkage), 'file://'))">
+                  <div class="meta-resource">
+                    <dd>
+                      <a href="{normalize-space(onLineSrc/linkage)}"
+                        target="_blank" >
+                        <xsl:choose>
+                          <xsl:when test="onLineSrc/orDesc != ''">
+                            <xsl:value-of select="normalize-space(onLineSrc/orDesc)" disable-output-escaping="yes"/>
+                          </xsl:when>
+                          <xsl:otherwise>
+                            <xsl:value-of select="normalize-space(onLineSrc/linkage)" disable-output-escaping="yes"/>
+                          </xsl:otherwise>
+                        </xsl:choose>
+                      </a>
+                    </dd>
+                  </div>
+                </xsl:if>
               </xsl:for-each>
             </dl>
           </div>
