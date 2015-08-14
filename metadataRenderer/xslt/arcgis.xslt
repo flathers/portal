@@ -95,6 +95,8 @@
         <!-- FULL METADATA LINK -->
         <!-- The %META-LINK-HREF% is replaced after the transform by the calling code, which knows the URL to the transformed file -->
         <a class="meta-link" href="%META-LINK-HREF%" target="_blank">View Full Metadata Record</a>
+        &#160;&#160;&#160;&#160;
+        <input style="visibility:hidden;" onclick="toggleBox(%i%);" type="button" value="Show/Hide data extent on map" />
         
       </div> <!--meta-record-->
     </div> <!--/meta-container-->

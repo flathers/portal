@@ -86,21 +86,23 @@
               
               <xsl:if test="/metadata/distInfo/distributor/distorTran/onLineSrc/linkage != ''">
                 <xsl:for-each select="/metadata/distInfo/distributor/distorTran/onLineSrc">
-                  <div class="meta-resource">
-                    <dd>
-                      <a href="{normalize-space(linkage)}"
-                        target="_blank">
-                        <xsl:choose>
-                          <xsl:when test="orDesc != ''">
-                            <xsl:value-of select="normalize-space(orDesc)" disable-output-escaping="yes"/>
-                          </xsl:when>
-                          <xsl:otherwise>
-                            <xsl:value-of select="normalize-space(linkage)" disable-output-escaping="yes"/>
-                          </xsl:otherwise>
-                        </xsl:choose>
-                      </a>
-                    </dd>
-                  </div>
+                  <xsl:if test="not(starts-with(normalize-space(linkage), 'file://'))">
+                    <div class="meta-resource">
+                      <dd>
+                        <a href="{normalize-space(linkage)}"
+                          target="_blank">
+                          <xsl:choose>
+                            <xsl:when test="orDesc != ''">
+                              <xsl:value-of select="normalize-space(orDesc)" disable-output-escaping="yes"/>
+                            </xsl:when>
+                            <xsl:otherwise>
+                              <xsl:value-of select="normalize-space(linkage)" disable-output-escaping="yes"/>
+                            </xsl:otherwise>
+                          </xsl:choose>
+                        </a>
+                      </dd>
+                    </div>
+                  </xsl:if>
                 </xsl:for-each>
               </xsl:if>
             </dl>
@@ -110,6 +112,8 @@
         <!-- FULL METADATA LINK -->
         <!-- The %META-LINK-HREF% is replaced after the transform by the calling code, which knows the URL to the transformed file -->
         <a class="meta-link" href="%META-LINK-HREF%" target="_blank">View Full Metadata Record</a>
+        &#160;&#160;&#160;&#160;
+        <input style="visibility:hidden;" onclick="toggleBox(%i%);" type="button" value="Show/Hide data extent on map" />
 
       </div> <!--/meta-record-->
     </div> <!--/content-->
