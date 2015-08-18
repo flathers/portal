@@ -4,7 +4,29 @@
   xmlns:gml="http://www.opengis.net/gml" xmlns:gmx="http://www.isotc211.org/2005/gmx"
   xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://www.isotc211.org/2005/gmd http://www.northwestknowledge.net/iso/xsd/schema.xsd">
-  <gmd:fileIdentifier>
+
+  <!--
+
+  # This work was created by participants in the Northwest Knowledge Network
+  # (NKN), and is copyrighted by NKN. For more information on NKN, see our
+  # web site at http://www.northwestknowledge.net
+  #
+  #   Copyright 20015 Northwest Knowledge Network
+  #
+  # Licensed under the Creative Commons CC BY 4.0 License (the "License");
+  # you may not use this file except in compliance with the License.
+  # You may obtain a copy of the License at
+  #
+  #   https://creativecommons.org/licenses/by/4.0/legalcode
+  #
+  # Software distributed under the License is distributed on an "AS IS" BASIS,
+  # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  # See the License for the specific language governing permissions and
+  # limitations under the License.
+
+-->
+
+<gmd:fileIdentifier>
     <gco:CharacterString>nkn:d986d1f3-89c1-4c76-9946-eb750f3e921a</gco:CharacterString>
   </gmd:fileIdentifier>
   <gmd:language>

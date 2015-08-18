@@ -1,19 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <!--
- See the NOTICE file distributed with
- this work for additional information regarding copyright ownership.
- Esri Inc. licenses this file to You under the Apache License, Version 2.0
- (the "License"); you may not use this file except in compliance with
- the License.  You may obtain a copy of the License at
 
-     http://www.apache.org/licenses/LICENSE-2.0
+# This work was created by participants in the Northwest Knowledge Network
+# (NKN), and is copyrighted by NKN. For more information on NKN, see our
+# web site at http://www.northwestknowledge.net
+#
+#   Copyright 20015 Northwest Knowledge Network
+#
+# Licensed under the Creative Commons CC BY 4.0 License (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#   https://creativecommons.org/licenses/by/4.0/legalcode
+#
+# Software distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+# This work is derived from a file that was distributed by Esri Inc. which
+# was licensed under the Apache License, Version 2.0.
 
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
 -->
+
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:gmi="http://www.isotc211.org/2005/gmi" xmlns:xlink="http://www.w3.org/1999/xlink"
   xmlns:gmx="http://www.isotc211.org/2005/gmx" xmlns:gml="http://www.opengis.net/gml/3.2"
@@ -23,11 +33,11 @@
 
   <xsl:output method="html" indent="yes"/>
 
-  <!-- When the root node in the XML is encountered (the metadata element), the  
+  <!-- When the root node in the XML is encountered (the metadata element), the
        HTML template is set up. -->
   <xsl:template match="/">
     <div class="meta-container">
-      
+
       <!-- TITLE. Add the title data to the page. If the element does not exist or contains no data, no text appears below. -->
       <xsl:if
         test="/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:title/gco:CharacterString != ''">
@@ -37,15 +47,15 @@
             disable-output-escaping="yes"/>
         </h2>
       </xsl:if>
-      
+
       <div class="meta-record">
-  
+
         <!-- ABSTRACT. Add the abstract to the page. If element does not exist or contains no data, no text appears below.  -->
         <xsl:if
           test="/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:abstract/gco:CharacterString != ''">
           <div class="meta-abstract">
             <div class="meta-abstract-heading">Abstract:</div>
-            
+
             <xsl:choose>
               <xsl:when
                 test="string-length(/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:abstract/gco:CharacterString)>400">
@@ -81,10 +91,10 @@
                   disable-output-escaping="yes"/>
               </xsl:otherwise>
             </xsl:choose>
-  
+
           </div> <!--/meta-abstract-->
         </xsl:if>
-  
+
         <!-- ONLINE RESOURCE(S). If element does not exist or contains no data, no text appears below.  -->
         <xsl:if test="/gmd:MD_Metadata/gmd:distributionInfo/gmd:MD_Distribution != ''">
           <div class="meta-resources">
@@ -95,7 +105,7 @@
               <xsl:for-each
                 select="/gmd:MD_Metadata/gmd:distributionInfo/gmd:MD_Distribution/gmd:distributor/gmd:MD_Distributor/gmd:distributorTransferOptions">
                 <xsl:choose>
-                  <!-- Canonical values for CI_OnLineFunctionCode are: 
+                  <!-- Canonical values for CI_OnLineFunctionCode are:
                           download, information, offlineAccess, order, search
                        Which ones should we display?
                   -->
@@ -158,7 +168,7 @@
         <a class="meta-link" href="%META-LINK-HREF%" target="_blank">View Full Metadata Record</a>
         &#160;&#160;&#160;&#160;
         <input style="visibility:hidden;" onclick="toggleBox(%i%);" type="button" value="Show/Hide data extent on map" />
-        
+
       </div> <!--/meta-record-->
     </div> <!--/content-->
 

@@ -1,15 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+# This work was created by participants in the Northwest Knowledge Network
+# (NKN), and is copyrighted by NKN. For more information on NKN, see our
+# web site at http://www.northwestknowledge.net
+#
+#   Copyright 20015 Northwest Knowledge Network
+#
+# Licensed under the Creative Commons CC BY 4.0 License (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#   https://creativecommons.org/licenses/by/4.0/legalcode
+#
+# Software distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+-->
+
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"
   xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:utils="urn:XSLTUtils"
   exclude-result-prefixes="msxsl">
 
   <xsl:output method="html" indent="yes"/>
 
-  <!-- When the root node in the XML is encountered (the metadata element), the  
+  <!-- When the root node in the XML is encountered (the metadata element), the
        HTML template is set up. -->
   <xsl:template match="/">
     <div class="meta-container">
-      
+
       <!-- TITLE. If the metadata doesn't have an title element or if it contains no data, no text appears below. -->
       <xsl:if test="/metadata/dataIdInfo[1]/idCitation[1]/resTitle[1] != ''">
         <h2 class="meta-title">
@@ -17,14 +39,14 @@
             disable-output-escaping="yes"/>
         </h2>
       </xsl:if>
-      
+
       <div class="meta-record">
-      
+
         <!-- ABSTRACT. If the metadata doesn't have an abstract element or if it contains no data, no text appears below. -->
         <xsl:if test="/metadata/dataIdInfo[1]/idAbs[1] != ''">
           <div class="meta-abstract">
             <div class="meta-abstract-heading">Abstract:</div>
-            
+
             <xsl:choose>
               <xsl:when test="string-length(/metadata/dataIdInfo/idAbs)>400">
                 <!-- if length is longer than 400 (or whatever)-->
@@ -34,7 +56,7 @@
                   that this XSLT creates -->
                 <div>
                   <span style="display:none">
-                    <xsl:value-of select="/metadata/dataIdInfo/idAbs" 
+                    <xsl:value-of select="/metadata/dataIdInfo/idAbs"
                       disable-output-escaping="yes"/>
                     <a href="#"
                       onclick="jQuery(this).parent().parent().children().toggle(); return false">
@@ -42,7 +64,7 @@
                   </span>
                   <span style="display:inline">
                     <xsl:call-template name="trim-last-word">
-                      <xsl:with-param name="in" 
+                      <xsl:with-param name="in"
                         select="substring(/metadata/dataIdInfo/idAbs, 1, 400)"/>
                     </xsl:call-template>
                     <a href="#"
@@ -52,18 +74,18 @@
                 </div>
               </xsl:when>
               <xsl:otherwise>
-                <xsl:value-of select="/metadata/dataIdInfo/idAbs" 
+                <xsl:value-of select="/metadata/dataIdInfo/idAbs"
                   disable-output-escaping="yes"/>
               </xsl:otherwise>
             </xsl:choose>
-            
+
           </div> <!--/meta-abstract-->
         </xsl:if>
-  
+
         <!-- ONLINE RESOURCE(S). If element does not exist or contains no data, no text appears below.  -->
-        <xsl:if 
+        <xsl:if
           test="(/metadata/distInfo/distributor/distorTran/onLineSrc != '')">
-          
+
           <div class="meta-resources">
             <dl>
               <dt>
@@ -91,13 +113,13 @@
             </dl>
           </div>
         </xsl:if>
-        
+
         <!-- FULL METADATA LINK -->
         <!-- The %META-LINK-HREF% is replaced after the transform by the calling code, which knows the URL to the transformed file -->
         <a class="meta-link" href="%META-LINK-HREF%" target="_blank">View Full Metadata Record</a>
         &#160;&#160;&#160;&#160;
         <input style="visibility:hidden;" onclick="toggleBox(%i%);" type="button" value="Show/Hide data extent on map" />
-        
+
       </div> <!--meta-record-->
     </div> <!--/meta-container-->
 

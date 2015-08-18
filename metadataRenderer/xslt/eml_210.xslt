@@ -1,11 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+# This work was created by participants in the Northwest Knowledge Network
+# (NKN), and is copyrighted by NKN. For more information on NKN, see our
+# web site at http://www.northwestknowledge.net
+#
+#   Copyright 20015 Northwest Knowledge Network
+#
+# Licensed under the Creative Commons CC BY 4.0 License (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#   https://creativecommons.org/licenses/by/4.0/legalcode
+#
+# Software distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+-->
+
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"
   xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:utils="urn:XSLTUtils"
   xmlns:eml="eml://ecoinformatics.org/eml-2.1.0" exclude-result-prefixes="msxsl">
 
   <xsl:output method="html" indent="yes"/>
 
-  <!-- When the root node in the XML is encountered (the metadata element), the  
+  <!-- When the root node in the XML is encountered (the metadata element), the
        HTML template is set up. -->
   <xsl:template match="/">
     <div class="meta-container">
@@ -16,14 +38,14 @@
           <xsl:value-of select="/eml:eml/dataset/title" disable-output-escaping="yes"/>
         </h2>
       </xsl:if>
-      
+
       <div class="meta-record">
-  
+
         <!-- ABSTRACT. If the metadata doesn't have an abstract element or if it contains no data, no text appears below. -->
         <xsl:if test="/eml:eml/dataset/abstract != ''">
           <div class="meta-abstract">
             <div class="meta-abstract-heading">Abstract:</div>
-            
+
             <xsl:choose>
               <xsl:when test="string-length(/eml:eml/dataset/abstract)>400">
                 <!-- if length is longer than 400 (or whatever)-->
@@ -53,10 +75,10 @@
                 <xsl:value-of select="/eml:eml/dataset/abstract" disable-output-escaping="yes"/>
               </xsl:otherwise>
             </xsl:choose>
-  
+
           </div> <!--/meta-abstract-->
         </xsl:if>
-  
+
         <!-- ONLINE RESOURCE(S). If element does not exist or contains no data, no text appears below.  -->
         <xsl:if test="/eml:eml/dataset/distribution/online/url != ''">
           <div class="meta-resources">
@@ -89,11 +111,11 @@
         <a class="meta-link" href="%META-LINK-HREF%" target="_blank">View Full Metadata Record</a>
         &#160;&#160;&#160;&#160;
         <input style="visibility:hidden;" onclick="toggleBox(%i%);" type="button" value="Show/Hide data extent on map" />
-        
+
       </div> <!--/meta-record-->
     </div> <!--/content-->
-    
-    
+
+
   </xsl:template>
   <xsl:template name="trim-last-word">
     <xsl:param name="in"/>

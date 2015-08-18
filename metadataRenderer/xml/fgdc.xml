@@ -1,5 +1,27 @@
 <metadata xml:lang="en"><Esri><MetaID>{D90F2919-95E6-4BED-B821-7ECF05EA2FB2}</MetaID><CreaDate>20100401</CreaDate><CreaTime>13035200</CreaTime><SyncOnce>TRUE</SyncOnce><ModDate>20120109</ModDate><ModTime>11070800</ModTime></Esri><idinfo>
-		<citation>
+
+<!--
+
+# This work was created by participants in the Northwest Knowledge Network
+# (NKN), and is copyrighted by NKN. For more information on NKN, see our
+# web site at http://www.northwestknowledge.net
+#
+#   Copyright 20015 Northwest Knowledge Network
+#
+# Licensed under the Creative Commons CC BY 4.0 License (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#   https://creativecommons.org/licenses/by/4.0/legalcode
+#
+# Software distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+-->
+
+<citation>
 			<citeinfo>
 				<origin>Dr. Von Walden</origin>
 				<title>Downscaled Climate Model Output for the Contiguous United States from IPCC AR4 Scenarios [Bias Corrected Statistical Downscaling (BCSD) Method]</title><pubdate>201008</pubdate><geoform>raster digital data</geoform><pubinfo><pubplace>Moscow, ID USA</pubplace><publish>Idaho EPSCoR Office</publish></pubinfo><serinfo><issue>series</issue></serinfo></citeinfo>
@@ -43,8 +65,8 @@ These data are climate model outputs that have been downscaled to 4-km spatial r
 				<cntperp><cntper>Von P. Walden</cntper><cntorg>University of Idaho</cntorg></cntperp></cntinfo>
 		</metc>
 		<metd Sync="TRUE">20120109</metd><metstdn>FGDC Content Standards for Digital Geospatial Metadata</metstdn><metstdv>FGDC-STD-001-1998</metstdv></metainfo>
-	<distinfo><distrib><cntinfo><cntorgp><cntorg>Idaho Geospatial Data Clearinghouse</cntorg><cntper>Bruce Godfrey</cntper></cntorgp><cntpos>GIS Specialist</cntpos><cntaddr><addrtype>mailing and physical address</addrtype><address>1031 N. Academic Way, Suite 242</address><city>Coeur d'Alene</city><state>ID</state><postal>83814-2277</postal></cntaddr><cntvoice>208.292.1407</cntvoice><cntemail>bgodfrey@uidaho.edu</cntemail></cntinfo></distrib><stdorder><fees>None</fees><digform><digtopt><onlinopt><computer><networka><networkr>http://cloud.insideidaho.org/data/epscor/dcs/ipccar4/bcsd/               
-	
+	<distinfo><distrib><cntinfo><cntorgp><cntorg>Idaho Geospatial Data Clearinghouse</cntorg><cntper>Bruce Godfrey</cntper></cntorgp><cntpos>GIS Specialist</cntpos><cntaddr><addrtype>mailing and physical address</addrtype><address>1031 N. Academic Way, Suite 242</address><city>Coeur d'Alene</city><state>ID</state><postal>83814-2277</postal></cntaddr><cntvoice>208.292.1407</cntvoice><cntemail>bgodfrey@uidaho.edu</cntemail></cntinfo></distrib><stdorder><fees>None</fees><digform><digtopt><onlinopt><computer><networka><networkr>http://cloud.insideidaho.org/data/epscor/dcs/ipccar4/bcsd/
+
 	              </networkr></networka></computer></onlinopt></digtopt><digtinfo><formname>Directory Listing of All Datasets</formname></digtinfo></digform><digform><digtinfo><formname>OPeNDAP Server Directory</formname></digtinfo><digtopt><onlinopt><computer><networka><networkr>http://cloud.insideidaho.org:8001/epscor/dcs/ipccar4/bcsd/                     </networkr></networka></computer></onlinopt></digtopt></digform><digform><digtinfo><formname>WebDAV Bulk Download Information</formname></digtinfo><digtopt><onlinopt><computer><networka><networkr>http://cloud.insideidaho.org/webservices.html#webdav</networkr></networka></computer></onlinopt></digtopt></digform></stdorder><distliab>Although these data have been processed successfully on a computer system at the Idaho Geospatial Data Clearinghouse, no warranty, expressed or implied, is made regarding the utility of the data on any other system, nor shall the act of distribution constitute any such warranty. </distliab></distinfo><mdDateSt Sync="TRUE">20100827</mdDateSt>
 	<Binary><Thumbnail><Data EsriPropertyType="Picture">Qk3uNwEAAAAAADYAAAAoAAAAyAAAAIUAAAABABgAAAAAALg3AQAAAAAAAAAAAAAAAAAAAAAA////
 ////////////////////////////////////////////////////////////////////////////

@@ -1,11 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+# This work was created by participants in the Northwest Knowledge Network
+# (NKN), and is copyrighted by NKN. For more information on NKN, see our
+# web site at http://www.northwestknowledge.net
+#
+#   Copyright 20015 Northwest Knowledge Network
+#
+# Licensed under the Creative Commons CC BY 4.0 License (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#   https://creativecommons.org/licenses/by/4.0/legalcode
+#
+# Software distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+-->
+
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"
   xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:utils="urn:XSLTUtils"
   exclude-result-prefixes="msxsl">
 
   <xsl:output method="html" indent="yes"/>
 
-  <!-- When the root node in the XML is encountered (the metadata element), the  
+  <!-- When the root node in the XML is encountered (the metadata element), the
        HTML template is set up. -->
   <xsl:template match="/">
     <div class="meta-container">
@@ -24,7 +46,7 @@
         <xsl:if test="/metadata/idinfo/descript/abstract != ''">
           <div class="meta-abstract">
             <div class="meta-abstract-heading">Abstract:</div>
-            
+
             <xsl:choose>
               <xsl:when test="string-length(/metadata/idinfo/descript/abstract)>400">
                 <!-- if length is longer than 400 (or whatever)-->
@@ -56,12 +78,12 @@
                   disable-output-escaping="yes"/>
               </xsl:otherwise>
             </xsl:choose>
-  
+
           </div> <!--/meta-abstract-->
         </xsl:if>
-  
+
         <!-- ONLINE RESOURCE(S). If element does not exist or contains no data, no text appears below.  -->
-        
+
         <xsl:if
           test="(/metadata/distinfo/stdorder/digform/digtopt/onlinopt/computer/networka/networkr != '')
           or (/metadata/distInfo/distributor/distorTran/onLineSrc/linkage != '')">
@@ -70,7 +92,7 @@
               <dt>
                 <div class="meta-resource-heading">Online Resource(s):</div>
               </dt>
-  
+
               <xsl:if test="/metadata/distinfo/stdorder/digform/digtopt/onlinopt/computer/networka/networkr != ''">
                 <xsl:for-each select="/metadata/distinfo/stdorder/digform">
                   <div class="meta-resource">
@@ -83,7 +105,7 @@
                   </div>
                 </xsl:for-each>
               </xsl:if>
-              
+
               <xsl:if test="/metadata/distInfo/distributor/distorTran/onLineSrc/linkage != ''">
                 <xsl:for-each select="/metadata/distInfo/distributor/distorTran/onLineSrc">
                   <xsl:if test="not(starts-with(normalize-space(linkage), 'file://'))">
