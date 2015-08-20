@@ -19,6 +19,43 @@
 # limitations under the License.
 
 
+# createDotFile.py writes a .dataone.py file, given a directory as an
+# argument.  It writes out a license and a bit of documentation, then
+# appends a list of dictionaries that contain the attributes of the
+# files to be inserted into the DataONE member node.  The format_id
+# attribute is not populated because it's tricky to guess what kind
+# of file it is.
+
+
+# Stdlib.
+import os
+import pprint
+import sys
+import uuid
+
+def main():
+  # top will be the top matter of the dotfile that we write out
+  top = '''#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+# This work was created by participants in the Northwest Knowledge Network
+# (NKN), and is copyrighted by NKN. For more information on NKN, see our
+# web site at http://www.northwestknowledge.net
+#
+#   Copyright 20015 Northwest Knowledge Network
+#
+# Licensed under the Creative Commons CC BY 4.0 License (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#   https://creativecommons.org/licenses/by/4.0/legalcode
+#
+# Software distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+
 # This is a .dataone.py file.  Each directory in the datastore that contains
 # data that we replicate to DataONE should have one of these files.  The file
 # contains a list of Python dictionaries that describe attributes of the files
@@ -42,30 +79,18 @@
 
 
 
-ds = [ { 'file_name': '.dataone.py',
-    'format_id': 'application/octet-stream',
-    'pid': 'b1246998-b175-4f17-9a70-5aacd42d88e5'},
-  { 'file_name': '.dataone.pyc',
-    'format_id': 'application/octet-stream',
-    'pid': '685be940-0f87-4df6-aa4f-3dfa67b93657'},
-  { 'file_name': 'BT_CSC_NHD_1kmDataModel_Patches_Dissolve_Merge.dbf',
-    'format_id': 'application/octet-stream',
-    'pid': 'ee963897-65ab-4694-99e8-105f4af7926d'},
-  { 'file_name': 'BT_CSC_NHD_1kmDataModel_Patches_Dissolve_Merge.prj',
-    'format_id': 'application/octet-stream',
-    'pid': '0a66c516-f89c-4121-b562-aef6b3518c0f'},
-  { 'file_name': 'BT_CSC_NHD_1kmDataModel_Patches_Dissolve_Merge.sbn',
-    'format_id': 'application/octet-stream',
-    'pid': '4d808f56-27c7-4cd1-bd28-4cd5938ddacb'},
-  { 'file_name': 'BT_CSC_NHD_1kmDataModel_Patches_Dissolve_Merge.sbx',
-    'format_id': 'application/octet-stream',
-    'pid': 'be0f01fe-0873-4622-8824-02cbd4be32bd'},
-  { 'file_name': 'BT_CSC_NHD_1kmDataModel_Patches_Dissolve_Merge.shp',
-    'format_id': 'application/octet-stream',
-    'pid': '2d669ae4-fed5-45f5-934d-bf793062fc80'},
-  { 'file_name': 'BT_CSC_NHD_1kmDataModel_Patches_Dissolve_Merge.shp.xml',
-    'format_id': 'application/octet-stream',
-    'pid': '9504a8d7-a053-4e70-8957-ea6b2eb1bf97'},
-  { 'file_name': 'BT_CSC_NHD_1kmDataModel_Patches_Dissolve_Merge.shx',
-    'format_id': 'application/octet-stream',
-    'pid': '13fef219-2528-44f8-b507-fd010fc60e0f'}]
+'''
+
+  base_path = sys.argv[1]
+  # generate the dictionaries
+  ds = [{'pid': format(uuid.uuid4()), 'file_name': f, 'format_id': ''} for f in os.listdir(base_path)]
+
+  #write out the .dataone.py file
+  with open(base_path + '/' + '.dataone.py', 'w') as fout:
+    fout.write(top)
+    fout.write('ds = ')
+    pprint.pprint(ds, indent=2, stream=fout)
+
+
+if __name__ == '__main__':
+  main()

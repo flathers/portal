@@ -130,6 +130,9 @@ def main():
   print 'Started insert.py in ' + configMode + ' mode'
 
   # Open the dataset config file and get the list of files to add
+  # The open uses the nonstandard imp.load_source call because Python
+  # doesn't like filenames that start with dots, but we want our config
+  # files to be dotfiles because so many utilities ignore them.
   base_path = sys.argv[1]
   ds_conf_file = os.path.abspath(base_path + '/' + DATASET_CONF_FILE_NAME)
   ds_conf = imp.load_source('', ds_conf_file)
@@ -142,24 +145,22 @@ def main():
     key_path=CERTIFICATE_FOR_CREATE_KEY)
 
   # Make sure enough files exist in the science objects list)
-  if len(ds_conf.files_in_group) < 2:
+  if len(ds_conf.ds) < 2:
     raise Exception('Each group must have at least 2 files')
 
   # Iterate over the object groups and create them and their resource maps
   # on the Member Node.
-  i = 0
-  for file_name in ds_conf.files_in_group:
-    file_path = base_path + '/' + file_name
+  for item in ds_conf.ds:
+    file_path = base_path + '/' + item['file_name']
     print '\n Adding file:'
     print '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
-    print 'File: {0}'.format(file_name)
+    print 'File: {0}'.format(item['file_name'])
     print 'Path: {0}'.format(file_path)
-    print 'Pid: {0}'.format(ds_conf.pid[i])
-    print 'formatID: {0}\n'.format(ds_conf.format_id[i])
-    create_science_object_on_member_node(client, file_path,
-      ds_conf.pid[i], ds_conf.format_id[i])
-    i = i + 1
-  create_package_on_member_node(client, ds_conf.pid)
+    print 'Pid: {0}'.format(item['pid'])
+    print 'formatID: {0}\n'.format(item['format_id'])
+#    create_science_object_on_member_node(client, file_path,
+#      ds_conf.pid[i], ds_conf.format_id[i])
+  #create_package_on_member_node(client, ds_conf.pid)
 
   print 'Objects created successfully'
 
