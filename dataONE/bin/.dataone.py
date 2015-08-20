@@ -32,40 +32,51 @@
 #
 # format_id is the DataONE file format that describes each file.
 # The list can be found at https://cn.dataone.org/cn/v1/formats
-# These will likely need to be filled in by a human.
+# These will need to be filled in by a human.
 #
 # pid is a version 4 UUID.  These are initially generated arbitrarily; their
 # value is unimportant when inserting data into the member node except that
 # they must be unique and likely to remain that way.  If a file on DataONE
 # needs to be updated, you will need to refer to its pid in order to obsolete
 # it.
+#
+# package_pid is a version 4 UUID that identifies the entire collection.
+#
+#
+# *** IMPORTANT ***
+# *** IMPORTANT ***
+# *** IMPORTANT ***
+#
+# The metadata record MUST be the FIRST item listed in the ds dictionary!
+#
+# Once you have identified which file is the metadata, you must cust and paste
+# it into the first postition.  The insert.py script assumes that the first
+# file in the list is the science metadata.  If it isn't, then the dataset
+# will never be indexed by DataONE because it will use the wrong file as
+# science metadata.
+#
 
 
+package_pid = '7135c38c-4a5a-4c2b-ba19-a1dcf106720e'
 
-ds = [ { 'file_name': '.dataone.py',
-    'format_id': 'application/octet-stream',
-    'pid': 'b1246998-b175-4f17-9a70-5aacd42d88e5'},
-  { 'file_name': '.dataone.pyc',
-    'format_id': 'application/octet-stream',
-    'pid': '685be940-0f87-4df6-aa4f-3dfa67b93657'},
+ds = [ { 'file_name': 'BT_CSC_NHD_1kmDataModel_Patches_Dissolve_Merge.shp.xml',
+    'format_id': 'FGDC-STD-001-1998',
+    'pid': '3287128f-c93d-4ac4-8a63-16e686ac77fc'},
   { 'file_name': 'BT_CSC_NHD_1kmDataModel_Patches_Dissolve_Merge.dbf',
     'format_id': 'application/octet-stream',
-    'pid': 'ee963897-65ab-4694-99e8-105f4af7926d'},
+    'pid': '7f6c29af-1412-44cd-a76d-75f6f03c82cd'},
   { 'file_name': 'BT_CSC_NHD_1kmDataModel_Patches_Dissolve_Merge.prj',
     'format_id': 'application/octet-stream',
-    'pid': '0a66c516-f89c-4121-b562-aef6b3518c0f'},
+    'pid': '58f2fa60-4e6e-4db9-b304-306a352b083e'},
   { 'file_name': 'BT_CSC_NHD_1kmDataModel_Patches_Dissolve_Merge.sbn',
     'format_id': 'application/octet-stream',
-    'pid': '4d808f56-27c7-4cd1-bd28-4cd5938ddacb'},
+    'pid': '22be35a1-a5df-4ac2-acc9-cfcc12341a2a'},
   { 'file_name': 'BT_CSC_NHD_1kmDataModel_Patches_Dissolve_Merge.sbx',
     'format_id': 'application/octet-stream',
-    'pid': 'be0f01fe-0873-4622-8824-02cbd4be32bd'},
+    'pid': '1383b79e-f291-4588-8405-f0d785d1c5a3'},
   { 'file_name': 'BT_CSC_NHD_1kmDataModel_Patches_Dissolve_Merge.shp',
     'format_id': 'application/octet-stream',
-    'pid': '2d669ae4-fed5-45f5-934d-bf793062fc80'},
-  { 'file_name': 'BT_CSC_NHD_1kmDataModel_Patches_Dissolve_Merge.shp.xml',
-    'format_id': 'FGDC-STD-001-1998',
-    'pid': '9504a8d7-a053-4e70-8957-ea6b2eb1bf97'},
+    'pid': '81ba4a53-7e36-4750-abfd-6d24c301a427'},
   { 'file_name': 'BT_CSC_NHD_1kmDataModel_Patches_Dissolve_Merge.shx',
     'format_id': 'application/octet-stream',
-    'pid': '13fef219-2528-44f8-b507-fd010fc60e0f'}]
+    'pid': '3b8fa71c-70de-4876-80f3-6502bcfc8f05'}]

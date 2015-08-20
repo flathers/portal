@@ -69,17 +69,35 @@ def main():
 #
 # format_id is the DataONE file format that describes each file.
 # The list can be found at https://cn.dataone.org/cn/v1/formats
-# These will likely need to be filled in by a human.
+# These will need to be filled in by a human.
 #
 # pid is a version 4 UUID.  These are initially generated arbitrarily; their
 # value is unimportant when inserting data into the member node except that
 # they must be unique and likely to remain that way.  If a file on DataONE
 # needs to be updated, you will need to refer to its pid in order to obsolete
 # it.
-
+#
+# package_pid is a version 4 UUID that identifies the entire collection.
+#
+#
+# *** IMPORTANT ***
+# *** IMPORTANT ***
+# *** IMPORTANT ***
+#
+# The metadata record MUST be the FIRST item listed in the ds dictionary!
+#
+# Once you have identified which file is the metadata, you must cust and paste
+# it into the first postition.  The insert.py script assumes that the first
+# file in the list is the science metadata.  If it isn't, then the dataset
+# will never be indexed by DataONE because it will use the wrong file as
+# science metadata.
+#
 
 
 '''
+
+  # generate the package_pid
+  package_pid = format(uuid.uuid4())
 
   base_path = sys.argv[1]
   # generate the dictionaries
@@ -88,6 +106,7 @@ def main():
   #write out the .dataone.py file
   with open(base_path + '/' + '.dataone.py', 'w') as fout:
     fout.write(top)
+    fout.write('package_pid = \'{0}\'\n\n'.format(package_pid))
     fout.write('ds = ')
     pprint.pprint(ds, indent=2, stream=fout)
 

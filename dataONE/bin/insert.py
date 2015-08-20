@@ -73,7 +73,6 @@ import logging
 import os
 import sys
 import StringIO
-import uuid
 
 # 3rd party.
 import pyxb
@@ -150,8 +149,10 @@ def main():
 
   # Iterate over the object groups and create them and their resource maps
   # on the Member Node.
+  pids = []
   for item in ds_conf.ds:
     file_path = base_path + '/' + item['file_name']
+    pids.append(item['pid'])
     print '\n Adding file:'
     print '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
     print 'File: {0}'.format(item['file_name'])
@@ -159,8 +160,9 @@ def main():
     print 'Pid: {0}'.format(item['pid'])
     print 'formatID: {0}\n'.format(item['format_id'])
     create_science_object_on_member_node(client, file_path,
-      ds_conf.pid[i], ds_conf.format_id[i])
-  create_package_on_member_node(client, ds_conf.pid)
+      item['pid'], item['format_id'])
+  print pids
+  create_package_on_member_node(client, ds_conf.package_pid, pids)
 
   print 'Objects created successfully'
 
@@ -176,9 +178,8 @@ def create_science_object_on_member_node(client, file_path, pid, formatID):
   sys_meta = generate_system_metadata_for_science_object(pid, formatID, sci_obj)
   client.create(pid, StringIO.StringIO(sci_obj), sys_meta)
 
-def create_package_on_member_node(client, pids):
-  package_pid = format(uuid.uuid4())
-  print 'Package_PID: {0}'.format(package_pid)
+def create_package_on_member_node(client, package_pid, pids):
+  print '\nPackage_PID: {0}\n'.format(package_pid)
   resource_map = create_resource_map_for_pids(package_pid, pids)
   sys_meta = generate_system_metadata_for_science_object(package_pid,
     RESOURCE_MAP_FORMAT_ID, resource_map)
