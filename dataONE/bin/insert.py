@@ -158,9 +158,9 @@ def main():
     print 'Path: {0}'.format(file_path)
     print 'Pid: {0}'.format(item['pid'])
     print 'formatID: {0}\n'.format(item['format_id'])
-#    create_science_object_on_member_node(client, file_path,
-#      ds_conf.pid[i], ds_conf.format_id[i])
-  #create_package_on_member_node(client, ds_conf.pid)
+    create_science_object_on_member_node(client, file_path,
+      ds_conf.pid[i], ds_conf.format_id[i])
+  create_package_on_member_node(client, ds_conf.pid)
 
   print 'Objects created successfully'
 
