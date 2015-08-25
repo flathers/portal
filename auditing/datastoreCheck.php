@@ -51,6 +51,7 @@ $params = "@path varchar(256)";
 
 foreach ($fileList as $path) {
   $path = trim($path);
+  $path = str_replace("'", "\'", $path);
   $paramslist = "@path='$path'";
 
   $dbsql = "EXEC sp_executesql
