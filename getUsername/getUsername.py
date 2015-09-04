@@ -79,7 +79,7 @@ def application():
         if not rows:
             output['error'] = 'invalid_session'
         else:
-            output['username'] = rows[0]
+            output['username'] = rows[0][0]
         cur.close()
 
     except KeyError:
