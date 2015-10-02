@@ -19,6 +19,6 @@
 # limitations under the License.
 
 import sys
-sys.path.insert(0, '/var/www/html/portal2/getUsername')
+sys.path.insert(0, '/var/www/html/portal/getUsername')
 
 from getUsername import app as application
