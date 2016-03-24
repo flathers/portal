@@ -8,6 +8,7 @@ import sys
 import os
 
 uuid = sys.argv[1]
+uuid = uuid.replace('{', '').replace('}', '').replace('[','').replace(']','')
 basePath = '/preprod-datastore/uploads/'
 dsPath = basePath + uuid + '/'
 datastorePath = '/datastore/published/'
@@ -34,24 +35,35 @@ if (os.path.isdir('dsPath')):
 sender = 'portal@northwestknowledge.net'
 receivers = ['publish@northwestknowledge.net']
 
+#if exit_code == 0, then clamscan returned that the files are clean
 if (exit_code == 0):
   message = """From: NKN Geoportal <portal@northwestknowledge.net>
 To: NKN Publisher Group <publish@northwestknowledge.net>
-Subject: New data posted for publication
+Subject: New data approved for publication
 
 Hi, NKN data publishers.  A new dataset has been approved for publication
-in the geoportal interface. 
+in the geoportal interface.
+
+Dataset path:
 """
+  message = message + dsPath
+
+#if exit_code != 0, then clamscan returned some error, possibly a virus
 else:
   message = """From: NKN Geoportal <portal@northwestknowledge.net>
 To: NKN Publisher Group <publish@northwestknowledge.net>
-Subject: New data posted for publication [virus]
+Subject: New data approved for publication [virus]
 
 Hi, NKN data publishers.  A new dataset has been posted for publication
 in the geoportal interface, but the data were infected with a virus.
 Please take a look.
+
+https://northwestknowledge.net/geoportal/
+
+Dataset path:
 """
 
+message = message + dsPath
 
 try:
    smtpObj = smtplib.SMTP('localhost')
@@ -60,32 +72,14 @@ try:
 except SMTPException:
    print "Error: unable to send email"
 
+
+
 #
-#If the files were infected, send a notification email
+#If the files were infected, stop processing
 #
 
 if (exit_code != 0):
-  #A virus was found, stop processing
-
-  sender = 'portal@northwestknowledge.net'
-  receivers = ['publish@northwestknowledge.net']
-  message = """From: NKN Geoportal <portal@northwestknowledge.net>
-To: NKN Publisher Group <publish@northwestknowledge.net>
-Subject: Virus infection in approved data
-
-Hi, NKN data publishers.  A new dataset has been approved for publication
-in the geoportal interface, but the data were infected with a virus.  The
-metadata record was published, but the data have been held back.  Please
-take a look.
-"""
-  try:
-    smtpObj = smtplib.SMTP('localhost')
-    smtpObj.sendmail(sender, receivers, message)
-    print "Successfully sent email"
-  except SMTPException:
-    print "Error: unable to send email"
   exit();
-
 
 
 
@@ -93,6 +87,5 @@ take a look.
 #If the files are clean, move them into production
 #
 if (exit_code == 0):
-  if (os.path.isdir('dsPath')):
+  if (os.path.isdir(dsPath)):
     shutil.move(dsPath, datastorePath + uuid)
-
