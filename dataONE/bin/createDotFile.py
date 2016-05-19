@@ -5,7 +5,7 @@
 # (NKN), and is copyrighted by NKN. For more information on NKN, see our
 # web site at http://www.northwestknowledge.net
 #
-#   Copyright 20015 Northwest Knowledge Network
+#   Copyright 2016 Northwest Knowledge Network
 #
 # Licensed under the Creative Commons CC BY 4.0 License (the "License");
 # you may not use this file except in compliance with the License.
@@ -28,10 +28,13 @@
 
 
 # Stdlib.
+import argparse
 import os
 import pprint
 import sys
 import uuid
+
+sys.dont_write_bytecode = True
 
 def main():
   # top will be the top matter of the dotfile that we write out
@@ -42,7 +45,7 @@ def main():
 # (NKN), and is copyrighted by NKN. For more information on NKN, see our
 # web site at http://www.northwestknowledge.net
 #
-#   Copyright 20015 Northwest Knowledge Network
+#   Copyright 2016 Northwest Knowledge Network
 #
 # Licensed under the Creative Commons CC BY 4.0 License (the "License");
 # you may not use this file except in compliance with the License.
@@ -60,12 +63,14 @@ def main():
 # data that we replicate to DataONE should have one of these files.  The file
 # contains a list of Python dictionaries that describe attributes of the files
 # within the directory.  These attributes are used when inserting the files
-# into the DataONE member node.  Each dictionary contains a file_name,
-# format_id, and pid for one file in the directory.  The file_name and pid
-# attributes are usually generated automatically using the createDotFile.py
-# utility.
+# into the DataONE member node.  Each dictionary contains a file_path,
+# file_name, format_id, and pid for one file in the directory.  The file_name
+# and pid attributes are usually generated automatically using the
+# createDotFile.py utility.
 #
-# files_name is simply the name of the file of interest.
+# file_path is the relative path to the file_name
+#
+# file_name is the name of the file of interest.
 #
 # format_id is the DataONE file format that describes each file.
 # The list can be found at https://cn.dataone.org/cn/v1/formats
@@ -86,8 +91,8 @@ def main():
 #
 # The metadata record MUST be the FIRST item listed in the ds dictionary!
 #
-# Once you have identified which file is the metadata, you must cust and paste
-# it into the first postition.  The insert.py script assumes that the first
+# Once you have identified which file is the metadata, you must cut and paste
+# it into the first position.  The insert.py script assumes that the first
 # file in the list is the science metadata.  If it isn't, then the dataset
 # will never be indexed by DataONE because it will use the wrong file as
 # science metadata.
@@ -96,12 +101,25 @@ def main():
 
 '''
 
+  # grab the command line arguments
+  parser = argparse.ArgumentParser(
+    description="Create a .dataone.py file to support uploading data to DataONE")
+  parser.add_argument('-r', help='recurse subdirectories', action='store_true')
+  parser.add_argument('path', help='path to the target dataset', action='store')
+  args = parser.parse_args()
+
   # generate the package_pid
   package_pid = format(uuid.uuid4())
 
-  base_path = sys.argv[1]
   # generate the dictionaries
-  ds = [{'pid': format(uuid.uuid4()), 'file_name': f, 'format_id': ''} for f in os.listdir(base_path)]
+  base_path = args.path
+  if args.r:
+    ds = [{'pid': format(uuid.uuid4()), 'file_path': dp, 'file_name': f, 'format_id': ''}
+           for dp, dn, filenames in os.walk('.') for f in filenames if f != '.dataone.py']
+  else:
+    ds = [{'pid': format(uuid.uuid4()), 'file_path': '.', 'file_name': f, 'format_id': ''}
+           for f in os.listdir(base_path) if f != '.dataone.py']
+
 
   #write out the .dataone.py file
   with open(base_path + '/' + '.dataone.py', 'w') as fout:

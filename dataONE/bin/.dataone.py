@@ -5,7 +5,7 @@
 # (NKN), and is copyrighted by NKN. For more information on NKN, see our
 # web site at http://www.northwestknowledge.net
 #
-#   Copyright 20015 Northwest Knowledge Network
+#   Copyright 2016 Northwest Knowledge Network
 #
 # Licensed under the Creative Commons CC BY 4.0 License (the "License");
 # you may not use this file except in compliance with the License.
@@ -49,8 +49,8 @@
 #
 # The metadata record MUST be the FIRST item listed in the ds dictionary!
 #
-# Once you have identified which file is the metadata, you must cust and paste
-# it into the first postition.  The insert.py script assumes that the first
+# Once you have identified which file is the metadata, you must cut and paste
+# it into the first position.  The insert.py script assumes that the first
 # file in the list is the science metadata.  If it isn't, then the dataset
 # will never be indexed by DataONE because it will use the wrong file as
 # science metadata.

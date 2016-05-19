@@ -2,7 +2,7 @@ This work was created by participants in the Northwest Knowledge Network
 (NKN), and is copyrighted by NKN. For more information on NKN, see our
 web site at http://www.northwestknowledge.net
 
-Copyright 20015 Northwest Knowledge Network
+Copyright 2016 Northwest Knowledge Network
 
 Licensed under the Creative Commons CC BY 4.0 License (the "License");
 you may not use this file except in compliance with the License.
