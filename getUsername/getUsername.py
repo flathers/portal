@@ -69,6 +69,7 @@ def application():
         config = get_config(config_file)
         conn_param = dict(config.items(output['config_kw']))
         version = conn_param['version'];
+        output['version'] = version;
         del conn_param['version'];
 
         #Define the SQL query, connect to the DB, and execute
@@ -77,7 +78,7 @@ def application():
         #Note that Drupal 7 and 8 have different database structures,
         #so we choose a query based upon the 'version' parameter from config
         query = "";
-        if version == 8:
+        if version == '8':
             query = ("SELECT name FROM users_field_data INNER JOIN sessions ON users_field_data.uid=sessions.uid WHERE sessions.sid=%s;")
         else:
             query = ("SELECT name FROM users INNER JOIN sessions ON users.uid=sessions.uid WHERE sessions.sid=%s;")        db_con = MySQLdb.connect(**conn_param)
