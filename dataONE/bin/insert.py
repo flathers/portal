@@ -73,6 +73,7 @@ import logging
 import os
 import sys
 import StringIO
+import time
 
 # 3rd party.
 import pyxb
@@ -83,6 +84,49 @@ import d1_common.types.generated.dataoneTypes as dataoneTypes
 import d1_common.const
 import d1_client.data_package
 import d1_client.mnclient
+
+sys.dont_write_bytecode = True
+
+# From http://peter-hoffmann.com/2010/retry-decorator-python.html
+# I've included this because sometimes the GMN times out during
+# create_science_object_on_member_node().  No error appears in the GMN logs,
+# and the timeout happens on different files each time.  So this doesn't
+# fix the underlying problem, but it does retry the object, which usually
+# succeeds the second time.
+
+class Retry(object):
+    default_exceptions = (Exception,)
+    def __init__(self, tries, exceptions=None, delay=0):
+        """
+        Decorator for retrying a function if exception occurs
+
+        tries -- num tries
+        exceptions -- exceptions to catch
+        delay -- wait between retries
+        """
+        self.tries = tries
+        if exceptions is None:
+            exceptions = Retry.default_exceptions
+        self.exceptions =  exceptions
+        self.delay = delay
+
+    def __call__(self, f):
+        def fn(*args, **kwargs):
+            exception = None
+            for _ in range(self.tries):
+                try:
+                    return f(*args, **kwargs)
+                except d1_common.types.exceptions.IdentifierNotUnique as e:
+                    print "An object with the identifier already exists.  Skipping object..."
+                    return fn
+                except self.exceptions, e:
+                    print "~~~~~~~~~Retry, exception: "+str(e)
+                    time.sleep(self.delay)
+                    exception = e
+            #if no success after tries, raise last exception
+            raise exception
+        return fn
+
 
 
 # The function for reading the config file
@@ -151,17 +195,21 @@ def main():
   # on the Member Node.
   pids = []
   for item in ds_conf.ds:
-    file_path = base_path + '/' + item['file_name']
+    file_path = base_path + '/' + item['file_path'] + '/' + item['file_name']
     pids.append(item['pid'])
     print '\n Adding file:'
     print '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+    print 'Time: {0}'.format(datetime.datetime.now())
     print 'File: {0}'.format(item['file_name'])
     print 'Path: {0}'.format(file_path)
     print 'Pid: {0}'.format(item['pid'])
     print 'formatID: {0}\n'.format(item['format_id'])
-    create_science_object_on_member_node(client, file_path,
-      item['pid'], item['format_id'])
-  print pids
+    try:
+      create_science_object_on_member_node(client, file_path,
+        item['pid'], item['format_id'])
+    except d1_common.types.exceptions.IdentifierNotUnique as e:
+      print "An object with the identifier already exists.  Skipping object..."
+  #print pids
   create_package_on_member_node(client, ds_conf.package_pid, pids)
 
   print 'Objects created successfully'
@@ -173,6 +221,7 @@ def main():
 # = open(filename, 'rb')", and then pass "f". The StringIO method is more
 # efficient if the file fits in memory, as it already had to be read from disk
 # once, for the MD5 checksum calculation.
+@Retry(12)
 def create_science_object_on_member_node(client, file_path, pid, formatID):
   sci_obj = open(file_path, 'rb').read()
   sys_meta = generate_system_metadata_for_science_object(pid, formatID, sci_obj)

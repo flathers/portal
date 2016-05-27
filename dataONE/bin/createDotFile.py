@@ -27,11 +27,12 @@
 # of file it is.
 
 
-# Stdlib.
+# Imports
 import argparse
 import os
 import pprint
 import sys
+import tarfile
 import uuid
 
 sys.dont_write_bytecode = True
@@ -98,6 +99,8 @@ def main():
 # science metadata.
 #
 
+import sys
+sys.dont_write_bytecode = True
 
 '''
 
@@ -105,7 +108,9 @@ def main():
   parser = argparse.ArgumentParser(
     description="Create a .dataone.py file to support uploading data to DataONE")
   parser.add_argument('-r', help='recurse subdirectories', action='store_true')
+  parser.add_argument('-z', help='tarball and gzip the target dataset', action='store_true')
   parser.add_argument('path', help='path to the target dataset', action='store')
+  parser.add_argument('metadata', help='path to the metadata file', action='store')
   args = parser.parse_args()
 
   # generate the package_pid
@@ -113,7 +118,13 @@ def main():
 
   # generate the dictionaries
   base_path = args.path
-  if args.r:
+  if args.z:
+    tarfilename = 'dataset.tar.gz'
+    with tarfile.open(tarfilename, 'w:gz') as tar:
+      tar.add(base_path, arcname=os.path.basename(base_path))
+      ds = [{'pid': format(uuid.uuid4()) + '.tar.gz', 'file_path': '.', 'file_name': tarfilename, 'format_id': 'application/x-gzip'},
+            {'pid': format(uuid.uuid4()) + '.xml', 'file_path': '.', 'file_name': args.metadata, 'format_id': 'http://www.isotc211.org/2005/gmd-noaa'}]
+  elif args.r:
     ds = [{'pid': format(uuid.uuid4()), 'file_path': dp, 'file_name': f, 'format_id': ''}
            for dp, dn, filenames in os.walk('.') for f in filenames if f != '.dataone.py']
   else:
