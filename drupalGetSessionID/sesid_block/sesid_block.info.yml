@@ -1,0 +1,4 @@
+name: Session ID Block
+description: Defines session ID within a block
+type: module
+core: 8.x
