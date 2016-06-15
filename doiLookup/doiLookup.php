@@ -39,6 +39,7 @@ $query = "SELECT metadataURL FROM datasetDOI WHERE doi=@doi";
 
 //create parameter
 $doi = $_GET['doi'];
+$doi = str_replace("doi:", "", $doi);
 $doi = substr($doi, 0, 32);
 $params = "@doi varchar(32)";
 $paramslist = "@doi='$doi'";

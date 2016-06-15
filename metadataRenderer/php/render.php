@@ -23,7 +23,9 @@
 
 		$proc = new XSLTProcessor();
 		$proc->importStylesheet($xslDoc);
-		echo $proc->transformToXML($xmlDoc);
+		$output = $proc->transformToXML($xmlDoc);
+		//add the URL of the metadata to the output in case the calling script doesn't know it
+		echo $output."<div id=\"metadataURL\" style=\"visibility:hidden;display:none\">".$_GET['xml']."</div>";
 	}
 
 	//PHP spews warnings into the logs when you use an undefined namespace
