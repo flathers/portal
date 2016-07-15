@@ -4,7 +4,7 @@
 	# (NKN), and is copyrighted by NKN. For more information on NKN, see our
 	# web site at http://www.northwestknowledge.net
 	#
-	#   Copyright 20015 Northwest Knowledge Network
+	#   Copyright 2016 Northwest Knowledge Network
 	#
 	# Licensed under the Creative Commons CC BY 4.0 License (the "License");
 	# you may not use this file except in compliance with the License.
@@ -38,6 +38,7 @@
 	$iso_19115_2Path = "../xslt/iso_19115_2.xslt";
 	$iso_19115_2_dsPath = "../xslt/iso_19115_2_ds.xslt";
 	$iso_19139Path = "../xslt/iso_19139.xslt";
+	$dc_mdeditPath = "../xslt/dc_mdedit.xslt";
 
 	$XMLURL = $_GET['xml'];
 	$XSLURL = $_GET['xsl'];
@@ -120,6 +121,22 @@
 		if ($standard->item(0)->textContent != "") {
 			//echo "EML 2.1.0";
 			transform($xmlDoc, $eml_210Path);
+			return;
+		}
+	}
+
+
+  //If it wasn't EML 2.1.0, see if it's a DC record
+	//created in mdedit.  Again, we don't have a standard
+	//name element, but we're using the identifier as a
+	//proxy.  This is likely to cause collisions with
+	//DC records from other sources in the future.
+
+	$standard = $xpath->query("/rdf:RDF/rdf:Description/dc:identifier");
+	if ($standard) {
+		if ($standard->item(0)->textContent != "") {
+			//echo "DC mdedit";
+			transform($xmlDoc, $dc_mdeditPath);
 			return;
 		}
 	}

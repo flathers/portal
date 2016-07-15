@@ -2,7 +2,7 @@ This work was created by participants in the Northwest Knowledge Network
 (NKN), and is copyrighted by NKN. For more information on NKN, see our
 web site at http://www.northwestknowledge.net
 
-Copyright 20015 Northwest Knowledge Network
+Copyright 2016 Northwest Knowledge Network
 
 Licensed under the Creative Commons CC BY 4.0 License (the "License");
 you may not use this file except in compliance with the License.
@@ -29,6 +29,7 @@ fgdc.xml      			- Federal Geographic Data Committee Content Standard for
 iso_19139.xml				- ISO 19115
 iso_19115_2.xml			- ISO 19115-2
 iso_19115_2_ds.xml	- ISO 19115-2 with DS_Series root element
+dc_mdedit.xml				- A Dublin Core record created by the mdedit editor
 
 They are not intended to be exhaustive in their expression of the standards
 they represent.  They are here to serve as test metadata for the renderer.
