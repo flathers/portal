@@ -87,45 +87,6 @@ import d1_client.mnclient
 
 sys.dont_write_bytecode = True
 
-# From http://peter-hoffmann.com/2010/retry-decorator-python.html
-# I've included this because sometimes the GMN times out during
-# create_science_object_on_member_node().  No error appears in the GMN logs,
-# and the timeout happens on different files each time.  So this doesn't
-# fix the underlying problem, but it does retry the object, which usually
-# succeeds the second time.
-
-class Retry(object):
-    default_exceptions = (Exception,)
-    def __init__(self, tries, exceptions=None, delay=0):
-        """
-        Decorator for retrying a function if exception occurs
-
-        tries -- num tries
-        exceptions -- exceptions to catch
-        delay -- wait between retries
-        """
-        self.tries = tries
-        if exceptions is None:
-            exceptions = Retry.default_exceptions
-        self.exceptions =  exceptions
-        self.delay = delay
-
-    def __call__(self, f):
-        def fn(*args, **kwargs):
-            exception = None
-            for _ in range(self.tries):
-                try:
-                    return f(*args, **kwargs)
-                except d1_common.types.exceptions.IdentifierNotUnique as e:
-                    print "An object with the identifier already exists.  Skipping object..."
-                    return fn
-                except self.exceptions, e:
-                    print "~~~~~~~~~Retry, exception: "+str(e)
-                    time.sleep(self.delay)
-                    exception = e
-            #if no success after tries, raise last exception
-            raise exception
-        return fn
 
 
 
@@ -154,7 +115,8 @@ def get_config(config_file=None):
 # operation (mainly certificate paths and server locations) are stored in their
 # respective sections.
 
-configMode = 'Sandbox'
+configMode = 'Production'
+#configMode = 'Sandbox'
 config = get_config('nkn.conf')
 SCIENCE_OBJECTS_BASE_PATH = config.get('Common', 'SCIENCE_OBJECTS_BASE_PATH').strip('\'')
 SYSMETA_FORMATID = config.get('Common', 'SYSMETA_FORMATID').strip('\'')
@@ -221,11 +183,12 @@ def main():
 # = open(filename, 'rb')", and then pass "f". The StringIO method is more
 # efficient if the file fits in memory, as it already had to be read from disk
 # once, for the MD5 checksum calculation.
-@Retry(12)
 def create_science_object_on_member_node(client, file_path, pid, formatID):
-  sci_obj = open(file_path, 'rb').read()
+  #sci_obj = open(file_path, 'rb').read()
+  sci_obj = open(file_path, 'rb')
   sys_meta = generate_system_metadata_for_science_object(pid, formatID, sci_obj)
-  client.create(pid, StringIO.StringIO(sci_obj), sys_meta)
+  #client.create(pid, StringIO.StringIO(sci_obj), sys_meta)
+  client.create(pid, sci_obj, sys_meta)
 
 def create_package_on_member_node(client, package_pid, pids):
   print '\nPackage_PID: {0}\n'.format(package_pid)
@@ -248,8 +211,22 @@ def create_resource_map_for_pids(package_pid, pids):
 # Metadata contains information about the object, such as its format, access
 # control list and size.
 def generate_system_metadata_for_science_object(pid, format_id, science_object):
-  size = len(science_object)
-  md5 = hashlib.md5(science_object).hexdigest()
+  print 'Computing MD5 checksum...'
+  # resource maps are generated on-the-fly and are not files,
+  # so we can't stat them to get their size
+  if format_id == RESOURCE_MAP_FORMAT_ID:
+    size = len(science_object)
+    md5 = hashlib.md5(science_object).hexdigest()
+  else:
+    size = os.fstat(science_object.fileno()).st_size
+    blocksize=65536
+    hasher = hashlib.md5()
+    buf = science_object.read(blocksize)
+    while len(buf) > 0:
+      hasher.update(buf)
+      buf = science_object.read(blocksize)
+    md5 = hasher.hexdigest()
+
   now = datetime.datetime.now()
   sys_meta = generate_sys_meta(pid, format_id, size, md5, now)
   return sys_meta

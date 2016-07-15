@@ -131,7 +131,6 @@
 	//name element, but we're using the identifier as a
 	//proxy.  This is likely to cause collisions with
 	//DC records from other sources in the future.
-
 	$standard = $xpath->query("/rdf:RDF/rdf:Description/dc:identifier");
 	if ($standard) {
 		if ($standard->item(0)->textContent != "") {
