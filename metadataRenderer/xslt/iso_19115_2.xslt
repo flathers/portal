@@ -6,7 +6,7 @@
 # (NKN), and is copyrighted by NKN. For more information on NKN, see our
 # web site at http://www.northwestknowledge.net
 #
-#   Copyright 20015 Northwest Knowledge Network
+#   Copyright 2016 Northwest Knowledge Network
 #
 # Licensed under the Creative Commons CC BY 4.0 License (the "License");
 # you may not use this file except in compliance with the License.
@@ -110,22 +110,22 @@
                        Which ones should we display?
                   -->
                   <xsl:when
-                    test="gmd:MD_DigitalTransferOptions/gmd:onLine/gmd:CI_OnlineResource/gmd:function/gmd:CI_OnLineFunctionCode = 'download'">
+                    test="gmd:CI_OnlineResource/gmd:function/gmd:CI_OnLineFunctionCode = 'download'">
                     <div class="meta-resource">
                       <dd>
                         <a
-                          href="{normalize-space(gmd:MD_DigitalTransferOptions/gmd:onLine/gmd:CI_OnlineResource/gmd:linkage/gmd:URL)}"
+                          href="{normalize-space(gmd:CI_OnlineResource/gmd:linkage/gmd:URL)}"
                           target="_blank">
                           <xsl:choose>
                             <xsl:when
-                              test="gmd:MD_DigitalTransferOptions/gmd:onLine/gmd:CI_OnlineResource/gmd:name != ''">
+                              test="gmd:CI_OnlineResource/gmd:name != ''">
                               <xsl:value-of
-                                select="gmd:MD_DigitalTransferOptions/gmd:onLine/gmd:CI_OnlineResource/gmd:name" disable-output-escaping="yes"
+                                select="gmd:CI_OnlineResource/gmd:name" disable-output-escaping="yes"
                               />
                             </xsl:when>
                             <xsl:otherwise>
                               <xsl:value-of
-                                select="gmd:MD_DigitalTransferOptions/gmd:onLine/gmd:CI_OnlineResource/gmd:linkage/gmd:URL" disable-output-escaping="yes"
+                                select="gmd:CI_OnlineResource/gmd:linkage/gmd:URL" disable-output-escaping="yes"
                               />
                             </xsl:otherwise>
                           </xsl:choose>
@@ -167,7 +167,7 @@
         <!-- The %META-LINK-HREF% is replaced after the transform by the calling code, which knows the URL to the transformed file -->
         <a class="meta-link" href="%META-LINK-HREF%" target="_blank">View Full Metadata Record</a>
         &#160;&#160;&#160;&#160;
-        <input style="visibility:hidden;" onclick="toggleBox(%i%);" type="button" value="Show/Hide data extent on map" />
+        <input style="visibility:hidden;" onclick="toggleBox(%i%);" type="checkbox" value="" /> Show data extent on map above
 
       </div> <!--/meta-record-->
     </div> <!--/content-->
