@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet
+<xsl:stylesheet 
     xmlns:exsl="http://exslt.org/common"
     xmlns:str="http://exslt.org/strings"
     xmlns:oai="http://www.openarchives.org/OAI/2.0/"
@@ -20,7 +20,7 @@
                     xmlns:dcmiBox="http://dublincore.org/documents/2000/07/11/dcmi-box/"
                     xmlns:dct="http://purl.org/dc/terms/" xmlns:ows="http://www.opengis.net/ows">
                     <rdf:Description rdf:about="{oai:metadata/oai_dc:dc/dc:identifier}">
-                        <dc:identifier><xsl:value-of select="oai:header/identifier"/></dc:identifier>
+                        <dc:identifier><xsl:value-of select="oai:header/oai:identifier"/></dc:identifier>
                         <dc:title><xsl:value-of select="oai:metadata/oai_dc:dc/dc:title"/></dc:title>
                         <dc:description><xsl:value-of select="oai:metadata/oai_dc:dc/dc:description"/></dc:description>
                         <dct:references><xsl:value-of select="oai:metadata/oai_dc:dc/dc:identifier"/></dct:references>
@@ -29,9 +29,13 @@
                         <dc:date><xsl:value-of select="oai:metadata/oai_dc:dc/dc:date.dateSubmitted"/></dc:date>
                         <dc:language>eng</dc:language>
                         <dc:subject>environment</dc:subject>
+                        <xsl:for-each select="oai:metadata/oai_dc:dc/dc:subject">
+                            <dc:subject><xsl:value-of select="." /></dc:subject>
+                        </xsl:for-each>
                     </rdf:Description>
                 </rdf:RDF>
             </exsl:document>
         </xsl:for-each>
     </xsl:template>
 </xsl:stylesheet>
+
