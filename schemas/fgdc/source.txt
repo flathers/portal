@@ -1,0 +1,3 @@
+Contents of this directory come from
+
+https://www.fgdc.gov/schemas/metadata/

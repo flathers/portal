@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/beta6toeml2/xsl
+END
+eml-unitDictionary.xml
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/beta6toeml2/xsl/eml-unitDictionary.xml
+END
+eml2attr.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/beta6toeml2/xsl/eml2attr.xsl
+END
+triple_info.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/beta6toeml2/xsl/triple_info.xsl
+END
+eml2cit.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/beta6toeml2/xsl/eml2cit.xsl
+END
+eml2project.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/beta6toeml2/xsl/eml2project.xsl
+END
+eml2entphy.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/beta6toeml2/xsl/eml2entphy.xsl
+END
+emlb6toeml2.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/beta6toeml2/xsl/emlb6toeml2.xsl
+END

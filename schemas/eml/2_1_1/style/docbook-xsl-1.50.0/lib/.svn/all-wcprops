@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/lib
+END
+ChangeLog
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/lib/ChangeLog
+END
+lib.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/lib/lib.xsl
+END

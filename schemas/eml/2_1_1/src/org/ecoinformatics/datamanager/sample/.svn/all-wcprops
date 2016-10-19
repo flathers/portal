@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/src/org/ecoinformatics/datamanager/sample
+END
+SampleDataStorage.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/src/org/ecoinformatics/datamanager/sample/SampleDataStorage.java
+END
+EMLInspectionApp.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/src/org/ecoinformatics/datamanager/sample/EMLInspectionApp.java
+END
+SampleCallingApp.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/src/org/ecoinformatics/datamanager/sample/SampleCallingApp.java
+END
+EcogridEndPoint.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/src/org/ecoinformatics/datamanager/sample/EcogridEndPoint.java
+END

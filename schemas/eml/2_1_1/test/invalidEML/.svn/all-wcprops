@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/test/invalidEML
+END
+eml-error-references.xml
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/test/invalidEML/eml-error-references.xml
+END
+eml-error1.xml
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/test/invalidEML/eml-error1.xml
+END
+eml-error3.xml
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/test/invalidEML/eml-error3.xml
+END
+eml-datasetInvalidGringpoint.xml
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/test/invalidEML/eml-datasetInvalidGringpoint.xml
+END
+eml-error4.xml
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/test/invalidEML/eml-error4.xml
+END

@@ -1,0 +1,173 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/eml
+END
+eml-party.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/eml/eml-party.xsl
+END
+eml-settings.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/eml/eml-settings.xsl
+END
+eml-access.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/eml/eml-access.xsl
+END
+eml-protocol.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/eml/eml-protocol.xsl
+END
+eml.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/eml/eml.xsl
+END
+eml-attribute.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/eml/eml-attribute.xsl
+END
+eml-project.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/eml/eml-project.xsl
+END
+emlroot.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/eml/emlroot.xsl
+END
+eml-additionalmetadata.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/eml/eml-additionalmetadata.xsl
+END
+eml-storedprocedure.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/eml/eml-storedprocedure.xsl
+END
+eml-view.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/eml/eml-view.xsl
+END
+eml-physical.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/eml/eml-physical.xsl
+END
+eml-entity.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/eml/eml-entity.xsl
+END
+eml-otherentity.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/eml/eml-otherentity.xsl
+END
+eml-spatialraster.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/eml/eml-spatialraster.xsl
+END
+eml-distribution.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/eml/eml-distribution.xsl
+END
+eml-method.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/eml/eml-method.xsl
+END
+eml-literature.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/eml/eml-literature.xsl
+END
+eml-spatialvector.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/eml/eml-spatialvector.xsl
+END
+eml-datatable.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/eml/eml-datatable.xsl
+END
+eml-identifier.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/eml/eml-identifier.xsl
+END
+eml-attribute-enumeratedDomain.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/eml/eml-attribute-enumeratedDomain.xsl
+END
+eml-constraint.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/eml/eml-constraint.xsl
+END
+eml-text.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/eml/eml-text.xsl
+END
+eml-dataset.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/eml/eml-dataset.xsl
+END
+eml-resource.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/eml/eml-resource.xsl
+END
+eml-software.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/eml/eml-software.xsl
+END
+eml-coverage.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/eml/eml-coverage.xsl
+END

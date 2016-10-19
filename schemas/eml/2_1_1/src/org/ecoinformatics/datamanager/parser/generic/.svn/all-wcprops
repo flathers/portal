@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/src/org/ecoinformatics/datamanager/parser/generic
+END
+GenericDataPackageParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/src/org/ecoinformatics/datamanager/parser/generic/GenericDataPackageParser.java
+END
+Eml200DataPackageParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/src/org/ecoinformatics/datamanager/parser/generic/Eml200DataPackageParser.java
+END
+DataPackageParserInterface.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/src/org/ecoinformatics/datamanager/parser/generic/DataPackageParserInterface.java
+END

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/bin
+END
+validateXML.sh
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/bin/validateXML.sh
+END
+update_namespaces.sh
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/bin/update_namespaces.sh
+END
+xsltransform.sh
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/bin/xsltransform.sh
+END

@@ -1,0 +1,275 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/common
+END
+ro.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/common/ro.xml
+END
+pt.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/common/pt.xml
+END
+ca.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/common/ca.xml
+END
+gentext.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/common/gentext.xsl
+END
+subtitles.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/common/subtitles.xsl
+END
+tr.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/common/tr.xml
+END
+ru.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/common/ru.xml
+END
+af.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/common/af.xml
+END
+zh_tw.xml
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/common/zh_tw.xml
+END
+id.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/common/id.xml
+END
+table.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/common/table.xsl
+END
+common.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/common/common.xsl
+END
+el.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/common/el.xml
+END
+zh_cn.xml
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/common/zh_cn.xml
+END
+en.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/common/en.xml
+END
+cs.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/common/cs.xml
+END
+es.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/common/es.xml
+END
+labels.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/common/labels.xsl
+END
+et.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/common/et.xml
+END
+ko.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/common/ko.xml
+END
+eu.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/common/eu.xml
+END
+l10n.xml
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/common/l10n.xml
+END
+titles.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/common/titles.xsl
+END
+it.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/common/it.xml
+END
+sk.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/common/sk.xml
+END
+sl.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/common/sl.xml
+END
+uk.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/common/uk.xml
+END
+l10n.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/common/l10n.xsl
+END
+da.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/common/da.xml
+END
+sr.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/common/sr.xml
+END
+l10n.dtd
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/common/l10n.dtd
+END
+ChangeLog
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/common/ChangeLog
+END
+de.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/common/de.xml
+END
+sv.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/common/sv.xml
+END
+ja.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/common/ja.xml
+END
+fi.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/common/fi.xml
+END
+pt_br.xml
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/common/pt_br.xml
+END
+fr.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/common/fr.xml
+END
+nl.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/common/nl.xml
+END
+pl.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/common/pl.xml
+END
+nn.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/common/nn.xml
+END
+th.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/common/th.xml
+END
+no.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/common/no.xml
+END
+hu.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/common/hu.xml
+END
+xh.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/common/xh.xml
+END

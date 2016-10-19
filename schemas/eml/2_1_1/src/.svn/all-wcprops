@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/src
+END
+datamanager.properties
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/src/datamanager.properties
+END
+log4j.properties
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/src/log4j.properties
+END
+endpoint.properties
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/src/endpoint.properties
+END

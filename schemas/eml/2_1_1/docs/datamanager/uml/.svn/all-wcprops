@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/docs/datamanager/uml
+END
+sequenceOfOperations.txt
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/docs/datamanager/uml/sequenceOfOperations.txt
+END
+useCases.pdf
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/docs/datamanager/uml/useCases.pdf
+END
+query.zargo
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/docs/datamanager/uml/query.zargo
+END
+classDiagram.zargo
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/docs/datamanager/uml/classDiagram.zargo
+END

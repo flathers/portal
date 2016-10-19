@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/datamanager
+END
+axis.jar
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/datamanager/axis.jar
+END
+org.ecoinformatics.ecogrid.QueryService-stub.jar
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/datamanager/org.ecoinformatics.ecogrid.QueryService-stub.jar
+END
+wsdl4j.jar
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/datamanager/wsdl4j.jar
+END
+org.ecoinformatics.ecogrid.PutService-stub.jar
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/datamanager/org.ecoinformatics.ecogrid.PutService-stub.jar
+END
+org.ecoinformatics.ecogrid.AuthenticatedQueryService-stub.jar
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/datamanager/org.ecoinformatics.ecogrid.AuthenticatedQueryService-stub.jar
+END
+utilities.jar
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/datamanager/utilities.jar
+END
+hsqldb.jar
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/datamanager/hsqldb.jar
+END
+saaj.jar
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/datamanager/saaj.jar
+END
+org.ecoinformatics.ecogrid.AuthenticationService-stub.jar
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/datamanager/org.ecoinformatics.ecogrid.AuthenticationService-stub.jar
+END
+commons-discovery.jar
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/datamanager/commons-discovery.jar
+END
+log4j-1.2.8.jar
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/datamanager/log4j-1.2.8.jar
+END
+tar.jar
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/datamanager/tar.jar
+END
+jaxrpc.jar
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/datamanager/jaxrpc.jar
+END
+postgresql-8.0-312.jdbc3.jar
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/datamanager/postgresql-8.0-312.jdbc3.jar
+END
+commons-logging.jar
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/datamanager/commons-logging.jar
+END
+soap.jar
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/datamanager/soap.jar
+END

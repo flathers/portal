@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/test/org/ecoinformatics/datamanager/parser
+END
+AttributeListTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/test/org/ecoinformatics/datamanager/parser/AttributeListTest.java
+END
+NotNullConstraintTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/test/org/ecoinformatics/datamanager/parser/NotNullConstraintTest.java
+END
+ForeignKeyTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/test/org/ecoinformatics/datamanager/parser/ForeignKeyTest.java
+END
+AttributeTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/test/org/ecoinformatics/datamanager/parser/AttributeTest.java
+END
+DataObjectDescriptionTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/test/org/ecoinformatics/datamanager/parser/DataObjectDescriptionTest.java
+END
+TextWidthFixedDataFormatTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/test/org/ecoinformatics/datamanager/parser/TextWidthFixedDataFormatTest.java
+END
+TextDelimitedDataFormatTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/test/org/ecoinformatics/datamanager/parser/TextDelimitedDataFormatTest.java
+END
+JoinConditionConstraintTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/test/org/ecoinformatics/datamanager/parser/JoinConditionConstraintTest.java
+END
+TextDomainTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/test/org/ecoinformatics/datamanager/parser/TextDomainTest.java
+END
+EntityTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/test/org/ecoinformatics/datamanager/parser/EntityTest.java
+END
+UniqueKeyTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/test/org/ecoinformatics/datamanager/parser/UniqueKeyTest.java
+END
+EnumeratedDomainTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/test/org/ecoinformatics/datamanager/parser/EnumeratedDomainTest.java
+END
+DateTimeDomainTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/test/org/ecoinformatics/datamanager/parser/DateTimeDomainTest.java
+END
+DataPackageTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/test/org/ecoinformatics/datamanager/parser/DataPackageTest.java
+END
+NumericDomainTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/test/org/ecoinformatics/datamanager/parser/NumericDomainTest.java
+END
+PrimaryKeyTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/test/org/ecoinformatics/datamanager/parser/PrimaryKeyTest.java
+END

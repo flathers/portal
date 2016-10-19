@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/profiling
+END
+profile.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/profiling/profile.xsl
+END
+ChangeLog
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/profiling/ChangeLog
+END
+profile-mode.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/profiling/profile-mode.xsl
+END
+strip-attributes.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/profiling/strip-attributes.xsl
+END
+xsl2profile.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/profiling/xsl2profile.xsl
+END

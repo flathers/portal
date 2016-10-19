@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/eml2tonbii/nbii_text
+END
+nbiixml2nbiitext.xslt
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/eml2tonbii/nbii_text/nbiixml2nbiitext.xslt
+END
+str.dup.xslt
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/eml2tonbii/nbii_text/str.dup.xslt
+END
+text.hierarchy.xslt
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/eml2tonbii/nbii_text/text.hierarchy.xslt
+END
+readme.txt
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/eml2tonbii/nbii_text/readme.txt
+END
+str.replace.xslt
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/eml2tonbii/nbii_text/str.replace.xslt
+END

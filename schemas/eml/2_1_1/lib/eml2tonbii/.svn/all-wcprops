@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/eml2tonbii
+END
+eml2tonbii.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/eml2tonbii/eml2tonbii.xsl
+END
+bdp2eml.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/eml2tonbii/bdp2eml.xsl
+END
+nbii1999.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/eml2tonbii/nbii1999.xsd
+END
+SpatialRasterTest.xml
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/eml2tonbii/SpatialRasterTest.xml
+END

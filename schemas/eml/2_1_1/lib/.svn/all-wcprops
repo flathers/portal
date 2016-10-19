@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib
+END
+runEMLParser
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/runEMLParser
+END
+svnClientAdapter.jar
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/svnClientAdapter.jar
+END
+svnant.jar
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/svnant.jar
+END
+web.xml.tomcat4
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/web.xml.tomcat4
+END
+jdom-LICENSE.txt
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/jdom-LICENSE.txt
+END
+eml.jar
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/eml.jar
+END
+emlparser.html
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/emlparser.html
+END
+cos.jar
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/cos.jar
+END
+configxml.jar
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/configxml.jar
+END
+config.xml
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/config.xml
+END
+junit.jar
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/junit.jar
+END
+jdom.jar
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/jdom.jar
+END
+svnjavahl.jar
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/svnjavahl.jar
+END
+cos-license.html
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/cos-license.html
+END
+web.xml
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/web.xml
+END

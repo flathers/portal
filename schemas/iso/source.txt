@@ -1,0 +1,5 @@
+Contents of this directory come from
+
+http://standards.iso.org/iso/19115
+
+http://standards.iso.org/iso/19115/19115AllNamespaces.zip

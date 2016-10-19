@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/apache
+END
+servlet.jar
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/apache/servlet.jar
+END
+LICENSE
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/apache/LICENSE
+END
+xml-apis.jar
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/apache/xml-apis.jar
+END
+xmlParserAPIs.jar
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/apache/xmlParserAPIs.jar
+END
+xercesImpl.jar
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/apache/xercesImpl.jar
+END
+xalan.jar
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/lib/apache/xalan.jar
+END

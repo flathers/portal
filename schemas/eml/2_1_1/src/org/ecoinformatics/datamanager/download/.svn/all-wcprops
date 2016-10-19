@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/src/org/ecoinformatics/datamanager/download
+END
+DataStorageInterface.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/src/org/ecoinformatics/datamanager/download/DataStorageInterface.java
+END
+AuthenticatedEcogridEndPointInterface.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/src/org/ecoinformatics/datamanager/download/AuthenticatedEcogridEndPointInterface.java
+END
+GZipDataHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/src/org/ecoinformatics/datamanager/download/GZipDataHandler.java
+END
+DownloadHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/src/org/ecoinformatics/datamanager/download/DownloadHandler.java
+END
+DataSourceNotFoundException.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/src/org/ecoinformatics/datamanager/download/DataSourceNotFoundException.java
+END
+ZipDataHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/src/org/ecoinformatics/datamanager/download/ZipDataHandler.java
+END
+DataDownloadNotFinishedException.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/src/org/ecoinformatics/datamanager/download/DataDownloadNotFinishedException.java
+END
+CompressedDataHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/src/org/ecoinformatics/datamanager/download/CompressedDataHandler.java
+END
+DocumentHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/src/org/ecoinformatics/datamanager/download/DocumentHandler.java
+END
+ArchivedDataHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/src/org/ecoinformatics/datamanager/download/ArchivedDataHandler.java
+END
+ConfigurableEcogridEndPoint.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/src/org/ecoinformatics/datamanager/download/ConfigurableEcogridEndPoint.java
+END
+EcogridEndPointInterface.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/src/org/ecoinformatics/datamanager/download/EcogridEndPointInterface.java
+END
+TarDataHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/src/org/ecoinformatics/datamanager/download/TarDataHandler.java
+END

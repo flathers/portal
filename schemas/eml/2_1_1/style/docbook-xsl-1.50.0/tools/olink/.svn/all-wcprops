@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/tools/olink
+END
+olink.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/tools/olink/olink.xsl
+END
+ChangeLog
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/tools/olink/ChangeLog
+END
+olink-common.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/tools/olink/olink-common.xsl
+END
+olinkchunk.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/tools/olink/olinkchunk.xsl
+END
+olinksum.dtd
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/code/eml/!svn/ver/2219/tags/RELEASE_EML_2_1_1/style/docbook-xsl-1.50.0/tools/olink/olinksum.dtd
+END
