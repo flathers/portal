@@ -58,7 +58,7 @@
 
             <xsl:choose>
               <xsl:when
-                test="string-length(/gmi:MI_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:abstract/gco:CharacterString)>400">
+                test="string-length(/gmi:MI_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:abstract/gco:CharacterString) > 400">
                 <!-- if length is longer than 400 (or whatever)-->
                 <!-- Use spans to truncate the abstact and allow the remainder to be shown -->
                 <!-- NOTE: this functionality requires jquery, which is not included in this
@@ -92,7 +92,8 @@
               </xsl:otherwise>
             </xsl:choose>
 
-          </div> <!--/meta-abstract-->
+          </div>
+          <!--/meta-abstract-->
         </xsl:if>
 
         <!-- ONLINE RESOURCE(S). If element does not exist or contains no data, no text appears below.  -->
@@ -113,20 +114,40 @@
                     test="gmd:CI_OnlineResource/gmd:function/gmd:CI_OnLineFunctionCode = 'download'">
                     <div class="meta-resource">
                       <dd>
+                        <a href="{normalize-space(gmd:CI_OnlineResource/gmd:linkage/gmd:URL)}"
+                          target="_blank">
+                          <xsl:choose>
+                            <xsl:when test="gmd:CI_OnlineResource/gmd:name != ''">
+                              <xsl:value-of select="gmd:CI_OnlineResource/gmd:name"
+                                disable-output-escaping="yes"/>
+                            </xsl:when>
+                            <xsl:otherwise>
+                              <xsl:value-of select="gmd:CI_OnlineResource/gmd:linkage/gmd:URL"
+                                disable-output-escaping="yes"/>
+                            </xsl:otherwise>
+                          </xsl:choose>
+                        </a>
+                      </dd>
+                    </div>
+                  </xsl:when>
+                  <xsl:when
+                    test="gmd:MD_DigitalTransferOptions/gmd:onLine/gmd:CI_OnlineResource/gmd:function/gmd:CI_OnLineFunctionCode = 'download'">
+                    <div class="meta-resource">
+                      <dd>
                         <a
-                          href="{normalize-space(gmd:CI_OnlineResource/gmd:linkage/gmd:URL)}"
+                          href="{normalize-space(gmd:MD_DigitalTransferOptions/gmd:onLine/gmd:CI_OnlineResource/gmd:linkage/gmd:URL)}"
                           target="_blank">
                           <xsl:choose>
                             <xsl:when
-                              test="gmd:CI_OnlineResource/gmd:name != ''">
+                              test="gmd:MD_DigitalTransferOptions/gmd:onLine/gmd:CI_OnlineResource/gmd:name != ''">
                               <xsl:value-of
-                                select="gmd:CI_OnlineResource/gmd:name" disable-output-escaping="yes"
-                              />
+                                select="gmd:MD_DigitalTransferOptions/gmd:onLine/gmd:CI_OnlineResource/gmd:name"
+                                disable-output-escaping="yes"/>
                             </xsl:when>
                             <xsl:otherwise>
                               <xsl:value-of
-                                select="gmd:CI_OnlineResource/gmd:linkage/gmd:URL" disable-output-escaping="yes"
-                              />
+                                select="gmd:MD_DigitalTransferOptions/gmd:onLine/gmd:CI_OnlineResource/gmd:linkage/gmd:URL"
+                                disable-output-escaping="yes"/>
                             </xsl:otherwise>
                           </xsl:choose>
                         </a>
@@ -146,13 +167,13 @@
                         <xsl:when
                           test="gmd:MD_DigitalTransferOptions/gmd:onLine/gmd:CI_OnlineResource/gmd:name != ''">
                           <xsl:value-of
-                            select="gmd:MD_DigitalTransferOptions/gmd:onLine/gmd:CI_OnlineResource/gmd:name" disable-output-escaping="yes"
-                          />
+                            select="gmd:MD_DigitalTransferOptions/gmd:onLine/gmd:CI_OnlineResource/gmd:name"
+                            disable-output-escaping="yes"/>
                         </xsl:when>
                         <xsl:otherwise>
                           <xsl:value-of
-                            select="gmd:MD_DigitalTransferOptions/gmd:onLine/gmd:CI_OnlineResource/gmd:linkage/gmd:URL" disable-output-escaping="yes"
-                          />
+                            select="gmd:MD_DigitalTransferOptions/gmd:onLine/gmd:CI_OnlineResource/gmd:linkage/gmd:URL"
+                            disable-output-escaping="yes"/>
                         </xsl:otherwise>
                       </xsl:choose>
                     </a>
@@ -165,12 +186,17 @@
 
         <!-- FULL METADATA LINK -->
         <!-- The %META-LINK-HREF% is replaced after the transform by the calling code, which knows the URL to the transformed file -->
-        <a class="meta-link" href="%META-LINK-HREF%" target="_blank">View Full Metadata Record</a>
-        &#160;&#160;&#160;&#160;
-        <input style="visibility:hidden;" onclick="toggleBox(%i%);" type="checkbox" value="" /> Show data extent on map above
+        <div class="view-md-record">
+          <a class="meta-link" href="%META-LINK-HREF%" target="_blank">View Full Metadata Record</a>
+          &#160;&#160;&#160;&#160; <span class="show-on-map">
+            <input style="visibility:hidden;" onclick="toggleBox(%i%);" type="checkbox" value=""/>
+            Show data extent on map above </span>
+        </div>
 
-      </div> <!--/meta-record-->
-    </div> <!--/content-->
+      </div>
+      <!--/meta-record-->
+    </div>
+    <!--/content-->
 
 
   </xsl:template>
@@ -178,12 +204,12 @@
   <xsl:template name="trim-last-word">
     <xsl:param name="in"/>
     <xsl:choose>
-      <xsl:when test="substring($in, string-length($in), 1)=' '">
+      <xsl:when test="substring($in, string-length($in), 1) = ' '">
         <xsl:value-of select="$in"/>
       </xsl:when>
       <xsl:otherwise>
         <xsl:call-template name="trim-last-word">
-          <xsl:with-param name="in" select="substring($in, 1, string-length($in)-1)"/>
+          <xsl:with-param name="in" select="substring($in, 1, string-length($in) - 1)"/>
         </xsl:call-template>
       </xsl:otherwise>
     </xsl:choose>
