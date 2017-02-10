@@ -59,7 +59,7 @@ $d = dir( $target );
 $files = array();
 $rdi = new RecursiveDirectoryIterator($path);
 foreach(new RecursiveIteratorIterator($rdi) as $file) {
-	if(substr($file, -2) != '..' && substr($file, -2) != '/.') {
+	if( substr($file, -2) != '..' && substr($file, -2) != '/.' && !strpos($file, '/.svn/') ) {
 		$fileName = str_replace($basePath, '', $file);
 		$files[] = $fileName;
 	}
