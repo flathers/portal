@@ -19,11 +19,14 @@
                     xmlns:dc="http://purl.org/dc/elements/1.1/"
                     xmlns:dcmiBox="http://dublincore.org/documents/2000/07/11/dcmi-box/"
                     xmlns:dct="http://purl.org/dc/terms/" xmlns:ows="http://www.opengis.net/ows">
-                    <rdf:Description rdf:about="{oai:metadata/oai_dc:dc/dc:identifier}">
+                    <rdf:Description rdf:about="{oai:header/oai:identifier}">
                         <dc:identifier><xsl:value-of select="oai:header/oai:identifier"/></dc:identifier>
                         <dc:title><xsl:value-of select="oai:metadata/oai_dc:dc/dc:title"/></dc:title>
                         <dc:description><xsl:value-of select="oai:metadata/oai_dc:dc/dc:description"/></dc:description>
-                        <dct:references><xsl:value-of select="oai:metadata/oai_dc:dc/dc:identifier"/></dct:references>
+                        <xsl:for-each select="oai:metadata/oai_dc:dc/dc:identifier[not(. = 'Not at this time.')]">
+                            <dct:references><xsl:value-of select="."/></dct:references>
+                        </xsl:for-each>
+                        <dct:references>http://scholarworks.boisestate.edu/miles_data/</dct:references>
                         <dc:type>Dataset</dc:type>
                         <dc:creator>BSU MILES</dc:creator>
                         <dc:date><xsl:value-of select="oai:metadata/oai_dc:dc/dc:date.dateSubmitted"/></dc:date>
