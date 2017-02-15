@@ -1,0 +1,3 @@
+[submodule "pycsw"]
+	path = pycsw
+	url = git://github.com/geopython/pycsw.git
