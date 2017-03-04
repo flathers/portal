@@ -1,5 +1,11 @@
 # Ignore configuration files that may contain sensitive information.
 sites/*/*settings*.php
+getUsername/getUsername.conf
+getUsername/getUsername.wsgi
+
+# Ignore subdirectories that aren't under version control
+mdedit/
+simpleUpload/uploads
 
 # Ignore paths that contain generated content.
 files/
