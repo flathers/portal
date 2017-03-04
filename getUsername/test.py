@@ -26,18 +26,13 @@
 # a simple query, returning a JSON envelope containing the original session id,
 # configuration keyword, request id, and either a username or an error code.
 
-from flask import Flask, jsonify, request
 import ConfigParser
 import MySQLdb
 import os
+import sys
 import warnings
 
-app = Flask(__name__)
-#app.config['DEBUG'] = True
-
-
-@app.route('/', methods = ['POST'])
-def application():
+def test():
     #Config file is 'getUsername.conf' located in the current directory
     config_file = os.path.dirname(__file__) + '/getUsername.conf'
 
@@ -48,28 +43,18 @@ def application():
     db_con = None
 
     #Initialize the output data structure
-    output = {
-      'session_id': '',
-      'config_kw':  '',
-      'request_id': '',
-      'username':   '',
-      'version':    '',
-      'error_id':   ''
-    }
+    #exit 0 - "OK", Nagios Server would highlight the check with Green
+    #exit 1 - "WARNING", Nagios Server would highlight the check with Yellow
+    #exit 2 - "CRITICAL", Nagios Server would highlight the check with Red
+    #exit 3 - "UNKNOWN", Nagios Server would highlight the check with Grey
+    output = 3
 
     try:
-        #Get the POST variables and store them for output
-        output['session_id'] = request.form['session_id']
-        output['config_kw'] = request.form['config_kw']
-        if 'request_id' in request.form:
-            output['request_id'] = request.form['request_id']
-
         #Open the config file and get the SQL connection parameters
         #Grab the version parameter before removing it from the rest
         config = get_config(config_file)
-        conn_param = dict(config.items(output['config_kw']))
+        conn_param = dict(config.items('nknportal'))
         version = conn_param['version'];
-        output['version'] = version;
         del conn_param['version'];
 
         #Define the SQL query, connect to the DB, and execute
@@ -77,32 +62,47 @@ def application():
         #so we choose a query based upon the 'version' parameter from config
         query = "";
         if version == '8':
+            query = ("SELECT sid, name FROM users_field_data INNER JOIN sessions ON users_field_data.uid=sessions.uid LIMIT 1;")
+        else:
+            query = ("SELECT sid, name FROM users INNER JOIN sessions ON users.uid=sessions.uid LIMIT 1")
+        db_con = MySQLdb.connect(**conn_param)
+        cur = db_con.cursor()
+        cur.execute(query)
+
+        #If we got no rows back, then nobody is logged in, and we
+        #can't test getUsername.
+        rows = cur.fetchall()
+        if not rows:
+            output = 1
+            cur.close()
+            sys.exit(output)
+        session_id = rows[0][0]
+        cur.close()
+
+
+        query = "";
+        if version == '8':
             query = ("SELECT name FROM users_field_data INNER JOIN sessions ON users_field_data.uid=sessions.uid WHERE sessions.sid=%s;")
         else:
-            query = ("SELECT name FROM users INNER JOIN sessions ON users.uid=sessions.uid WHERE sessions.sid=%s;")        db_con = MySQLdb.connect(**conn_param)
+            query = ("SELECT name FROM users INNER JOIN sessions ON users.uid=sessions.uid WHERE sessions.sid=%s;")
         cur = db_con.cursor()
-        cur.execute(query, [output['session_id']])
+        cur.execute(query, [session_id])
 
         #If we got no rows back, then the session_id must not be valid,
         #otherwise the username should be the only thing returned
         rows = cur.fetchall()
         if not rows:
-            output['error'] = 'invalid_session'
+            output = 2
         else:
-            output['username'] = rows[0][0]
+            output = 0
         cur.close()
 
-    except KeyError:
-        output['error_id'] = 'post_variable_missing'
-    except MySQLdb.Error:
-        output['error'] = 'database_error'
     except Exception as e:
-        output['error'] = 'other_error' #e.message
+        output = 2
     finally:
         if db_con:
             db_con.close()
-        return jsonify(output)
-
+        sys.exit(output)
 
 
 # The function for reading the config file
@@ -118,6 +118,5 @@ def get_config(config_file):
     return config
 
 
-
-if __name__ == '__main__':
-    app.run()
+if __name__== "__main__":
+    test()
