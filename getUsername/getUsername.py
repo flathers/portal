@@ -79,7 +79,8 @@ def application():
         if version == '8':
             query = ("SELECT name FROM users_field_data INNER JOIN sessions ON users_field_data.uid=sessions.uid WHERE sessions.sid=%s;")
         else:
-            query = ("SELECT name FROM users INNER JOIN sessions ON users.uid=sessions.uid WHERE sessions.sid=%s;")        db_con = MySQLdb.connect(**conn_param)
+            query = ("SELECT name FROM users INNER JOIN sessions ON users.uid=sessions.uid WHERE sessions.sid=%s;")
+        db_con = MySQLdb.connect(**conn_param)
         cur = db_con.cursor()
         cur.execute(query, [output['session_id']])
 
