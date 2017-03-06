@@ -27,14 +27,20 @@
 # configuration keyword, request id, and either a username or an error code.
 
 import ConfigParser
+import json
 import MySQLdb
 import os
+import requests
 import sys
 import warnings
 
 def test():
     #Config file is 'getUsername.conf' located in the current directory
     config_file = os.path.dirname(__file__) + '/getUsername.conf'
+
+    #Default to using the main NKN portal configuration and URL
+    config_kw = 'nknportal'
+    url = 'https://nknportal-prod.nkn.uidaho.edu/getUsername/'
 
     #Make SQL warnings into exceptions so we can catch them
     warnings.filterwarnings('error', category=MySQLdb.Warning)
@@ -53,10 +59,11 @@ def test():
         #Open the config file and get the SQL connection parameters
         #Grab the version parameter before removing it from the rest
         config = get_config(config_file)
-        conn_param = dict(config.items('nknportal'))
+        conn_param = dict(config.items(config_kw))
         version = conn_param['version'];
         del conn_param['version'];
 
+        #Get a valid session ID for testing:
         #Define the SQL query, connect to the DB, and execute
         #Note that Drupal 7 and 8 have different database structures,
         #so we choose a query based upon the 'version' parameter from config
@@ -79,19 +86,12 @@ def test():
         session_id = rows[0][0]
         cur.close()
 
+        #Submit the session ID to the getUsername service via POST
+        r = requests.post(url, data={'session_id': session_id, 'config_kw': config_kw})
+        json_data = json.loads(r.text)
 
-        query = "";
-        if version == '8':
-            query = ("SELECT name FROM users_field_data INNER JOIN sessions ON users_field_data.uid=sessions.uid WHERE sessions.sid=%s;")
-        else:
-            query = ("SELECT name FROM users INNER JOIN sessions ON users.uid=sessions.uid WHERE sessions.sid=%s;")
-        cur = db_con.cursor()
-        cur.execute(query, [session_id])
-
-        #If we got no rows back, then the session_id must not be valid,
-        #otherwise the username should be the only thing returned
-        rows = cur.fetchall()
-        if not rows:
+        #If no username came back, fail.  Otherwise, success.
+        if json_data['username'] == '':
             output = 2
         else:
             output = 0
