@@ -1,7 +1,7 @@
 <?php
 
-//set the target path to the base upload folder in the pre-prod datastore
-$target_path = "/preprod-datastore/uploads/";
+//set the base path to the base upload folder in the pre-prod datastore
+$base_path = "/preprod-datastore/uploads/";
 
 //configuration for the getUsername service
 $getUsernameURL = "https://nknportal-prod.nkn.uidaho.edu/getUsername/";
@@ -11,27 +11,23 @@ $config_kw = "nknportal";
 //sanitize the session ID and check it against the getUsername service
 //if session_id or username comes back NULL, then quit
 $session_id = filter_var($_POST["session_id"], FILTER_CALLBACK, array('options' => 'validate_id'));
-if (!isset($session_id))
-  exit(1);
-$username = get_username($session_id, $getUsernameURL, $config_kw);
-if (!isset($username))
-  exit(1);
+if (!isset($session_id)) {
+  http_response_code(403);
+  exit;
+}
 
+$username = get_username($session_id, $getUsernameURL, $config_kw);
+if (!isset($username)) {
+  http_response_code(403);
+  exit;
+}
 
 //sanitize the uuid--if it comes back NULL, then quit
 $uuid = filter_var($_POST["uuid"], FILTER_CALLBACK, array('options' => 'validate_id'));
-if (!isset($uuid))
-  exit(1);
-
-
-//create target subdirectory
-$target_path = $target_path . $uuid . "/";
-if (!file_exists($target_path)) {
-  mkdir($target_path, 0777, true);
+if (!isset($uuid)) {
+  http_response_code(403);
+  exit;
 }
-
-$target_path = $target_path . basename( $_FILES['uploadedfile']['name']);
-
 
 /**
 * validate/sanitize the uuid or session_id:
@@ -57,7 +53,7 @@ function validate_id($value) {
 * return string $username for the session
 * @param string $value
 */
-function getUsername($session_id, $url, $config_kw) {
+function get_username($session_id, $url, $config_kw) {
   $data = array('session_id' => $session_id, 'config_kw' => $config_kw);
 
   // use key 'http' even if you send the request to https://...
@@ -79,46 +75,30 @@ function getUsername($session_id, $url, $config_kw) {
 }
 
 
-
-//echo "Source=" .        $_FILES['uploadedfile']['name'] . "<br />";
-//echo "Destination=" .   $destination_path . "<br />";
-//echo "Target path=" .   $target_path . "<br />";
-//echo "Size=" .          $_FILES['uploadedfile']['size'] . "<br />";
-
-if(move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $target_path)) {
-
-	$resp_array = array(
-		'message'     => "The file ".  basename( $_FILES['uploadedfile']['name'])." has been uploaded",
-		'source'      => $_FILES['uploadedfile']['name'],
-		'target_path' => $target_path,
-		'url' => 'https://nknportal-dev.nkn.uidaho.edu/portal/simpleUpload/' . $target_path,
-		'size'        => $_FILES['uploadedfile']['size']
-	);
-
-	if (isset($_SERVER['HTTP_ORIGIN'])) {
-		header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
-		header('Access-Control-Allow-Credentials: true');
-		header('Access-Control-Max-Age: 86400');    // cache for 1 day
-	}
-	if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
-
-		if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD']))
-		    header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
-
-		if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']))
-		    header("Access-Control-Allow-Headers: {$_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']}");
-
-		exit(0);
-	}
-
-	header("Access-Control-Allow-Methods: POST, OPTIONS");
-	//header("Access-Control-Allow-Headers: X-Requested-With");
-	header("Access-Control-Allow-Origin: *");
-	//header('Content-Type: application/json');
-
-	echo json_encode($resp_array, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
-
-} else{
-	echo "There was an error uploading the file, please try again!";
+//create target subdirectory
+$target_path = $base_path . $uuid . "/";
+if (!file_exists($target_path)) {
+  mkdir($target_path, 0777, true);
 }
+
+//Get the file, place it in the target path, and return
+$file_path = $target_path . basename($_FILES['uploadedfile']['name']);
+if(move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $file_path)) {
+
+  $resp_array = array(
+    'message'     => "The file ".  basename( $_FILES['uploadedfile']['name'])." has been uploaded",
+    'source'      => $_FILES['uploadedfile']['name'],
+    'file_path' => $file_path,
+    'url' => 'https://nknportal-dev.nkn.uidaho.edu/portal/simpleUpload/' . $file_path,
+    'size'        => $_FILES['uploadedfile']['size']
+  );
+
+  echo json_encode($resp_array, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+  Proc_Close (Proc_Open ("/usr/bin/python ./postUploadAsync.py ".$target_path." &", Array (), $foo));
+}
+else {
+  http_response_code(500);
+  exit;
+}
+
 ?>
