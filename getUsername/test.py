@@ -36,7 +36,7 @@ import warnings
 
 def test():
     #Config file is 'getUsername.conf' located in the current directory
-    config_file = os.path.dirname(__file__) + '/getUsername.conf'
+    config_file = os.path.dirname(os.path.realpath(__file__)) + '/getUsername.conf'
 
     #Default to using the main NKN portal configuration and URL
     config_kw = 'nknportal'
@@ -54,6 +54,7 @@ def test():
     #exit 2 - "CRITICAL", Nagios Server would highlight the check with Red
     #exit 3 - "UNKNOWN", Nagios Server would highlight the check with Grey
     output = 3
+    msg = 'Something is not right...'
 
     try:
         #Open the config file and get the SQL connection parameters
@@ -69,9 +70,9 @@ def test():
         #so we choose a query based upon the 'version' parameter from config
         query = "";
         if version == '8':
-            query = ("SELECT sid, name FROM users_field_data INNER JOIN sessions ON users_field_data.uid=sessions.uid LIMIT 1;")
+            query = ("SELECT sid, name FROM users_field_data INNER JOIN sessions ON users_field_data.uid=sessions.uid WHERE name != '' LIMIT 1;")
         else:
-            query = ("SELECT sid, name FROM users INNER JOIN sessions ON users.uid=sessions.uid LIMIT 1")
+            query = ("SELECT sid, name FROM users INNER JOIN sessions ON users.uid=sessions.uid WHERE name != '' LIMIT 1;")
         db_con = MySQLdb.connect(**conn_param)
         cur = db_con.cursor()
         cur.execute(query)
@@ -81,6 +82,7 @@ def test():
         rows = cur.fetchall()
         if not rows:
             output = 1
+            msg = 'No users are logged in'
             cur.close()
             sys.exit(output)
         session_id = rows[0][0]
@@ -93,15 +95,19 @@ def test():
         #If no username came back, fail.  Otherwise, success.
         if json_data['username'] == '':
             output = 2
+            msg = 'getUsername Failed: ' + json_data['error']
         else:
             output = 0
+            msg = 'Looks good from here'
         cur.close()
 
     except Exception as e:
         output = 2
+        msg = 'Unable to test username: ' + e.message
     finally:
         if db_con:
             db_con.close()
+        print msg
         sys.exit(output)
 
 

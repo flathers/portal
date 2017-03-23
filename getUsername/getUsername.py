@@ -28,6 +28,7 @@
 
 from flask import Flask, jsonify, request
 import ConfigParser
+import ldap
 import MySQLdb
 import os
 import warnings
@@ -53,6 +54,7 @@ def application():
       'config_kw':  '',
       'request_id': '',
       'username':   '',
+      'groups':     [],
       'version':    '',
       'error_id':   ''
     }
@@ -93,15 +95,28 @@ def application():
             output['username'] = rows[0][0]
         cur.close()
 
+        #Connect to LDAP and get the group membership for the user
+        l = ldap.initialize('ldap://ldap.rocket.net:389')
+        search_root = "ou=groups,dc=nkn,dc=uidaho,dc=edu"
+        search_string = "member=uid=" + output['username'] + ",ou=people,dc=nkn,dc=uidaho,dc=edu"
+        search = l.search(search_root, ldap.SCOPE_SUBTREE, search_string, ["dn"])
+        result = l.result(1)
+        for i in range(0, len(result[1])):
+            output['groups'].append(result[1][i][0])
+
     except KeyError:
         output['error_id'] = 'post_variable_missing'
     except MySQLdb.Error:
         output['error'] = 'database_error'
+    except ldap.LDAPError:
+        output['error'] = 'ldap_error'
     except Exception as e:
         output['error'] = 'other_error' #e.message
     finally:
         if db_con:
             db_con.close()
+        if l:
+            l.unbind_s()
         return jsonify(output)
 
 
