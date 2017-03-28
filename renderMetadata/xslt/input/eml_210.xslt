@@ -35,7 +35,7 @@
       <!-- TITLE. If the metadata doesn't have an title element or if it contains no data, no text appears below. -->
       <xsl:if test="/eml:eml/dataset/title != ''">
         <h2 class="meta-title">
-          <xsl:value-of select="/eml:eml/dataset/title" disable-output-escaping="yes"/>
+          <xsl:value-of select="/eml:eml/dataset/title"/>
         </h2>
       </xsl:if>
 
@@ -55,7 +55,7 @@
                   that this XSLT creates -->
                 <div>
                   <span style="display:none">
-                    <xsl:value-of select="/eml:eml/dataset/abstract" disable-output-escaping="yes"/>
+                    <xsl:value-of select="/eml:eml/dataset/abstract"/>
                     <a href="#"
                       onclick="jQuery(this).parent().parent().children().toggle(); return false">
                       [Less]</a>
@@ -72,7 +72,7 @@
                 </div>
               </xsl:when>
               <xsl:otherwise>
-                <xsl:value-of select="/eml:eml/dataset/abstract" disable-output-escaping="yes"/>
+                <xsl:value-of select="/eml:eml/dataset/abstract"/>
               </xsl:otherwise>
             </xsl:choose>
 
@@ -92,10 +92,10 @@
                     <a href="{normalize-space(url)}" target="_blank">
                       <xsl:choose>
                         <xsl:when test="onlineDescription != ''">
-                          <xsl:value-of select="onlineDescription" disable-output-escaping="yes"/>
+                          <xsl:value-of select="onlineDescription"/>
                         </xsl:when>
                         <xsl:otherwise>
-                          <xsl:value-of select="url" disable-output-escaping="yes"/>
+                          <xsl:value-of select="url"/>
                         </xsl:otherwise>
                       </xsl:choose>
                     </a>

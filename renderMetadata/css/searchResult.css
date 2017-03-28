@@ -1,0 +1,190 @@
+/* Styling of Search Results */
+
+.linksLabel { 
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold; 
+  font-size: 13px;
+  padding-right: 5px; 
+  padding-bottom: 5px;
+}
+
+.record {
+    overflow: hidden;
+    height: auto;
+/*    padding: 12px 15px;
+    border: 1px solid #ccc;
+    box-shadow: 0 7px 5px -5px #b8b8b8;
+    background-color: #F7F6F4; */
+    margin-bottom: 7px;
+}
+
+.record a { color: #08c !important; }
+
+.recordTitle {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; 
+  font-weight:500; 
+  font-size:1.0em; 
+  line-height:1.1; 
+  background:#f5f5f5; 
+  padding:0.5em; 
+  margin:0; 
+  border: 1px solid #d3d3d3; 
+  color:#555; 
+  background: #e8e8e8; 
+  background: linear-gradient(to bottom, #f5f5f5 0%, #e8e8e8 100%);
+/*  display: block; 
+  font-family: Tahoma, Geneva, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 6px 0 10px 0; */
+}
+
+.recordTitle:hover { 
+  border: 1px solid #aaa; 
+  color:#222; 
+}
+
+.recordTitle.search {
+  display: inline-block;
+  width: calc(100% - 140px);
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 6px 20px 10px 0;
+}
+
+.recordDetails {
+  background:#f8f8f8; 
+  background: linear-gradient(to bottom, #f8f8f8 0%, #fff 100%); 
+  padding:15px 20px 20px 20px; 
+  font-size:95%; 
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; 
+  border-left: 1px solid #ccc; 
+  border-right: 1px solid #ccc; 
+  border-bottom: 1px solid #ccc;
+}
+
+.abstract, 
+.descript,
+.purpose, 
+.creator,
+.date,
+.publisher, 
+.resDesc, 
+.geoForm, 
+.formName, 
+.dataCred, 
+.supInfo, 
+.constraints, 
+.liabilities,
+.geoBounds, 
+.geoBoundsW, 
+.geoBoundsE, 
+.geoBoundsN, 
+.geoBoundsS, 
+.temporal,
+.contact {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 1.4;
+  display: block;
+  margin: 6px 0 10px 20px;
+}
+.geoBounds { margin-bottom: 0; }
+.geoBoundsS { margin-top: 0; }
+.geoBoundsW, .geoBoundsE, .geoBoundsN { margin-top:0; margin-bottom:0; }
+
+.abstract::before, 
+.descript::before,
+.purpose::before, 
+.creator::before,
+.date::before,
+.publisher::before, 
+.resDesc::before, 
+.geoForm::before, 
+.formName::before, 
+.dataCred::before, 
+.supInfo::before, 
+.constraints::before, 
+.liabilities::before, 
+.geoBounds::before,
+.temporal::before,
+.contact::before { display:block; margin-left: -20px; font-weight: bold; }
+
+.geoBoundsW::before,
+.geoBoundsE::before,
+.geoBoundsN::before,
+.geoBoundsS::before { display: inline-block; padding-right:8px; }
+
+.abstract::before { content: "Abstract: "; }
+.descript:before { content: "Description: "; }
+.purpose::before { content: "Purpose: "; }
+.creator::before { content: "Creator/Originator: "; }
+.date::before { content: "Publish Date: "; }
+.publisher::before { content: "Publisher: "; }
+.resDesc::before { content: "Resource Description: "; }
+.geoForm::before { content: "Resource Format: "; }
+.formName::before { content: "Format Name: "; }
+.supInfo::before { content: "Supplemental Info: "; }
+.dataCred::before { content: "Dataset Credit: "; }
+.constraints::before { content: "Access/Use Contraints: "; }
+.liabilities::before { content: "Liabilities: "; }
+.geoBounds::before { content: "Spatial Bounds: "; }
+.geoBoundsW::before { content: "West: "; }
+.geoBoundsE::before { content: "East: "; }
+.geoBoundsN::before { content: "North: "; }
+.geoBoundsS::before { content: "South: "; }
+.temporal::before { content: "Temporal Bounds: "; }
+.contact::before { content: "Point of Contact: "; }
+
+.xmlUrl {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  color: #999;
+  display: none /*block*/;
+  margin: 6px 0 10px 0;
+}
+
+.summaryLink {
+  display: inline-block; 
+  display: block; 
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+ /* border: 1px solid #46b8da;
+  border-radius: 3px;
+  background-color: #5bc0de; */
+/*  padding: 3px 5px; */ 
+  margin: 0 6px 5px 20px; 
+}
+
+.summaryLink a { text-decoration: none; } 
+.summaryLink a:hover { text-decoration: underline; } 
+
+.summaryLink.search {
+  display: inline-block;
+  vertical-align: middle;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  border: 1px solid #46b8da;
+  border-radius: 3px;
+  background-color: #5bc0de;
+  padding: 3px 5px;
+  margin: 0 6px 6px 0;
+}
+.summaryLink.search a {
+  color: #fff; 
+  text-decoration: none;
+}
+
+.metaXML_link {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  margin-top:20px;
+  padding-top:20px;
+  border-top:1px solid #ddd;
+ /* width:150px;*/
+}
+.metaXML_link a { text-decoration: none; }
+.metaXML_link a:hover { text-decoration: underline; }
+

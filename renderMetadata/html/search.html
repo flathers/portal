@@ -1,0 +1,179 @@
+<html>
+<head>
+	<title>render example</title>
+  <link rel="stylesheet" type="text/css" href="../css/searchResult.css" />
+  <script src="/portal/jquery/jquery-3.1.1.min.js"></script>
+	<script src="/portal/jquery-ui-1.12.1/jquery-ui.js"></script>
+
+<style type="text/css">.search-leftside { float:left; margin:0 10px; max-width:400px; width:100%; }
+	.nkn-search-box { padding:10px; width:100%; background:#eee; border:1px solid #ccc; }
+	@media (min-width:1200px) {
+		.map-area { float:left; max-width:650px; width:100%; padding:0 10px 0 60px; margin-top:-50px; }
+	}
+	@media (min-width: 990px) and (max-width:1199px) {
+		.map-area { float:left; max-width:510px; width:100%; padding:0 10px 0 20px; margin-top:-50px; }
+	}
+	@media (min-width: 768px) and (max-width:991px) {
+		.map-area { float:left; max-width:300px; width:100%; padding:0 10px 0 10px; margin-top:-50px; }
+	}
+	@media (min-width: 550px) and (max-width:767px) {
+		.search-leftside { float:left; margin:0; width:49%; }
+		.map-area { float:left; width:50%; padding:0 0 0 10px; margin-top:-50px; }
+	}
+	@media (max-width: 549px) {
+		.search-leftside { clear:left; margin:0; max-width:400px; width:100%; }
+		.map-area, .help-txt, .show-hide-ckbox { display:none; }
+	}
+
+	#results { padding-bottom:20px; border-bottom: 1px #ccc dotted; max-width:725px; width:100%; height:auto; }
+	.meta-record.ui-widget-content { background:#f8f8f8; background: linear-gradient(to bottom, #f8f8f8 0%, #fff 100%); padding:15px 20px 20px 20px; font-size:95%; font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; border-left: 1px solid #ccc; border-right: 1px solid #ccc; border-bottom: 1px solid #ccc; }
+	h2.meta-title { font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; font-weight:500; font-size:1.0em; line-height:1.1; background:#f5f5f5; padding:0.5em; margin:0; border: 1px solid #d3d3d3; color:#555; background: #e8e8e8; background: linear-gradient(to bottom, #f5f5f5 0%, #e8e8e8 100%); }
+	h2.meta-title:hover { border: 1px solid #aaa; color:#222; }
+	h2.ui-accordion-header-active { color:#222; background: #ddd; }
+	.meta-abstract-heading { font-weight: bold; }
+	a.meta-link { font-weight:bold; }
+	.meta-container { margin-bottom:5px; }
+	.meta-container a { color: #08c !important; }
+	.ui-state-default .ui-icon { background-image: url(/core/assets/vendor/jquery.ui/themes/base/images/ui-icons_888888_256x240.png); }
+	.ui-icon { display: inline-block !important; width: 16px; height: 16px; text-indent: -99999px; overflow: hidden; background-repeat: no-repeat; }
+	.ui-icon-triangle-1-e { background-position: -32px -16px; }
+	.ui-icon-triangle-1-s { background-position: -64px -16px; }
+</style>
+</head>
+<body>
+
+<div class="search-leftside">
+	<p class="help-txt" style="margin-bottom:30px;">Enter keyword(s) below and/or draw a search box on the map.</p>
+
+	<div class="nkn-search-box alert">
+		<h3 style="margin-top:0;">Keyword Search:</h3>
+
+		<p><input id="searchText" name="keyword-search" size="32" style="height:35px; padding-left:10px;" type="text" value="" />&nbsp; <input class="btn btn-gold btn-sm" id="search" type="submit" value=" Go! " />&nbsp;<a class="btn btn-default btn-sm" href="data-search">Reset</a><input id="firstRecordNum" type="hidden" value="1" /><input id="recordsPerPage" type="hidden" value="10" /></p>
+	</div>
+
+	<p class="fs90">Use of data provided on this website constitutes acceptance of our <a alt="Terms of Service" href="/services/terms_of_service"><strong>TERMS OF SERVICE</strong></a></p>
+</div>
+
+<div id="query" style="clear:left;">&nbsp;</div>
+
+<p><strong><a hidden="true" id="previous">‹ Previous</a> &nbsp;&nbsp; <a hidden="true" id="next">Next ›</a></strong></p>
+<script type="text/javascript">
+	(function ($) {
+		//When the search is finished, render the results
+		$(document).ajaxStop(function(){
+			recordsPerPage = parseInt($("#recordsPerPage").val());
+
+			for (i = 0; i < recordsPerPage; i++){
+				$("#results").append(results[i]);
+			}
+			$("#results").accordion({
+				active: false,
+				heightStyle: "content",
+				header: "h2",
+				collapsible: true,
+			});
+		});
+		/*   // Leave for debug purposes, please
+		$(document).ajaxComplete( function( event, XMLHttpRequest, ajaxOptions ){
+		//    console.log( "ajaxComplete.event", event );
+		//    console.log( "ajaxComplete.XMLHttpRequest", XMLHttpRequest );
+		//    console.log( "ajaxComplete.ajaxOptions", ajaxOptions );
+	});
+	*/
+	//When search button is clicked, perform the search
+	$("#search").click(function(){
+		//            $("#search").attr('disabled', true);
+		if( $("#results").accordion("instance") ){ $("#results").accordion("destroy"); }
+		$("#results").html("");
+		recordsPerPage = parseInt($("#recordsPerPage").val());
+		firstRecordNum = parseInt($("#firstRecordNum").val());
+		lastRecordNum = firstRecordNum - 1;
+		totalRecords = 0;
+		results = new Array();
+
+		//Check to see whether this is the first page; if so, disable the 'Previous' button
+		if(firstRecordNum <= 1) {
+			$("#firstRecordNum").val("1");
+			firstRecordNum = 1;
+			$("#previous").attr('hidden', true);
+		}
+		else {
+			$("#previous").attr('hidden', false);
+		}
+
+		$.getJSON("https://nknportal.nkn.uidaho.edu/geoportal/rest/find/document",
+		{
+			f: "json",
+			jsoncallback: "data",
+			max: recordsPerPage,
+			searchText: $("#searchText").val(),
+			start: firstRecordNum,
+			orderby: "title"
+		},            function(data) {
+			$.each(data.records, function(i,item){
+				lastRecordNum++;
+				console.log(item.bbox);
+				$.each(item.links, function(j,link){
+					if (link.type == "metadata") {
+						$.get('../php/render.php?xml='+link.href+'&iter='+i, function(data){
+							//store the results in an array for later display
+							data = data.replace('View Full Metadata Record', '<img src=\"/sites/default/files/xml-icon2.png\" /> View Full Metadata Record');
+							data = data.replace('%META-LINK-HREF%', link.href);
+							data = data.replace('%i%', i);
+							results[i] = data;
+						});
+					}
+				});
+			});
+
+			//Show the number of results returned
+			totalRecords = parseInt(data.totalResults);
+			if (firstRecordNum > lastRecordNum) firstRecordNum = lastRecordNum;
+			$("#query").html("<h3>Results:<\/h3><div style='border-bottom:1px solid #777;'>Showing records <strong>" + firstRecordNum + "&ndash;" + lastRecordNum + "</strong> of <strong>" + totalRecords + "</strong> record(s) found</div>");
+
+				//Check to see whether this is the last page; if so, disable the 'Next' button
+				if (lastRecordNum >= totalRecords) {
+					lastRecordNum = totalRecords;
+					$("#next").attr('hidden', true);
+				}
+				else {
+					$("#next").attr('hidden', false);
+				}
+			});
+		});
+
+		//Get the next result set
+		$("#next").click(function(){
+			recordsPerPage = parseInt($("#recordsPerPage").val());
+			firstRecordNum = parseInt($("#firstRecordNum").val());
+			firstRecordNum += recordsPerPage;
+			$("#firstRecordNum").val(firstRecordNum);
+			$("#search").click();
+		});
+
+		//Get the previous result set
+		$("#previous").click(function(){
+			recordsPerPage = parseInt($("#recordsPerPage").val());
+			firstRecordNum = parseInt($("#firstRecordNum").val());
+			firstRecordNum -= recordsPerPage;
+			$("#firstRecordNum").val(firstRecordNum);
+			$("#search").click();
+		});
+
+		//If the search text changes, reset the first record number to 1
+		//Also, detect 'enter' key press in the search field
+		$("#searchText").change(function(){$("#firstRecordNum").val("1");$("#search").attr('disabled', false);});
+		$("#searchText").keyup(function(e){
+			$("#search").attr('disabled', false);
+			$("#firstRecordNum").val("1");
+			var code = e.which;
+			if (code==13) e.preventDefault();
+			if (code==32||code==13||code==188||code==186){
+				$("#search").click();
+			}
+		});
+
+	})(jQuery);
+</script>
+
+<div id="results">&nbsp;</div>

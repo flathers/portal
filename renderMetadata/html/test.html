@@ -1,0 +1,52 @@
+<html>
+<head>
+	<title>render example</title>
+  <link rel="stylesheet" type="text/css" href="../css/searchResult.css" />
+  <script src="/portal/jquery/jquery-3.1.1.min.js"></script>
+
+	<style>
+/*		span{ display:block; }
+		.recordTitle{ font-weight:bold; }
+*/
+	</style>
+</head>
+
+<body>
+	<script type="text/javascript">
+	//When search button is clicked, perform the search
+	( function($) {
+		$(document).ready(function() {
+			$("#search").click(function(){
+				$("#searchResult").html("");
+				$("#summary").html("");
+
+				$.get('../php/render.php?xml='+$('#inputXmlUrl').val(), function(data){
+					$("#searchResult").html(data);
+				});
+				$.get('../php/render.php?xml='+$('#inputXmlUrl').val()+'&tt=landingPage', function(data){
+					$("#summary").html(data);
+				});
+
+			});
+		});
+  })(jQuery);
+	</script>
+
+	<input id="inputXmlUrl" type="text" value ="https://nknportal.nkn.uidaho.edu/renderMetadata2/xml/arcgis.xml"/>
+	<input id="search" type="submit" value="Go" />
+
+	<hr>
+	<h4>Search Result</h4>
+	<hr>
+	<div id="searchResult">&nbsp;</div>
+
+	<hr>
+	<h4>Summary</h4>
+	<hr>
+	<div id="summary">&nbsp;</div>
+
+	<hr>
+
+</body>
+</html></body>
+</html>
