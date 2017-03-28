@@ -33,12 +33,12 @@ if (os.path.isdir('dsPath')):
 #
 
 sender = 'portal@northwestknowledge.net'
-receivers = ['publish@northwestknowledge.net']
+receivers = ['portal@northwestknowledge.net']
 
 #if exit_code == 0, then clamscan returned that the files are clean
 if (exit_code == 0):
   message = """From: NKN Geoportal <portal@northwestknowledge.net>
-To: NKN Publisher Group <publish@northwestknowledge.net>
+To: NKN Publisher Group <portal@northwestknowledge.net>
 Subject: New data approved for publication
 
 Hi, NKN data publishers.  A new dataset has been approved for publication
@@ -51,7 +51,7 @@ Dataset path:
 #if exit_code != 0, then clamscan returned some error, possibly a virus
 else:
   message = """From: NKN Geoportal <portal@northwestknowledge.net>
-To: NKN Publisher Group <publish@northwestknowledge.net>
+To: NKN Publisher Group <portal@northwestknowledge.net>
 Subject: New data approved for publication [virus]
 
 Hi, NKN data publishers.  A new dataset has been posted for publication

@@ -30,9 +30,9 @@ if (os.path.isdir(basePath)):
 
 if (exit_code != 0):
   sender = 'portal@northwestknowledge.net'
-  receivers = ['publish@northwestknowledge.net']
+  receivers = ['portal@northwestknowledge.net']
   message = """From: NKN Geoportal <portal@northwestknowledge.net>
-To: NKN Publisher Group <publish@northwestknowledge.net>
+To: NKN Publisher Group <portal@northwestknowledge.net>
 Subject: Virus scan failed for uploaded data
 
 Hi, NKN data publishers.  A new dataset has been uploaded in pre-production,
