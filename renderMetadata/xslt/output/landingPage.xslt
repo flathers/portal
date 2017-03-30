@@ -6,7 +6,7 @@
 # (NKN), and is copyrighted by NKN. For more information on NKN, see our
 # web site at http://www.northwestknowledge.net
 #
-#   Copyright 2016 Northwest Knowledge Network
+#   Copyright 2017 Northwest Knowledge Network
 #
 # Licensed under the Creative Commons CC BY 4.0 License (the "License");
 # you may not use this file except in compliance with the License.
@@ -31,10 +31,6 @@
   <xsl:output method="html" indent="yes"/>
   <xsl:template match="/">
     <div class="record">
-      <div class="xsltpath"><xsl:value-of select="/nkn:record/nkn:xsltPath" /></div>
-      <div class="recordTitle"><xsl:value-of select="/nkn:record/nkn:title" /></div>
-      <div class="recordDetails">
-        <div class="xmlUrl"><xsl:value-of select="/nkn:record/nkn:xmlUrl" /></div>
         <xsl:if test="/nkn:record/nkn:abstract[. != '']">
         	<div class="abstract"><xsl:value-of select="/nkn:record/nkn:abstract" disable-output-escaping="yes" /></div>
         </xsl:if>

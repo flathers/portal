@@ -4,9 +4,26 @@
     <xs:element name="record">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="title" type="xs:string" />
+                <!-- xsltName: passed in from the XSLT engine, tells which input XSLT was used to generate this file -->
+                <xs:element name="xsltName" type="xs:string" />
+                
+                <!-- xmlUrl: passed in from the XSLT engine, this is the URL to the original metadata source for this file -->
                 <xs:element name="xmlUrl" type="xs:string" />
+                
+                <!-- landingPageLink: passed in from the XSLT engine, this is the URL to the dataset's landing page --> 
                 <xs:element name="summaryLink" type="xs:string" />
+
+                <!-- title: dataset title -->
+                <xs:element name="title" type="xs:string" />
+                
+                <!-- abstract: dataset abstract -->
+                <xs:element name="abstract" type="xs:string" />
+                
+                <!-- abstract: dataset abstract -->
+                <xs:element name="abstract" type="xs:string" />
+                
+                
+                
             </xs:sequence>
         </xs:complexType>
     </xs:element>

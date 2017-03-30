@@ -1,17 +1,12 @@
-﻿<gmd:MD_Metadata xmlns:gmd="http://www.isotc211.org/2005/gmd"
-  xmlns="http://www.isotc211.org/2005/gmd" xmlns:gco="http://www.isotc211.org/2005/gco"
-  xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:srv="http://www.isotc211.org/2005/srv"
-  xmlns:gml="http://www.opengis.net/gml" xmlns:gmx="http://www.isotc211.org/2005/gmx"
-  xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.isotc211.org/2005/gmd http://www.northwestknowledge.net/iso/xsd/schema.xsd">
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
-  <!--
-
+<!--
+  
   # This work was created by participants in the Northwest Knowledge Network
   # (NKN), and is copyrighted by NKN. For more information on NKN, see our
   # web site at http://www.northwestknowledge.net
   #
-  #   Copyright 20015 Northwest Knowledge Network
+  #   Copyright 2017 Northwest Knowledge Network
   #
   # Licensed under the Creative Commons CC BY 4.0 License (the "License");
   # you may not use this file except in compliance with the License.
@@ -23,10 +18,17 @@
   # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   # See the License for the specific language governing permissions and
   # limitations under the License.
-
+  
 -->
 
-<gmd:fileIdentifier>
+<gmd:MD_Metadata xmlns:gmd="http://www.isotc211.org/2005/gmd"
+  xmlns="http://www.isotc211.org/2005/gmd" xmlns:gco="http://www.isotc211.org/2005/gco"
+  xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:srv="http://www.isotc211.org/2005/srv"
+  xmlns:gml="http://www.opengis.net/gml" xmlns:gmx="http://www.isotc211.org/2005/gmx"
+  xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.isotc211.org/2005/gmd http://www.northwestknowledge.net/iso/xsd/schema.xsd">
+
+  <gmd:fileIdentifier>
     <gco:CharacterString>nkn:d986d1f3-89c1-4c76-9946-eb750f3e921a</gco:CharacterString>
   </gmd:fileIdentifier>
   <gmd:language>
@@ -405,6 +407,21 @@
               </gmd:northBoundLatitude>
             </gmd:EX_GeographicBoundingBox>
           </gmd:geographicElement>
+          <gmd:temporalElement>
+            <gmd:EX_TemporalExtent>
+              <gmd:extent>
+                <TimePeriod xmlns="http://www.opengis.net/gml/3.2"
+                  xmlns:ns1="http://www.opengis.net/gml/3.2" ns1:id="asdf">
+                  <begin><TimeInstant ns1:id="kh">
+                    <timePosition>2013</timePosition>
+                  </TimeInstant></begin>
+                  <end><TimeInstant ns1:id="gjv">
+                    <timePosition>2015</timePosition>
+                  </TimeInstant></end>
+                </TimePeriod>
+              </gmd:extent>
+            </gmd:EX_TemporalExtent>
+          </gmd:temporalElement>
         </gmd:EX_Extent>
       </gmd:extent>
       <gmd:extent>
@@ -512,7 +529,9 @@
                   <gmd:linkage>
                     <gmd:URL>https://www.northwestknowledge.net/data/download.php?uuid=d986d1f3-89c1-4c76-9946-eb750f3e921a</gmd:URL>
                   </gmd:linkage>
-                  <gmd:name><gco:CharacterString>A name for the link</gco:CharacterString></gmd:name>
+                  <gmd:name>
+                    <gco:CharacterString>A name for the link</gco:CharacterString>
+                  </gmd:name>
                   <gmd:function>
                     <gmd:CI_OnLineFunctionCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode" codeListValue="download">download</gmd:CI_OnLineFunctionCode>
                   </gmd:function>
@@ -543,7 +562,9 @@
               <gmd:linkage>
                 <gmd:URL>http://www.google.com/</gmd:URL>
               </gmd:linkage>
-              <gmd:name><gco:CharacterString>The Googles</gco:CharacterString></gmd:name>
+              <gmd:name>
+                <gco:CharacterString>The Googles</gco:CharacterString>
+              </gmd:name>
               <gmd:function>
                 <gmd:CI_OnLineFunctionCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode" codeListValue="download">download</gmd:CI_OnLineFunctionCode>
               </gmd:function>

@@ -6,7 +6,7 @@
 # (NKN), and is copyrighted by NKN. For more information on NKN, see our
 # web site at http://www.northwestknowledge.net
 #
-#   Copyright 20015 Northwest Knowledge Network
+#   Copyright 2017 Northwest Knowledge Network
 #
 # Licensed under the Creative Commons CC BY 4.0 License (the "License");
 # you may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@
 <eml:eml packageId="JDavis.24.11" scope="system" system="knb"
  xmlns:eml="eml://ecoinformatics.org/eml-2.1.0"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="eml://ecoinformatics.org/eml-2.1.0 http://northwestknowledge.net/schemas/eml/2_1_0/eml.xsd">
+ xsi:schemaLocation="eml://ecoinformatics.org/eml-2.1.0 https://northwestknowledge.net/schemas/eml/2_1_0/eml.xsd">
  <access authSystem="knb" order="allowFirst" scope="document">
   <allow>
    <principal>public</principal>
@@ -40,13 +40,14 @@
    </individualName>
    <organizationName>Stream Ecology Center, Idaho State University</organizationName>
    <positionName>Associate Professor</positionName>
-   <address scope="document"> <deliveryPoint>Idaho State University</deliveryPoint>
- <deliveryPoint>Department of Biological Sciences, 921 South 8th Ave, Stop #8007</deliveryPoint>
- <city>Pocatello</city>
- <administrativeArea>ID</administrativeArea>
- <postalCode>83209-8007</postalCode>
- <country>U.S.A.</country>
- </address>
+   <address scope="document">
+    <deliveryPoint>Idaho State University</deliveryPoint>
+    <deliveryPoint>Department of Biological Sciences, 921 South 8th Ave, Stop #8007</deliveryPoint>
+    <city>Pocatello</city>
+    <administrativeArea>ID</administrativeArea>
+    <postalCode>83209-8007</postalCode>
+    <country>U.S.A.</country>
+   </address>
    <phone phonetype="voice">(208) 282-2139</phone>
    <phone phonetype="fax">(208) 282-4570</phone>
    <electronicMailAddress>baxtcold@isu.edu</electronicMailAddress>
@@ -59,13 +60,14 @@
    </individualName>
    <organizationName>Stream Ecology Center, Idaho State University</organizationName>
    <positionName>Postdoctoral Researcher</positionName>
-   <address scope="document"> <deliveryPoint>Idaho State University</deliveryPoint>
- <deliveryPoint>Department of Biological Sciences, 921 South 8th Ave, Stop #8007</deliveryPoint>
- <city>Pocatello</city>
- <administrativeArea>ID</administrativeArea>
- <postalCode>83209-8007</postalCode>
- <country>U.S.A.</country>
- </address>
+   <address scope="document">
+    <deliveryPoint>Idaho State University</deliveryPoint>
+    <deliveryPoint>Department of Biological Sciences, 921 South 8th Ave, Stop #8007</deliveryPoint>
+    <city>Pocatello</city>
+    <administrativeArea>ID</administrativeArea>
+    <postalCode>83209-8007</postalCode>
+    <country>U.S.A.</country>
+   </address>
    <phone phonetype="voice">(208) 282-2139</phone>
    <phone phonetype="fax">(208) 282-4570</phone>
    <electronicMailAddress>jmdavis@isu.edu</electronicMailAddress>
@@ -147,13 +149,14 @@
    </individualName>
    <organizationName>Stream Ecology Center, Idaho State University</organizationName>
    <positionName>Associate Professor</positionName>
-   <address scope="document"> <deliveryPoint>Idaho State University</deliveryPoint>
- <deliveryPoint>Department of Biological Sciences, 921 South 8th Ave, Stop #8007</deliveryPoint>
- <city>Pocatello</city>
- <administrativeArea>ID</administrativeArea>
- <postalCode>83209-8007</postalCode>
- <country>U.S.A.</country>
- </address>
+   <address scope="document">
+    <deliveryPoint>Idaho State University</deliveryPoint>
+    <deliveryPoint>Department of Biological Sciences, 921 South 8th Ave, Stop #8007</deliveryPoint>
+    <city>Pocatello</city>
+    <administrativeArea>ID</administrativeArea>
+    <postalCode>83209-8007</postalCode>
+    <country>U.S.A.</country>
+   </address>
    <phone phonetype="voice">(208) 282-2139</phone>
    <phone phonetype="fax">(208) 282-4570</phone>
    <electronicMailAddress>baxtcold@isu.edu</electronicMailAddress>
@@ -166,13 +169,14 @@
    </individualName>
    <organizationName>Stream Ecology Center, Idaho State University</organizationName>
    <positionName>Professor Emeritus</positionName>
-   <address scope="document"> <deliveryPoint>Idaho State University</deliveryPoint>
- <deliveryPoint>Department of Biological Sciences, 921 South 8th Ave, Stop #8007</deliveryPoint>
- <city>Pocatello</city>
- <administrativeArea>ID</administrativeArea>
- <postalCode>83209-8007</postalCode>
- <country>U.S.A.</country>
- </address>
+   <address scope="document">
+    <deliveryPoint>Idaho State University</deliveryPoint>
+    <deliveryPoint>Department of Biological Sciences, 921 South 8th Ave, Stop #8007</deliveryPoint>
+    <city>Pocatello</city>
+    <administrativeArea>ID</administrativeArea>
+    <postalCode>83209-8007</postalCode>
+    <country>U.S.A.</country>
+   </address>
    <phone phonetype="voice">(208) 282-2139</phone>
    <phone phonetype="fax">(208) 282-4570</phone>
    <electronicMailAddress>minswayn@isu.edu</electronicMailAddress>
