@@ -31,7 +31,7 @@ if (!isset($uuid)) {
 
 /**
 * validate/sanitize the uuid or session_id:
-*   may contain alphanumerics, -
+*   may contain alphanumerics, -, _
 *   uuid may be enclosed in braces {uuid}
 *   Drupal session_id can't contain braces, but it won't hurt to allow them
 *   no more than 50 characters
@@ -41,7 +41,7 @@ function validate_id($value) {
   $values = trim($value);
   if (strlen($value) > 50)
   return;
-  $pattern = '/^{?[a-zA-Z0-9\-]+}?$/';
+  $pattern = '/^{?[a-zA-Z0-9\-_]+}?$/';
   if (preg_match($pattern, $value, $matches))
   return($matches[0]);
   return;
