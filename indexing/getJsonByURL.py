@@ -34,8 +34,7 @@ def processFile(url):
         standard = getStandard(tree)
         itemXpaths, listXpaths = getXpaths(standard)
         jsonText = jsonify(url, tree, itemXpaths, listXpaths)
-        #insert()
-        print(jsonText)
+        return jsonText
 
 # Given an xmlTree containing metadata, detect and return the name of the
 # metadata standard
@@ -87,7 +86,8 @@ def jsonify(url, xmlTree, itemXpaths, listXpaths):
             node = root.find(itemXpaths[key], root.nsmap)
             if node is not None:
                 if node.text is not None:
-                    kvp[key] = node.text.strip()
+                    #This join/split trick is to remove interior whitespace
+                    kvp[key] = ' '.join(node.text.split())
 
     #list items are more complex
     for key in listXpaths:
@@ -109,14 +109,14 @@ def jsonify(url, xmlTree, itemXpaths, listXpaths):
                                 if element.text is not None:
                                     text = text + element.text + ' '
                         if not text in kvp[key]:
-                            kvp[key].append(text.strip())
+                            kvp[key].append(' '.join(text.split()))
 
                     #if the node is a leaf, then add its contents to the list, treating commas as delimiters
                     else:
                         for node in nodeList:
                             if node.text is not None:
                                 if not node.text in kvp[key]:
-                                    sublist = node.text.strip().split(",")
+                                    sublist = ' '.join(node.text.split()).split(",")
                                     sublist = [i.strip() for i in sublist]
                                     kvp[key] = kvp[key] + sublist
 
