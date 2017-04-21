@@ -1,1 +1,7 @@
 SetEnv HTTP_nknDatastoreRoot /datastore-pre/
+Options -Indexes
+
+<FilesMatch "(getUsername.conf|config.sh|htaccess|.htaccess|nkn.conf|nknPortal.sh|nknPortalSrc.sh|elasticinstall.sh)">
+  order allow,deny
+  deny from all
+</FilesMatch>

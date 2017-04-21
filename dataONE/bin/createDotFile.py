@@ -5,7 +5,7 @@
 # (NKN), and is copyrighted by NKN. For more information on NKN, see our
 # web site at http://www.northwestknowledge.net
 #
-#   Copyright 2016 Northwest Knowledge Network
+#   Copyright 2017 Northwest Knowledge Network
 #
 # Licensed under the Creative Commons CC BY 4.0 License (the "License");
 # you may not use this file except in compliance with the License.
@@ -46,7 +46,7 @@ def main():
 # (NKN), and is copyrighted by NKN. For more information on NKN, see our
 # web site at http://www.northwestknowledge.net
 #
-#   Copyright 2016 Northwest Knowledge Network
+#   Copyright 2017 Northwest Knowledge Network
 #
 # Licensed under the Creative Commons CC BY 4.0 License (the "License");
 # you may not use this file except in compliance with the License.
