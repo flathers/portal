@@ -18,8 +18,8 @@
 # limitations under the License.
 
 # config
-$nknPortalRoot = getenv('HTTP_nknPortalRoot');
-$basePath = $nknPortalRoot . 'published/';
+$nknDatastoreRoot = getenv('HTTP_nknDatastoreRoot');
+$basePath = $nknDatastoreRoot . 'published/';
 
 #The default execution time limit of 30 seconds spoils large downloads.
 #setting this to zero means no time limit.
