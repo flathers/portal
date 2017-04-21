@@ -1,7 +1,7 @@
 <?php
 
-//set the base path to the base upload folder in the pre-prod datastore
-$base_path = "/preprod-datastore/uploads/";
+$nknDatastoreRoot = getenv('HTTP_nknDatastoreRoot');
+$base_path = $nknDatastoreRoot . 'uploads/';
 
 //configuration for the getUsername service
 $getUsernameURL = "https://nknportal-prod.nkn.uidaho.edu/getUsername/";

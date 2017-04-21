@@ -24,6 +24,7 @@ $myServer = "nkn-ui-db-win.nkn.uidaho.edu";
 $myUser = "";
 $myPass = "";
 $myDB = "nknDatastore";
+$nknDatastoreRoot = getenv('HTTP_nknDatastoreRoot');
 
 $output = "DSCHECK COMMENCING ".date('Y-m-d H:i:s')."\n";
 
@@ -41,9 +42,9 @@ $output = $output."\n\nCHECKING FOR ORPHANED FILES ON FILE SYSTEM ".date('Y-m-d 
 $bad = 0;
 
 //generate the file list
-chdir('/datastore');
-shell_exec('find published -type f > /datastore/published.txt');
-$fileList = file('/datastore/published.txt');
+chdir($nknDatastoreRoot);
+shell_exec('find published -type f > ' . $nknDatastoreRoot . 'published.txt');
+$fileList = file($nknDatastoreRoot . 'published.txt');
 
 //declare the SQL statement that will query the database
 $query = "SELECT id FROM [file] WHERE path=@path";
