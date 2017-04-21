@@ -1,1 +1,1 @@
-PassEnv HTTP_nknDatastoreRoot
+SetEnv HTTP_nknDatastoreRoot /datastore-pre/

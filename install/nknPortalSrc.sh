@@ -1,0 +1,4 @@
+nknDatastoreRoot=/datastore-pre/
+HTTP_nknDatastoreRoot=$nknDatastoreRoot
+export nknDatastoreRoot
+export HTTP_nknDatastoreRoot
