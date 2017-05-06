@@ -33,7 +33,7 @@ def getRecords():
     conn_param = dict(config.items('config'))
 
     #Set up and execute the query
-    query = "SELECT [path] FROM [nknDatastore].[dbo].[file] WHERE [isMetadata] = 1 and [isCanonicalMetadata] = 1"
+    query = "SELECT [path] FROM [nknDatastore].[dbo].[file] WHERE [isMetadata] = 1 and [isCanonicalMetadata] = 1  and path like 'published%';"
     with pymssql.connect(conn_param['host'], conn_param['user'],
                          conn_param['password'], conn_param['database']) as conn:
         with conn.cursor() as cursor:
