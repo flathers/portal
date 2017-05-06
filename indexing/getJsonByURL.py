@@ -80,7 +80,7 @@ def jsonify(url, xmlTree, itemXpaths, listXpaths):
     for key in itemXpaths:
         if key == 'mdXmlPath':
             kvp[key] = url
-        elif key == 'source':
+        elif key == 'record_source':
             kvp[key] = 'filesystemIndexer'
         else:
             node = root.find(itemXpaths[key], root.nsmap)
@@ -127,7 +127,7 @@ def jsonify(url, xmlTree, itemXpaths, listXpaths):
 # Based upon a metadata standard, return two sets of xpaths: the itemXpaths
 # are for values that are stored at a single xpath location within the metadata,
 # the listXpaths are for values that may come from multiple xpaths, like
-# keywords.  mdXmlPath and source are just placeholders and will get populated
+# keywords.  mdXmlPath and record_source are just placeholders and will get populated
 # later.  Anything that has a '.' for an xpath is something that didn't map
 # properly -- '.' won't lead to anything getting populated in that value.
 def getXpaths(standard):
@@ -137,7 +137,7 @@ def getXpaths(standard):
         ##################################################
         itemXpaths = {'abstract': 'metadata/dataIdInfo/idAbs',
                       'mdXmlPath': '.',
-                      'source': '.',
+                      'record_source': '.',
                       'sbeast': 'metadata/dataIdInfo/dataExt/geoEle/GeoBndBox/eastBL',
                       'sbnorth': 'metadata/dataIdInfo/dataExt/geoEle/GeoBndBox/northBL',
                       'sbsouth': 'metadata/dataIdInfo/dataExt/geoEle/GeoBndBox/southBL',
@@ -157,7 +157,7 @@ def getXpaths(standard):
         ###########################################
         itemXpaths = {'abstract': 'rdf:Description/dc:description',
                       'mdXmlPath': '.',
-                      'source': '.',
+                      'record_source': '.',
                       'sbeast': '.',
                       'sbnorth': '.',
                       'sbsouth': '.',
@@ -175,7 +175,7 @@ def getXpaths(standard):
         #########################################
         itemXpaths = {'abstract': 'dataset/abstract/para',
                       'mdXmlPath': '.',
-                      'source': '.',
+                      'record_source': '.',
                       'sbeast': 'dataset/coverage/geographicCoverage/boundingCoordinates/eastBoundingCoordinate',
                       'sbnorth': 'dataset/coverage/geographicCoverage/boundingCoordinates/northBoundingCoordinate',
                       'sbsouth': 'dataset/coverage/geographicCoverage/boundingCoordinates/southBoundingCoordinate',
@@ -194,7 +194,7 @@ def getXpaths(standard):
         ##########################################
         itemXpaths = {'abstract': 'idinfo/descript/abstract',
                       'mdXmlPath': '.',
-                      'source': '.',
+                      'record_source': '.',
                       'sbeast': 'idinfo/spdom/bounding/eastbc',
                       'sbnorth': 'idinfo/spdom/bounding/northbc',
                       'sbsouth': 'idinfo/spdom/bounding/southbc',
@@ -215,7 +215,7 @@ def getXpaths(standard):
         #fixme: the example metadata doesn't have any of the list items, will need to find xpaths for them
         itemXpaths = {'abstract': '/MD_Metadata/identificationInfo/MD_DataIdentification/abstract',
                       'mdXmlPath': '.',
-                      'source': '.',
+                      'record_source': '.',
                       'sbeast': '/MD_Metadata/identificationInfo/MD_DataIdentification/extent/EX_Extent/geographicElement/EX_GeographicBoundingBox/eastBoundLongitude/gco:Decimal',
                       'sbnorth': '/MD_Metadata/identificationInfo/MD_DataIdentification/extent/EX_Extent/geographicElement/EX_GeographicBoundingBox/northBoundLongitude/gco:Decimal',
                       'sbsouth': '/MD_Metadata/identificationInfo/MD_DataIdentification/extent/EX_Extent/geographicElement/EX_GeographicBoundingBox/southBoundLongitude/gco:Decimal',
@@ -233,7 +233,7 @@ def getXpaths(standard):
         ###########################################
         itemXpaths = {'abstract': 'gmd:identificationInfo/gmd:MD_DataIdentification/gmd:abstract/gco:CharacterString',
                       'mdXmlPath': '.',
-                      'source': '.',
+                      'record_source': '.',
                       'sbeast': 'gmd:identificationInfo/gmd:MD_DataIdentification/gmd:extent/gmd:EX_Extent/gmd:geographicElement/gmd:EX_GeographicBoundingBox/gmd:eastBoundLongitude/gco:Decimal',
                       'sbnorth': 'gmd:identificationInfo/gmd:MD_DataIdentification/gmd:extent/gmd:EX_Extent/gmd:geographicElement/gmd:EX_GeographicBoundingBox/gmd:northBoundLatitude/gco:Decimal',
                       'sbsouth': 'gmd:identificationInfo/gmd:MD_DataIdentification/gmd:extent/gmd:EX_Extent/gmd:geographicElement/gmd:EX_GeographicBoundingBox/gmd:southBoundLatitude/gco:Decimal',
@@ -253,7 +253,7 @@ def getXpaths(standard):
         ################################################
         itemXpaths = {'abstract': 'gmd:seriesMetadata/gmi:MI_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:abstract/gco:CharacterString',
                       'mdXmlPath': '.',
-                      'source': '.',
+                      'record_source': '.',
                       'sbeast': 'gmd:seriesMetadata/gmi:MI_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:extent/gmd:EX_Extent/gmd:geographicElement/gmd:EX_GeographicBoundingBox/gmd:eastBoundLongitude/gco:Decimal',
                       'sbnorth': 'gmd:seriesMetadata/gmi:MI_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:extent/gmd:EX_Extent/gmd:geographicElement/gmd:EX_GeographicBoundingBox/gmd:northBoundLatitude/gco:Decimal',
                       'sbsouth': 'gmd:seriesMetadata/gmi:MI_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:extent/gmd:EX_Extent/gmd:geographicElement/gmd:EX_GeographicBoundingBox/gmd:southBoundLatitude/gco:Decimal',

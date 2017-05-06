@@ -55,7 +55,7 @@ def index(url):
 # Clear all records from the index
 def wipeIndex():
     es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
-    print es.delete_by_query(index='test_metadata',body={"query":{"match":{"source":"filesystemIndexer"}}})
+    print es.delete_by_query(index='test_metadata',body={"query":{"match":{"record_source":"filesystemIndexer"}}})
 
 
 # The function for reading the config file
