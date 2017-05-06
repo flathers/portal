@@ -1,0 +1,36 @@
+<html>
+
+  <head>
+    <title>NKN Elasticsearch</title>
+    <script src="../jquery/jquery-3.1.1.min.js"></script>
+    <script src="search.js"></script>
+  </head>
+
+  <body>
+
+    <div id="searchHeader">
+      <h3>Keyword Search:</h3>
+      <p><input id="searchText" name="keyword-search" size="32" style="height:35px; padding-left:10px;" type="text" value="" />
+         &nbsp;
+         <input class="btn btn-gold btn-sm" id="search" type="submit" value=" Go! " />
+         <input id="firstRecordNum" type="hidden" value="0"/>
+         <input id="recordsPerPage" type="hidden" value="3" />
+      </p>
+      <p>
+        <span id="totalRecords" />
+      </p>
+      <p>
+        <span id="currentPage" />
+      </p>
+      <p>
+        <strong><a id="prevPage">‹ Previous</a> &nbsp;&nbsp; <a id="nextPage">Next ›</a></strong>
+      </p>
+    </div>
+
+    <hr />
+
+    <div id="searchResultContainer" style="background-color:eee;padding:1em;" />
+
+  </body>
+
+</html>

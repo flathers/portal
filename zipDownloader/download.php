@@ -20,6 +20,7 @@
 # config
 $nknDatastoreRoot = getenv('HTTP_nknDatastoreRoot');
 $basePath = $nknDatastoreRoot . 'published/';
+#$basePath = '/datastore-prod/published/';
 
 #The default execution time limit of 30 seconds spoils large downloads.
 #setting this to zero means no time limit.
@@ -43,46 +44,24 @@ if ($doi)
 $dir = $basePath . $uuid;
 $path = realpath($dir);
 
-if (strpos($path . '/', $basePath) === false) {
-#  echo $path.'/<br />'.$basePath.'<br />';
-  echo '<br />Error: directory traversal';
-  return;
+if (strpos($path . '/', $basePath) === false)
+  die('Path mismatch: '.$path.'/<br />'.$basePath);
+
+
+try {
+  chdir( $basePath );
+  $stream = popen( "/usr/bin/zip -q -0 -r - $uuid", "r" );
+
+  if( $stream ) {
+    $zipfilename = "data.zip";
+    header( "Content-Type: application/x-zip" );
+    header( "Content-Disposition: attachment; filename=\"$zipfilename\"" );
+    fpassthru( $stream );
+    fclose( $stream );
+  }
 }
-
-$zipfilename = "data.zip";
-
-if( isset( $files ) ) unset( $files );
-
-$target = $path;
-
-$d = dir( $target );
-
-# create the list of files to zip
-$files = array();
-$rdi = new RecursiveDirectoryIterator($path);
-foreach(new RecursiveIteratorIterator($rdi) as $file) {
-	if( substr($file, -2) != '..' && substr($file, -2) != '/.' && !strpos($file, '/.svn/') ) {
-		$fileName = str_replace($basePath, '', $file);
-		$files[] = $fileName;
-	}
-}
-
-header( "Content-Type: application/x-zip" );
-header( "Content-Disposition: attachment; filename=\"$zipfilename\"" );
-
-$filespec = "";
-
-foreach( $files as $entry ) {
-	$filespec .= "\"$entry\" ";
-}
-
-chdir( $basePath );
-
-$stream = popen( "/usr/bin/zip -q -0 - $filespec", "r" );
-
-if( $stream ) {
-	fpassthru( $stream );
-	fclose( $stream );
+catch(Exception $e) {
+  die("error creating zip archive");
 }
 
 ?>
