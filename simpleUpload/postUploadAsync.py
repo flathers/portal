@@ -25,10 +25,13 @@ if (os.path.isdir(basePath)):
 
 #
 #If exit_code != 0, then clamscan returned some error, possibly a virus,
-#so send the notification email
+#so quarantine the data and send the notification email
 #
 
 if (exit_code != 0):
+  newPath = basePath.replace('/uploads/', '/quarantine/')
+  shutil.move(basePath, newPath)
+
   sender = 'portal@northwestknowledge.net'
   receivers = ['portal@northwestknowledge.net']
   message = """From: NKN Geoportal <portal@northwestknowledge.net>
@@ -41,30 +44,11 @@ but the data failed the virus scan.  Please take a look.
 Dataset path:
 """
 
-  message = message + basePath
+  message = message + newPath
 
   try:
     smtpObj = smtplib.SMTP('localhost')
     smtpObj.sendmail(sender, receivers, message)
-    print "Successfully sent email"
+    #print "Successfully sent email"
   except SMTPException:
-    print "Error: unable to send email"
-
-
-# After this, we insert the return code into MongoDB
-
-#
-#If the files were infected, stop processing
-#
-
-#if (exit_code != 0):
-#  exit();
-
-
-
-#
-#If the files are clean, move them into production
-#
-#if (exit_code == 0):
-#  if (os.path.isdir(dsPath)):
-#    shutil.move(dsPath, datastorePath + uuid)
+    #print "Error: unable to send email"
