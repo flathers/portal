@@ -23,6 +23,7 @@ import json
 import os
 import pymssql
 import sys
+import urllib
 from elasticsearch import Elasticsearch
 from getJsonByURL import processFile
 
