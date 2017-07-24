@@ -27,7 +27,7 @@ import urllib
 from elasticsearch import Elasticsearch
 from getJsonByURL import processFile
 
-def getRecords():
+def getRecords(failed_records):
     #Open the config file and get the SQL connection parameters
     config_file = os.path.join(os.path.dirname(__file__), 'config.py')
     config = get_config(config_file)
@@ -43,14 +43,20 @@ def getRecords():
                 url = urllib.quote(row[0])
                 url = url.replace('published/', conn_param['baseurl'])
                 print url
-                index(url)
+                index(url, failed_records)
 
 
 # Insert a record into the index
-def index(url):
-    jsonText = processFile(url)
-    es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
-    print es.index(index='test_metadata', doc_type='metadata', body=json.loads(jsonText))
+def index(url, failed_records):
+    jsonText, error = processFile(url)
+    if error == 1:
+	failed_records.append(jsonText)
+    else:
+	try:
+	    es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
+            print es.index(index='test_metadata', doc_type='metadata', body=json.loads(jsonText))
+	except:
+	    print "Unexpected error: could not insert record in to Elasticsearch"
 
 
 # Clear all records from the index
@@ -73,5 +79,9 @@ def get_config(config_file):
 
 
 if __name__== "__main__":
+    failed_records = []
+
     wipeIndex()
-    getRecords()
+    getRecords(failed_records)
+    print "Listing URL's of failed records:"
+    print failed_records

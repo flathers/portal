@@ -30,12 +30,17 @@ from lxml import etree
 
 
 def processFile(url):
+
     with contextlib.closing(urllib2.urlopen(url)) as stream:
-        tree = etree.parse(stream)
-        standard = getStandard(tree)
-        itemXpaths, listXpaths = getXpaths(standard)
-        jsonText = jsonify(url, tree, itemXpaths, listXpaths)
-        return jsonText
+	try:
+	        tree = etree.parse(stream)
+        	standard = getStandard(tree)
+	        itemXpaths, listXpaths = getXpaths(standard)
+        	jsonText = jsonify(url, tree, itemXpaths, listXpaths)
+	        return jsonText, 0
+	except:
+		print "Unexpected error: could not add record to Elasticsearch"
+		return url, 1		
 
 # Given an xmlTree containing metadata, detect and return the name of the
 # metadata standard
@@ -137,7 +142,7 @@ def getCollection(url):
     if (len(urlparse.urlparse(url)[2].split('/')) > 4):
         return urlparse.urlparse(url)[2].split('/')[-3]
     else:
-        return ''
+        return None
 
 
 # Based upon a metadata standard, return two sets of xpaths: the itemXpaths
