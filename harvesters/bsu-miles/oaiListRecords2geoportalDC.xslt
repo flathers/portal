@@ -20,9 +20,11 @@
                     xmlns:dcmiBox="http://dublincore.org/documents/2000/07/11/dcmi-box/"
                     xmlns:dct="http://purl.org/dc/terms/" xmlns:ows="http://www.opengis.net/ows">
                     <rdf:Description rdf:about="{oai:header/oai:identifier}">
-                        <dc:identifier><xsl:value-of select="oai:header/oai:identifier"/></dc:identifier>
+                        <dc:identifier><xsl:value-of select="oai:metadata/oai_dc:dc/dc:identifier"/></dc:identifier>
                         <dc:title><xsl:value-of select="oai:metadata/oai_dc:dc/dc:title"/></dc:title>
-                        <dc:description><xsl:value-of select="oai:metadata/oai_dc:dc/dc:description"/></dc:description>
+			<xsl:for-each select="oai:metadata/oai_dc:dc/dc:description">
+                        	<dc:description><xsl:value-of select="oai:metadata/oai_dc:dc/dc:description"/></dc:description>
+			</xsl:for-each>
                         <xsl:for-each select="oai:metadata/oai_dc:dc/dc:identifier[not(. = 'Not at this time.')]">
                             <dct:references><xsl:value-of select="."/></dct:references>
                         </xsl:for-each>
@@ -30,6 +32,13 @@
                         <dc:type>Dataset</dc:type>
                         <dc:creator>BSU MILES</dc:creator>
                         <dc:date><xsl:value-of select="oai:metadata/oai_dc:dc/dc:date.dateSubmitted"/></dc:date>
+			<dc:coverage><xsl:value-of select="oai:metadata/oai_dc:dc/dc:coverage"/></dc:coverage>
+			<xsl:for-each select="oai:metadata/oai_dc:dc/dc:coverage.spatial">
+				<dc:coverage.spatial><xsl:value-of select="." /></dc:coverage.spatial>
+      			</xsl:for-each>			
+    			<dc:coverage.temporal><xsl:value-of select="oai:metadata/oai_dc:dc/dc:coverage.temporal"/></dc:coverage.temporal>
+    			<dc:rights.accessRights><xsl:value-of select="oai:metadata/oai_dc:dc/dc:rights.accessRights"/></dc:rights.accessRights>
+    			<dc:rights.license><xsl:value-of select="oai:metadata/oai_dc:dc/dc:rights.license"/></dc:rights.license>
                         <dc:language>eng</dc:language>
                         <dc:subject>environment</dc:subject>
                         <xsl:for-each select="oai:metadata/oai_dc:dc/dc:subject">

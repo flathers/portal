@@ -57,7 +57,7 @@ def index(url, failed_records):
             print es.index(index='test_metadata', doc_type='metadata', body=json.loads(jsonText))
 	except:
 	    print "Unexpected error: could not insert record in to Elasticsearch"
-
+	    failed_records.append(url)
 
 # Clear all records from the index
 def wipeIndex():
@@ -83,5 +83,6 @@ if __name__== "__main__":
 
     wipeIndex()
     getRecords(failed_records)
-    print "Listing URL's of failed records:"
-    print failed_records
+    if len(failed_records) > 0:
+        print "Listing URL's of failed records:"
+        print failed_records

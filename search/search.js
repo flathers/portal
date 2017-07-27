@@ -1,9 +1,11 @@
-fromVal = 0;
-sizeVal = 5;
-pageVal = 0;
-totalRecords = 0;
-next = 1;
-prev = -1;
+var fromVal = 0;
+var sizeVal = 10;
+var pageVal = 0;
+var totalRecords = 0;
+var totalPages = 0;
+var next = 1;
+var prev = -1;
+var lastSearchText = "";
 
 $(document).ready(function(){ init(); });
 
@@ -15,7 +17,7 @@ function init() {
     $("#search").attr('disabled', true);
     searchKey = $("#searchText").val();
     fromVal = 0;
-    $("#currentPage").html('Current Page: 1');
+  //  $("#currentPage").html('Current Page: 1');
     doSearch(searchKey);
   });
 
@@ -57,48 +59,58 @@ function doSearch(key) {
   the title includes the search key.
   */
 
-  query = JSON.stringify({
-    size: sizeVal,
-    from: fromVal,
-    query: {
-      bool: {
-        must_not: {
-          exists: {
-            field: "collection"
-          }
-        },
-        must: {
-          match: {
-            _all: {
-              query: key,
-              operator: "and"
-            }
-          }
-        },
-        should: {
-          match: {
-            title: {
-              query: key,
-              operator: "and",
-              boost: 20
-            }
-          }
-        }
-      }
-    }
-  });
+  var quoteRegex = /["]/g;
+  //If query text from user has quotes in it, then run exact match query
+  if(quoteRegex.test(key)){
+	key = key.replace(quoteRegex, "");
+	console.log("Printing key: " + key);
+	  var query = JSON.stringify({
+	    size: sizeVal,
+	    from: fromVal,
+	    query: {
+		simple_query_string: {
+			fields: ["title"],
+			query: key
+        	}
+    	    }
+          });
 
-  url = "/search/"
+  }else{
+	  var query = JSON.stringify({
+	    size: sizeVal,
+	    from: fromVal,
+	    query: {
+		multi_match: {
+			query: key,
+			type: "best_fields",
+			fields: ["title^50000", "abstract"],
+			tie_breaker: 0.3
+        	}
+    	    }
+          });
+  }
+  url = "/_search/"
   $.post(url, query,
     function(data) {
       baseUrl = '/portal/renderMetadata/php/render.php?xml=';
       totalRecords = parseInt(data.hits.total);
-      $("#totalRecords").html('Records Found: ' + totalRecords);
+      if(totalRecords == 0)
+	totalRecords++;
+
+      totalPages = Math.ceil(totalRecords / sizeVal);
+  	if(lastSearchText != key)
+		pageVal = 0;
+
+      $("#totalRecords").html('Records Found: ' + totalRecords + ' &nbsp; Showing Page ' + (pageVal+1) + ' of ' + totalPages);
       $.each(data.hits.hits, function(i, item) {
         $.get(baseUrl + item._source.mdXmlPath, function(data){ 
-          $("#searchResultContainer").append(data + '<hr>');
+          //$("#searchResultContainer").append(data + '<hr>');
+          $("#searchResultContainer").append(data);
         });
       });
+      //Save the current search text to check against next query
+      lastSearchText = key;
+
       page(key, 0);
     }
   );
@@ -131,6 +143,6 @@ function page(key, direction) {
     return;
 
   fromVal = sizeVal * pageVal;
-  $("#currentPage").html('Current Page: ' + (pageVal+1));
+//  $("#currentPage").html('Current Page: ' + (pageVal+1) + ' of ' + totalPages);
   doSearch(key);
 }

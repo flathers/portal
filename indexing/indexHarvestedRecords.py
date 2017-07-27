@@ -26,7 +26,7 @@ import urllib
 from elasticsearch import Elasticsearch
 from getJsonByURL import processFile
 
-def getRecords():
+def getRecords(failed_records):
     #Open the config file and get the SQL connection parameters
     config_file = os.path.join(os.path.dirname(__file__), 'config.py')
     config = get_config(config_file)
@@ -43,15 +43,22 @@ def getRecords():
             url = urllib.quote(url)
             url = url.replace(baseDir, conf['harvestbaseurl'])
             print url
-            index(url, endpoint)
+            index(url, endpoint, failed_records)
 
 
 # Insert a record into the index
-def index(url, endpoint):
-    jsonText = processFile(url)
-    jsonText = jsonText.replace('filesystemIndexer', endpoint)
-    es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
-    print es.index(index='test_metadata', doc_type='metadata', body=json.loads(jsonText))
+def index(url, endpoint, failed_records):
+    jsonText, error = processFile(url)
+    if error == 1:
+	failed_records.append(jsonText)
+    else:
+	try:
+	    jsonText = jsonText.replace('filesystemIndexer', endpoint)
+ 	    es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
+   	    print es.index(index='test_metadata', doc_type='metadata', body=json.loads(jsonText))
+	except:
+	    print "Unexpected error: count not insert record in to Elasticsearch"
+	    failed_records.append(url)
 
 
 # Clear all records from the index
@@ -75,4 +82,8 @@ def get_config(config_file):
 
 
 if __name__== "__main__":
-    getRecords()
+    failed_records = []
+    getRecords(failed_records)
+    if len(failed_records) > 0:
+        print "Listing URL's of failed records:"
+        print failed_records

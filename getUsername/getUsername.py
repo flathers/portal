@@ -70,9 +70,9 @@ def application():
         #Grab the version parameter before removing it from the rest
         config = get_config(config_file)
         conn_param = dict(config.items(output['config_kw']))
-        version = conn_param['version'];
-        output['version'] = version;
-        del conn_param['version'];
+        version = conn_param['version']
+        output['version'] = version
+        del conn_param['version']
 
         #Define the SQL query, connect to the DB, and execute
         #Note that Drupal 7 and 8 have different database structures,
