@@ -68,10 +68,10 @@ function doSearch(key) {
 	    size: sizeVal,
 	    from: fromVal,
 	    query: {
-		simple_query_string: {
-			fields: ["title"],
-			query: key
-        	}
+	    	match_phrase_prefix: {
+			title: key
+			
+                }
     	    }
           });
 
@@ -95,11 +95,11 @@ function doSearch(key) {
       baseUrl = '/portal/renderMetadata/php/render.php?xml=';
       totalRecords = parseInt(data.hits.total);
       if(totalRecords == 0)
-	totalRecords++;
+      	totalRecords++;
 
       totalPages = Math.ceil(totalRecords / sizeVal);
-  	if(lastSearchText != key)
-		pageVal = 0;
+      if(lastSearchText != key)
+      	pageVal = 0;
 
       $("#totalRecords").html('Records Found: ' + totalRecords + ' &nbsp; Showing Page ' + (pageVal+1) + ' of ' + totalPages);
       $.each(data.hits.hits, function(i, item) {
