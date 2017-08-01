@@ -68,10 +68,19 @@ function doSearch(key) {
 	    size: sizeVal,
 	    from: fromVal,
 	    query: {
-	    	match_phrase_prefix: {
-			title: key
+		 bool: {
 			
-                }
+			must_not: {
+				wildcard:{
+					collection: "*"
+				}
+			},
+			must: { 
+				match_phrase_prefix: {
+					title: key,
+                		}	
+		  	}
+		}
     	    }
           });
 
@@ -80,13 +89,24 @@ function doSearch(key) {
 	    size: sizeVal,
 	    from: fromVal,
 	    query: {
-		multi_match: {
-			query: key,
-			type: "best_fields",
-			fields: ["title^50000", "abstract"],
-			tie_breaker: 0.3
-        	}
-    	    }
+	 	bool: {
+			
+			must_not:{
+				wildcard: {
+					collection: "*"
+				}
+			},
+			must:{ 
+
+				multi_match: {
+					query: key,
+					//type: "best_fields",
+					fields: ["title^50000000", "abstract", "contacts", "identifiers", "keywords", "mdXmlPath", "sbeast", "sbnorth", "sbsouth", "sbwest", "record_source", "uid"]
+					//tie_breaker: 0.3
+        			}
+    	    		}
+		}
+	    }
           });
   }
   url = "/_search/"
