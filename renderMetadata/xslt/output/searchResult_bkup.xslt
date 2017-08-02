@@ -23,19 +23,17 @@
 
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0" 
-  xmlns:nkn="https://nknportal.nkn.uidaho.edu/renderMetadata2/xsd/nkn.xsd" class="panel-group" id="accordion"> 
+  xmlns:nkn="https://nknportal.nkn.uidaho.edu/renderMetadata2/xsd/nkn.xsd"> 
   <xsl:output method="html" indent="yes"/>
   <xsl:template match="/">
-    <div class="record panel panel-default">
+    <div class="record">
      <!-- <div class="xsltpath">
         <xsl:value-of select="/nkn:record/nkn:xsltPath" />
       </div> -->
-      <div class="recordTitle panel-heading">
-        <h4 class="panel-title">
-	  <a data-toggle="collapse" data-parent="#searchResultContainer" href="#{/nkn:record/nkn:randID}"><xsl:value-of select="/nkn:record/nkn:title" /></a>
-	</h4>
+      <div class="recordTitle">
+	<xsl:value-of select="/nkn:record/nkn:title" />
       </div>
-      <div class="recordDetails panel-collapse collapse" id="{/nkn:record/nkn:randID}"><div class="panel-body">
+      <div class="recordDetails">
        <div class="abstract">
         <xsl:value-of select="/nkn:record/nkn:abstract" />
        </div>
@@ -65,7 +63,7 @@
        <div class="summaryLink search">
         <a href="{/nkn:record/nkn:landingPageLink}" class="btn btn-sm btn-gold" target="_blank">More Details</a>
        </div>
-      </div> </div> <!-- close recordDetails -->
+      </div>  <!-- close recordDetails -->
     </div>
   </xsl:template>
 </xsl:stylesheet>

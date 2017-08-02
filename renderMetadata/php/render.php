@@ -1,4 +1,6 @@
 <link rel="stylesheet" type="text/css" href="/portal/renderMetadata/css/searchResult.css" />
+<link rel="stylesheet" type="text/css" href="/portal/renderMetadata/css/boot.css" />
+
 <?php
 
 	# This work was created by participants in the Northwest Knowledge Network

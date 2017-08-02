@@ -33,9 +33,6 @@
 
   <xsl:template match="/">
     <nkn:record>
-      <nkn:randID>  <!-- use this random ID to help construct the searchResults accordion -->
-	<xsl:value-of select="generate-id()"/>
-      </nkn:randID>
       <nkn:xsltPath>
         <xsl:value-of select="$xsltPath"/>
       </nkn:xsltPath>
@@ -51,18 +48,12 @@
       </nkn:title>
 
       <nkn:abstract>
-	<xsl:for-each select="/rdf:RDF/rdf:Description/dc:description">
-          <xsl:value-of select="normalize-space(/rdf:RDF/rdf:Description/dc:description)" disable-output-escaping="yes"/>
-	</xsl:for-each>
+        <xsl:value-of select="normalize-space(/rdf:RDF/rdf:Description/dc:description)"/>
       </nkn:abstract>
 
       <nkn:date>
         <xsl:value-of select="/rdf:RDF/rdf:Description/dc:date"/>
       </nkn:date>
-
-      <nkn:uuidDOI>
-        <xsl:value-of select="/rdf:RDF/rdf:Description/dc:identifier"/>
-      </nkn:uuidDOI>
 
       <!-- Contact Info -->
       <nkn:contact>
@@ -75,21 +66,9 @@
       </nkn:contact>
 
       <!-- Constraints -->
-	<xsl:if test="(/rdf:RDF/rdf:Description/dc:rights != '')">
-	  <nkn:constUse>
-            <xsl:value-of select="/rdf:RDF/rdf:Description/dc:rights"/>
-	  </nkn:constUse>
-	</xsl:if>
-	<xsl:if test="(/rdf:RDF/rdf:Description/dc:rights.accessRights != '')">
-	  <nkn:constAccess>
-	    <xsl:value-of select="/rdf:RDF/rdf:Description/dc:rights.accessRights"/>
-	  </nkn:constAccess>
-	</xsl:if>
-	<xsl:if test="(/rdf:RDF/rdf:Description/dc:rights.license != '')">
-	  <nkn:license>
-	    <xsl:value-of select="/rdf:RDF/rdf:Description/dc:rights.license"/>
-	  </nkn:license>
-	</xsl:if>
+      <nkn:constraints>
+        <xsl:value-of select="/rdf:RDF/rdf:Description/dc:rights"/>
+      </nkn:constraints>
 
       <!-- Geographic Bounds -->
       <nkn:geoBounds>

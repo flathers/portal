@@ -31,9 +31,6 @@
 
   <xsl:template match="/">
     <nkn:record>
-      <nkn:randID>  <!-- use this random ID to help construct the searchResults accordion -->
-        <xsl:value-of select="generate-id()"/>
-      </nkn:randID>
       <nkn:xsltPath>
         <xsl:value-of select="$xsltPath"/>
       </nkn:xsltPath>
@@ -48,93 +45,65 @@
         <xsl:value-of select="normalize-space(/metadata/idinfo/citation/citeinfo/title)"/>
       </nkn:title>
 
-      <nkn:purpose>
-          <xsl:value-of select="metadata/idinfo/descript/purpose[. != '']"/>
-      </nkn:purpose>
-
       <nkn:abstract>
         <xsl:value-of select="normalize-space(metadata/idinfo/descript/abstract)"/>
+        <xsl:if test="metadata/idinfo/descript/purpose[. != '']">
+          <xsl:text>
+          </xsl:text>
+          <xsl:value-of select="metadata/idinfo/descript/purpose"/>
+        </xsl:if>
       </nkn:abstract>
 
       <nkn:date>
         <xsl:value-of select="metadata/idinfo/citation/citeinfo/pubdate"/>
       </nkn:date>
 
-      <nkn:publisher>
-        <xsl:value-of select="metadata/idinfo/citation/citeinfo/pubinfo/publish[. != '']"/>
-      </nkn:publisher>
-
       <!-- Contact Info -->
       <nkn:contact>
         <xsl:choose>
           <xsl:when test="metadata/idinfo/ptcontac/cntinfo/cntperp/cntper[. != '']">
-            <nkn:cntPerson>
+            <nkn:person>
               <xsl:value-of select="metadata/idinfo/ptcontac/cntinfo/cntperp/cntper"/>
-            </nkn:cntPerson>
+            </nkn:person>
           </xsl:when>
           <xsl:when test="metadata/idinfo/ptcontac/cntinfo/cntorgp/cntper[. != '']">
-            <nkn:cntPerson>
+            <nkn:person>
               <xsl:value-of select="metadata/idinfo/ptcontac/cntinfo/cntorgp/cntper"/>
-            </nkn:cntPerson>
+            </nkn:person>
           </xsl:when>
-	  <xsl:otherwise>
-	    <nkn:cntPerson>
-              <xsl:value-of select="metadata/distinfo/distrib/cntinfo/cntorgp/cntper[. != '']"/>
-	    </nkn:cntPerson>
-          </xsl:otherwise>
         </xsl:choose>
 
         <xsl:choose>
           <xsl:when test="metadata/idinfo/ptcontac/cntinfo/cntperp/cntorg[. != '']">
-            <nkn:cntOrg>
+            <nkn:organization>
               <xsl:value-of select="metadata/idinfo/ptcontac/cntinfo/cntperp/cntorg"/>
-            </nkn:cntOrg>
+            </nkn:organization>
           </xsl:when>
           <xsl:when test="metadata/idinfo/ptcontac/cntinfo/cntorgp/cntorg[. != '']">
-            <nkn:cntOrg>
+            <nkn:organization>
               <xsl:value-of select="metadata/idinfo/ptcontac/cntinfo/cntorgp/cntorg"/>
-            </nkn:cntOrg>
+            </nkn:organization>
           </xsl:when>
-          <xsl:otherwise>
-            <nkn:cntOrg>
-	      <xsl:value-of select="metadata/distinfo/distrib/cntinfo/cntorgp/cntorg[. != '']"/>
-            </nkn:cntOrg>
-          </xsl:otherwise>
         </xsl:choose>
 
-        <xsl:choose>
-          <xsl:when test="metadata/idinfo/ptcontac/cntinfo/cntemail[. != '']">
-            <nkn:cntEmail>
-              <xsl:value-of select="metadata/idinfo/ptcontac/cntinfo/cntemail"/>
-            </nkn:cntEmail>
-          </xsl:when>
-          <xsl:otherwise>
-            <nkn:cntEmail>
-              <xsl:value-of select="metadata/distinfo/distrib/cntinfo/cntemail[. != '']"/>
-            </nkn:cntEmail>
-          </xsl:otherwise>
-        </xsl:choose>
+        <xsl:if test="metadata/idinfo/ptcontac/cntinfo/cntemail[. != '']">
+          <nkn:email>
+            <xsl:value-of select="metadata/idinfo/ptcontac/cntinfo/cntemail"/>
+          </nkn:email>
+        </xsl:if>
 
       </nkn:contact>
 
       <!-- Constraints -->
-      <xsl:if test="metadata/idinfo/accconst[. != '']">
-        <nkn:constAccess>
-            <xsl:value-of select="metadata/idinfo/accconst"/>
-        </nkn:constAccess>
-      </xsl:if>
-
-      <xsl:if test="metadata/idinfo/useconst[. != '']">
-        <nkn:constUse>
-            <xsl:value-of select="metadata/idinfo/useconst"/>
-        </nkn:constUse>
-      </xsl:if>
-
-      <xsl:if test="metadata/distinfo/distliab[. != '']">
-        <nkn:liability>
-            <xsl:value-of select="metadata/distinfo/distliab"/>
-        </nkn:liability>
-      </xsl:if>
+      <nkn:constraints>
+        <xsl:value-of select="metadata/idinfo/accconst"/>
+        <xsl:text>
+        </xsl:text>
+        <xsl:value-of select="metadata/idinfo/useconst"/>
+        <xsl:text>
+        </xsl:text>
+        <xsl:value-of select="metadata/distinfo/distliab"/>
+      </nkn:constraints>
 
       <!-- Geographic Bounds -->
       <nkn:geoBounds>
@@ -190,7 +159,6 @@
         <xsl:if test="/metadata/distInfo/distributor/distorTran/onLineSrc/linkage != ''">
           <xsl:for-each select="/metadata/distInfo/distributor/distorTran/onLineSrc">
             <xsl:if test="not(starts-with(normalize-space(linkage), 'file://'))">
-             <xsl:if test="not(starts-with(normalize-space(linkage), 'Server='))">
               <nkn:link>
                 <nkn:linkUrl>
                   <xsl:value-of select="normalize-space(linkage)"/>
@@ -208,12 +176,11 @@
                 </nkn:linkTitle>
               </nkn:link>
             </xsl:if>
-           </xsl:if>
           </xsl:for-each>
         </xsl:if>
       </nkn:links>
 
-      <!-- Creator/Origin --> 
+      <!-- Creator/Origin 
       <nkn:dataCred>
         <xsl:for-each select="metadata/idinfo/datacred[. != '']">
           <xsl:value-of select="."/>
@@ -222,11 +189,11 @@
 
       
       <nkn:creator>
-        <xsl:for-each select="metadata/idinfo/citation/citeinfo/origin[. != '']">
-          <xsl:value-of select="."/>
-	</xsl:for-each>
+        <xsl:if test="metadata/idinfo/citation/citeinfo/origin[. != '']">
+          <xsl:value-of select="metadata/idinfo/citation/citeinfo/origin"/>
+        </xsl:if>
       </nkn:creator>
-
+-->
     </nkn:record>
   </xsl:template>
 </xsl:stylesheet>

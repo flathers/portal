@@ -35,6 +35,9 @@
 
   <xsl:template match="/">
     <nkn:record>
+      <nkn:randID>  <!-- use this random ID to help construct the searchResults accordion -->
+        <xsl:value-of select="generate-id()"/>
+      </nkn:randID>
       <nkn:xsltPath>
         <xsl:value-of select="$xsltPath"/>
       </nkn:xsltPath>
@@ -47,21 +50,54 @@
 
       <nkn:title>
         <xsl:value-of
-          select="/gmi:MI_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:title/gco:CharacterString"
-        />
+          select="/gmi:MI_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:title/gco:CharacterString" />
       </nkn:title>
 
       <nkn:abstract>
-        <xsl:value-of
-          select="normalize-space(/gmi:MI_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:abstract/gco:CharacterString)"
-        />
+        <xsl:value-of disable-output-escaping="yes"
+          select="normalize-space(/gmi:MI_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:abstract/gco:CharacterString)" />
       </nkn:abstract>
 
       <nkn:date>
         <xsl:value-of
-          select="/gmi:MI_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:date/gmd:CI_Date/gmd:date/gco:Date"
-        />
+          select="/gmi:MI_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:date/gmd:CI_Date/gmd:date/gco:Date" />
       </nkn:date>
+
+      <nkn:uuidDOI>
+	<xsl:if test="/gmi:MI_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:identifier/gmd:MD_Identifier/gmd:code/gmx:Anchor[. != '']">
+          <xsl:value-of
+            select="/gmi:MI_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:identifier/gmd:MD_Identifier/gmd:code/gmx:Anchor" />
+	</xsl:if>
+      </nkn:uuidDOI>
+
+      <!-- Publisher -->
+      <nkn:publisher>
+	<xsl:if test="/gmi:MI_Metadata/gmd:distributionInfo/gmd:MD_Distribution/gmd:distributor/gmd:MD_Distributor/gmd:distributorContact/gmd:CI_ResponsibleParty[gmd:role/gmd:CI_RoleCode='distributor']">
+	  <xsl:value-of select="/gmi:MI_Metadata/gmd:distributionInfo/gmd:MD_Distribution/gmd:distributor/gmd:MD_Distributor/gmd:distributorContact/gmd:CI_ResponsibleParty/gmd:organisationName/gco:CharacterString"/>
+	</xsl:if>
+      </nkn:publisher>
+
+      <!-- Creator/Originator -->
+      <xsl:if test="/gmi:MI_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:citedResponsibleParty/gmd:CI_ResponsibleParty[gmd:role/gmd:CI_RoleCode='originator']">
+	<xsl:for-each select="/gmi:MI_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:citedResponsibleParty">
+          <nkn:creator>
+	      <xsl:variable name="indivName" select="gmd:CI_ResponsibleParty/gmd:individualName/gco:CharacterString[. != '']"/>
+	      <xsl:variable name="deliveryPt" select="gmd:CI_ResponsibleParty/gmd:contactInfo/gmd:CI_Contact/gmd:address/gmd:CI_Address/gmd:deliveryPoint/gco:CharacterString[. != '']"/>
+	      <xsl:value-of select="$indivName"/><xsl:text>, </xsl:text>
+		<xsl:choose>
+		  <xsl:when test="not($indivName = $deliveryPt)">
+              	    <xsl:value-of select="$deliveryPt"/><xsl:text>, </xsl:text>
+		  </xsl:when>
+		  <xsl:otherwise>
+		    <!-- do nothing -->
+		  </xsl:otherwise>
+		</xsl:choose>
+              <a href="mailto:{normalize-space(gmd:CI_ResponsibleParty/gmd:contactInfo/gmd:CI_Contact/gmd:address/gmd:CI_Address/gmd:electronicMailAddress/gco:CharacterString)}">
+                <xsl:value-of select="gmd:CI_ResponsibleParty/gmd:contactInfo/gmd:CI_Contact/gmd:address/gmd:CI_Address/gmd:electronicMailAddress/gco:CharacterString[. != '']"/>
+              </a>
+          </nkn:creator>
+	</xsl:for-each>
+      </xsl:if>
 
       <!-- Contact Info -->
       <nkn:contact>
@@ -70,13 +106,11 @@
             test="/gmi:MI_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:pointOfContact/gmd:CI_ResponsibleParty != ''">
             <nkn:person>
               <xsl:value-of
-                select="/gmi:MI_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:pointOfContact/gmd:CI_ResponsibleParty/gmd:individualName/gco:CharacterString"
-              />
+                select="/gmi:MI_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:pointOfContact/gmd:CI_ResponsibleParty/gmd:individualName/gco:CharacterString" />
             </nkn:person>
             <nkn:organization>
               <xsl:value-of
-                select="/gmi:MI_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:pointOfContact/gmd:CI_ResponsibleParty/gmd:organisationName/gco:CharacterString"
-              />
+                select="/gmi:MI_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:pointOfContact/gmd:CI_ResponsibleParty/gmd:organisationName/gco:CharacterString" />
             </nkn:organization>
             <nkn:email>
               <xsl:value-of
@@ -105,25 +139,28 @@
       </nkn:contact>
 
       <!-- Constraints -->
-      <nkn:constraints>
         <xsl:if
           test="/gmi:MI_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:resourceConstraints/gmd:MD_LegalConstraints/gmd:accessConstraints[. != '']">
-          <xsl:value-of
-            select="normalize-space(/gmi:MI_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:resourceConstraints/gmd:MD_LegalConstraints/gmd:accessConstraints)"/>
-          <xsl:text>
-          </xsl:text>
+ 	  <nkn:constAccess>
+            <xsl:value-of
+              select="normalize-space(/gmi:MI_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:resourceConstraints/gmd:MD_LegalConstraints/gmd:accessConstraints)"/>
+ 	  </nkn:constAccess>
         </xsl:if>
         <xsl:if
           test="/gmi:MI_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:resourceConstraints/gmd:MD_LegalConstraints/gmd:useConstraints[. != '']">
-          <xsl:value-of
-            select="normalize-space(/gmi:MI_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:resourceConstraints/gmd:MD_LegalConstraints/gmd:useConstraints)"/>
-          <xsl:text>
-          </xsl:text>
+ 	  <nkn:constUse>
+            <xsl:value-of
+              select="normalize-space(/gmi:MI_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:resourceConstraints/gmd:MD_LegalConstraints/gmd:useConstraints)"/>
+ 	  </nkn:constUse>
         </xsl:if>
-        <xsl:value-of
-          select="normalize-space(/gmi:MI_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:resourceConstraints/gmd:MD_LegalConstraints/gmd:otherConstraints)"
-        />
-      </nkn:constraints>
+	<xsl:if 
+	  test="/gmi:MI_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:resourceConstraints/gmd:MD_LegalConstraints/gmd:otherConstraints[. != '']">
+ 	  <nkn:constOther>
+            <xsl:value-of
+              select="normalize-space(/gmi:MI_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:resourceConstraints/gmd:MD_LegalConstraints/gmd:otherConstraints)"
+            />
+ 	  </nkn:constOther>
+        </xsl:if>
 
       <!-- Geographic Bounds -->
       <nkn:geoBounds>
@@ -173,7 +210,37 @@
               <xsl:value-of select="gmd:function/gmd:CI_OnLineFunctionCode"/>
             </nkn:linkType>
             <nkn:linkTitle>
-              <xsl:value-of select="gmd:description/gco:CharacterString"/>
+             <!-- <xsl:value-of select="gmd:description/gco:CharacterString"/> -->
+		<xsl:choose>
+		  <xsl:when test="gmd:function/gmd:CI_OnLineFunctionCode[. != '']">
+              	    <xsl:value-of select="gmd:function/gmd:CI_OnLineFunctionCode"/>
+		  </xsl:when>
+		  <xsl:otherwise>
+              	    <xsl:value-of select="gmd:linkage/gmd:URL"/>
+		  </xsl:otherwise>
+		</xsl:choose>
+            </nkn:linkTitle>
+          </nkn:link>
+        </xsl:for-each>
+
+        <xsl:for-each
+          select="/gmi:MI_Metadata/gmd:distributionInfo/gmd:MD_Distribution/gmd:transferOptions/gmd:MD_DigitalTransferOptions/gmd:onLine/gmd:CI_OnlineResource">
+          <nkn:link>
+            <nkn:linkUrl>
+              <xsl:value-of select="gmd:linkage/gmd:URL"/>
+            </nkn:linkUrl>
+            <nkn:linkType>
+              <xsl:value-of select="gmd:function/gmd:CI_OnLineFunctionCode"/>
+            </nkn:linkType>
+            <nkn:linkTitle>
+                <xsl:choose>
+                  <xsl:when test="gmd:function/gmd:CI_OnLineFunctionCode[. != '']">
+                    <xsl:value-of select="gmd:function/gmd:CI_OnLineFunctionCode"/>
+                  </xsl:when>
+                  <xsl:otherwise>
+                    <xsl:value-of select="gmd:linkage/gmd:URL"/>
+                  </xsl:otherwise>
+                </xsl:choose>
             </nkn:linkTitle>
           </nkn:link>
         </xsl:for-each>
