@@ -36,6 +36,9 @@
   <xsl:template match="/">
     <xsl:for-each select="gmd:DS_Series/gmd:seriesMetadata">
     <nkn:record>
+      <nkn:randID>  <!-- use this random ID to help construct the searchResults accordion -->
+        <xsl:value-of select="generate-id()"/>
+      </nkn:randID>
       <nkn:xsltPath>
         <xsl:value-of select="$xsltPath"/>
       </nkn:xsltPath>
@@ -53,7 +56,7 @@
       </nkn:title>
       
       <nkn:abstract>
-        <xsl:value-of
+        <xsl:value-of disable-output-escaping="yes"
           select="normalize-space(gmi:MI_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:abstract/gco:CharacterString)"
         />
       </nkn:abstract>

@@ -31,9 +31,6 @@
 
   <xsl:template match="/">
     <nkn:record>
-      <nkn:randID>  <!-- use this random ID to help construct the searchResults accordion -->
-        <xsl:value-of select="generate-id()"/>
-      </nkn:randID>
       <nkn:xsltPath>
         <xsl:value-of select="$xsltPath"/>
       </nkn:xsltPath>
@@ -48,60 +45,33 @@
         <xsl:value-of select="normalize-space(/metadata/dataIdInfo[1]/idCitation[1]/resTitle[1])"/>
       </nkn:title>
 
-      <xsl:if test="/metadata/dataIdInfo/idPurp[. != '']">
-        <nkn:purpose>
-          <xsl:value-of select="/metadata/dataIdInfo/idPurp"/>
-        </nkn:purpose>
-      </xsl:if>
-
       <nkn:abstract>
-        <xsl:value-of select="normalize-space(/metadata/dataIdInfo/idAbs)" />
+        <xsl:value-of select="normalize-space(/metadata/dataIdInfo/idAbs)"/>
+        <xsl:if test="/metadata/dataIdInfo/idPurp[. != '']">
+          <xsl:text>
+          </xsl:text>
+          <xsl:value-of select="/metadata/dataIdInfo/idPurp"/>
+        </xsl:if>
       </nkn:abstract>
 
-      <xsl:if test="/metadata/dataIdInfo/suppInfo[. != '']">
+      <!--
+      <xsl:if test="(/metadata/dataIdInfo/suppInfo != '')">
         <nkn:supInfo>
           <xsl:value-of select="/metadata/dataIdInfo/suppInfo"/>
         </nkn:supInfo>
       </xsl:if>
       
-      <xsl:if test="/metadata/mdFileID[. != '']">
-        <nkn:uuidDOI>
-          <xsl:value-of select="/metadata/mdFileID"/>
-        </nkn:uuidDOI>
-      </xsl:if>
-
-      <xsl:if test="/metadata/dataSetURI[. != '']">
-        <nkn:uuidDOI>
-          <xsl:value-of select="/metadata/dataSetURI"/>
-        </nkn:uuidDOI>
-      </xsl:if>
-
-      <xsl:if test="/metadata/dataIdInfo/idCitation/date/pubDate[. != '']">
-        <nkn:date>
-          <xsl:value-of select="/metadata/dataIdInfo/idCitation/date/pubDate"/>
-        </nkn:date>
-      </xsl:if>
-
-      <xsl:if test="/metadata/dataIdInfo/idPoC/rpOrgName[. != '']">
-        <nkn:publisher>
-          <xsl:value-of select="/metadata/dataIdInfo/idPoC/rpOrgName"/>
-        </nkn:publisher>
-      </xsl:if>
-
-      <xsl:if test="/metadata/dataIdInfo/idCitation/citRespParty/rpOrgName[. != '']">
-	<xsl:for-each select="/metadata/dataIdInfo/idCitation/citRespParty[role/RoleCd/@value = 6]">
-	  <xsl:if test="(rpOrgName != '')">
-          <nkn:creator>
-            <xsl:value-of select="rpOrgName"/>
-          </nkn:creator>
-	  </xsl:if>
-	</xsl:for-each>
-      </xsl:if>
-
-      <xsl:if test="/metadata/dataIdInfo/idCredit[. != '']">
+      <xsl:if test="(/metadata/dataIdInfo/idCredit != '')">
         <nkn:dataCred>
           <xsl:value-of select="/metadata/dataIdInfo/idCredit"/>
         </nkn:dataCred>
+      </xsl:if>
+-->
+
+      <xsl:if test="(/metadata/dataIdInfo/idCitation/date/pubDate != '')">
+        <nkn:date>
+          <xsl:value-of select="/metadata/dataIdInfo/idCitation/date/pubdate"/>
+        </nkn:date>
       </xsl:if>
 
       <!-- Contact Info -->
@@ -126,26 +96,19 @@
       </xsl:if>
 
       <!-- Constraints -->
-      <xsl:if test="/metadata/dataIdInfo/resConst/LegConsts/othConsts[. != '']">
-	<nkn:constOther>
-          <xsl:value-of select="/metadata/dataIdInfo/resConst/LegConsts/othConsts" disable-output-escaping="yes"/>
-	</nkn:constOther>
-      </xsl:if>
-      <xsl:if test="/metadata/dataIdInfo/resConst/LegConsts/accessConsts/RestrictCd[. != '']">
-	<nkn:constAccess>
-	  <xsl:value-of select="/metadata/dataIdInfo/resConst/LegConsts/accessConsts/RestrictCd" disable-output-escaping="yes"/>
-	</nkn:constAccess>
-      </xsl:if>
-      <xsl:if test="/metadata/dataIdInfo/resConst/LegConsts/useLimit[. != '']">
-	<nkn:constUse>
-	  <xsl:value-of select="/metadata/dataIdInfo/resConst/LegConsts/useLimit" disable-output-escaping="yes"/>
-	</nkn:constUse>
-      </xsl:if>
-      <xsl:if test="/metadata/dataIdInfo/resConst/Consts/useLimit[. != '']">
-	<nkn:constUse>
-	  <xsl:value-of select="/metadata/dataIdInfo/resConst/Consts/useLimit" disable-output-escaping="yes"/>
-	</nkn:constUse>
-      </xsl:if>
+      <nkn:constraints>
+        <xsl:if test="/metadata/dataIdInfo/resConst/LegConsts/othConsts[. != '']">
+          <xsl:value-of select="/metadata/dataIdInfo/resConst/LegConsts/othConsts"/>
+          <xsl:text>
+          </xsl:text>
+        </xsl:if>
+        <xsl:if test="/metadata/dataIdInfo/resConst/LegConsts/useLimit[. != '']">
+          <xsl:value-of select="/metadata/dataIdInfo/resConst/LegConsts/useLimit"/>
+          <xsl:text>
+          </xsl:text>
+        </xsl:if>
+        <xsl:value-of select="/metadata/dataIdInfo/resConst/Consts/useLimit"/>
+      </nkn:constraints>
 
       <!-- Geographic Bounds -->
       <nkn:geoBounds>
@@ -193,7 +156,6 @@
 
           <xsl:if test="(/metadata/distInfo/distTranOps/onLineSrc/linkage != '')">
             <xsl:for-each select="/metadata/distInfo/distTranOps/onLineSrc">
-	     <xsl:if test="not(starts-with(normalize-space(linkage), 'Server='))">
               <xsl:if test="not(starts-with(normalize-space(linkage), 'file://'))">
                 <nkn:link>
                   <nkn:linkUrl>
@@ -212,35 +174,31 @@
                   </nkn:linkTitle>
                 </nkn:link>
               </xsl:if>
-             </xsl:if>
             </xsl:for-each>
           </xsl:if>
 
-           <xsl:if test="(/metadata/distInfo/distributor/distorTran/onLineSrc/linkage != '')">
-             <xsl:for-each select="/metadata/distInfo/distributor/distorTran/onLineSrc">
-               <xsl:if test="not(starts-with(normalize-space(linkage), 'file://'))">
-                <xsl:if test="not(starts-with(normalize-space(linkage), 'Server='))">
-                 <nkn:link>
-                   <nkn:linkUrl>
-                     <xsl:value-of select="linkage"/>
-                   </nkn:linkUrl>
-                   <nkn:linkType>Unknown</nkn:linkType>
-                   <nkn:linkTitle>
-                     <xsl:choose>
-                       <xsl:when test="orDesc != ''">
-                         <xsl:value-of select="orDesc"/>
-                       </xsl:when>
-                       <xsl:otherwise>
-                         <xsl:value-of select="linkage"/>
-                       </xsl:otherwise>
-                     </xsl:choose>
-                   </nkn:linkTitle>
-                 </nkn:link>
-               </xsl:if>
+          <xsl:if test="(/metadata/distInfo/distributor/distorTran/onLineSrc/linkage != '')">
+            <xsl:for-each select="/metadata/distInfo/distributor/distorTran/onLineSrc">
+              <xsl:if test="not(starts-with(normalize-space(linkage), 'file://'))">
+                <nkn:link>
+                  <nkn:linkUrl>
+                    <xsl:value-of select="linkage"/>
+                  </nkn:linkUrl>
+                  <nkn:linkType>Unknown</nkn:linkType>
+                  <nkn:linkTitle>
+                    <xsl:choose>
+                      <xsl:when test="orDesc != ''">
+                        <xsl:value-of select="orDesc"/>
+                      </xsl:when>
+                      <xsl:otherwise>
+                        <xsl:value-of select="linkage"/>
+                      </xsl:otherwise>
+                    </xsl:choose>
+                  </nkn:linkTitle>
+                </nkn:link>
               </xsl:if>
-             </xsl:for-each>
-           </xsl:if>
-
+            </xsl:for-each>
+          </xsl:if>
         </xsl:if>
       </nkn:links>
 

@@ -35,6 +35,9 @@
 
   <xsl:template match="/">
     <nkn:record>
+      <nkn:randID>  <!-- use this random ID to help construct the searchResults accordion -->
+        <xsl:value-of select="generate-id()"/>
+      </nkn:randID>
       <nkn:xsltPath>
         <xsl:value-of select="$xsltPath"/>
       </nkn:xsltPath>
