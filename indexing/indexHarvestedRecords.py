@@ -55,7 +55,7 @@ def index(url, endpoint, failed_records):
 	try:
 	    jsonText = jsonText.replace('filesystemIndexer', endpoint)
  	    es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
-   	    print es.index(index='test_metadata', doc_type='metadata', body=json.loads(jsonText))
+   	    print es.index(index='records', doc_type='metadata', body=json.loads(jsonText))
 	except:
 	    print "Unexpected error: count not insert record in to Elasticsearch"
 	    failed_records.append(url)
@@ -65,7 +65,7 @@ def index(url, endpoint, failed_records):
 def wipeIndex(endpoint):
     print 'Wiping index ' + endpoint
     es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
-    print es.delete_by_query(index='test_metadata',body={"query":{"match":{"record_source":endpoint}}})
+    print es.delete_by_query(index='records',body={"query":{"match":{"record_source":endpoint}}})
 
 
 # The function for reading the config file

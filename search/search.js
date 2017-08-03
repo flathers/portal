@@ -109,10 +109,12 @@ function doSearch(key) {
 	    }
           });
   }
-  url = "/_search/"
+  url = "https://nknportal-prod.nkn.uidaho.edu/_search/"
   $.post(url, query,
     function(data) {
-      baseUrl = '/portal/renderMetadata/php/render.php?xml=';
+	console.log("Printing data: ");
+	console.log(data);
+      baseUrl = 'https://nknportal-prod.nkn.uidaho.edu/portal/renderMetadata/php/render.php?xml=';
       totalRecords = parseInt(data.hits.total);
       if(totalRecords == 0)
       	totalRecords++;
