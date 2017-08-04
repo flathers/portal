@@ -101,8 +101,9 @@ function doSearch(key) {
 				multi_match: {
 					query: key,
 					//type: "best_fields",
-					fields: ["title^50000000", "abstract", "contacts", "identifiers", "keywords", "mdXmlPath", "sbeast", "sbnorth", "sbsouth", "sbwest", "record_source", "uid"]
+					fields: ["title^50000000", "abstract", "contacts", "identifiers", "keywords", "mdXmlPath", "sbeast", "sbnorth", "sbsouth", "sbwest", "record_source", "uid"],
 					//tie_breaker: 0.3
+					operator:"and"
         			}
     	    		}
 		}
@@ -125,6 +126,7 @@ function doSearch(key) {
 
       $("#totalRecords").html('Records Found: ' + totalRecords + ' &nbsp; Showing Page ' + (pageVal+1) + ' of ' + totalPages);
       $.each(data.hits.hits, function(i, item) {
+	console.log(item._source.mdXmlPath);
         $.get(baseUrl + item._source.mdXmlPath, function(data){ 
           //$("#searchResultContainer").append(data + '<hr>');
           $("#searchResultContainer").append(data);
