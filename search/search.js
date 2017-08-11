@@ -70,11 +70,17 @@ function doSearch(key) {
 	    query: {
 		 bool: {
 			
-			must_not: {
-				wildcard:{
-					collection: "*"
+			must_not: [{
+					wildcard:{
+						collection: "*"
+					}
+				},
+				{
+					match:{
+						keyword: "publication"
+					}
 				}
-			},
+			],
 			must: { 
 				match_phrase_prefix: {
 					title: key,
@@ -91,11 +97,22 @@ function doSearch(key) {
 	    query: {
 	 	bool: {
 			
-			must_not:{
-				wildcard: {
-					collection: "*"
+			must_not: [{
+					wildcard: {
+						collection: "*"
+					}
+				},
+				{
+					match:{
+						keyword: "publication"
+					}
+				},
+				{
+					match_phrase_prefix:{
+						title:"Publication"	
+					}
 				}
-			},
+			],
 			must:{ 
 
 				multi_match: {
