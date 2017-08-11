@@ -79,6 +79,11 @@ function doSearch(key) {
 					match:{
 						keyword: "publication"
 					}
+				},
+				{
+					match_phrase_prefix:{
+						title:"Publication"	
+					}
 				}
 			],
 			must: { 
