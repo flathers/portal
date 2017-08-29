@@ -127,7 +127,7 @@
       <xsl:if test="/nkn:record/nkn:creator[. != '']">
         <div class="creator">
 	  <xsl:for-each select="/nkn:record/nkn:creator">
-            <xsl:value-of select="."/><br />
+            <p><xsl:value-of select="."/></p>
 	  </xsl:for-each>
         </div>
       </xsl:if>
@@ -208,14 +208,19 @@
       </xsl:if>
 
       <!-- Online links -->
-      <div class="linksLabel">Online Link(s):</div>
+      <div class="linksLabel">Data Download &amp; Online Resources:</div>
+     <!-- <ul>-->
       <xsl:for-each select="/nkn:record/nkn:links/nkn:link">
+      <!--  <li> -->
         <span class="summaryLink">
           <a href="{nkn:linkUrl}" target="_blank">
             <xsl:value-of select="nkn:linkTitle"/>
           </a>
+          <div><xsl:value-of select="nkn:linkDesc"/></div>
         </span>
+      <!--  </li> -->
       </xsl:for-each>
+     <!-- </ul> -->
       <span class="summaryLink">
         <a href="{/nkn:record/nkn:xmlUrl}" target="_blank">View Metadata as Raw XML</a>
       </span>

@@ -64,10 +64,14 @@
       </nkn:date>
 
       <nkn:uuidDOI>
-	<xsl:if test="/gmi:MI_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:identifier/gmd:MD_Identifier/gmd:code/gmx:Anchor[. != '']">
+	<xsl:if test="/gmi:MI_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:identifier/gmd:MD_Identifier/gmd:code/gco:CharacterString[. != '']">
+          <xsl:value-of
+            select="/gmi:MI_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:identifier/gmd:MD_Identifier/gmd:code/gco:CharacterString" />
+	</xsl:if> 
+<!--	<xsl:if test="/gmi:MI_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:identifier/gmd:MD_Identifier/gmd:code/gmx:Anchor[. != '']">
           <xsl:value-of
             select="/gmi:MI_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:identifier/gmd:MD_Identifier/gmd:code/gmx:Anchor" />
-	</xsl:if>
+	</xsl:if> -->
       </nkn:uuidDOI>
 
       <!-- Publisher -->
@@ -103,7 +107,7 @@
       <nkn:contact>
         <xsl:choose>
           <xsl:when
-            test="/gmi:MI_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:pointOfContact/gmd:CI_ResponsibleParty != ''">
+            test="/gmi:MI_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:pointOfContact/gmd:CI_ResponsibleParty[. != '']">
             <nkn:person>
               <xsl:value-of
                 select="/gmi:MI_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:pointOfContact/gmd:CI_ResponsibleParty/gmd:individualName/gco:CharacterString" />
@@ -141,17 +145,21 @@
       <!-- Constraints -->
         <xsl:if
           test="/gmi:MI_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:resourceConstraints/gmd:MD_LegalConstraints/gmd:accessConstraints[. != '']">
+          <xsl:if test="/gmi:MI_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:resourceConstraints/gmd:MD_LegalConstraints/gmd:accessConstraints/gmd:MD_RestrictionCode[. != 'otherRestrictions']">
  	  <nkn:constAccess>
             <xsl:value-of
               select="normalize-space(/gmi:MI_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:resourceConstraints/gmd:MD_LegalConstraints/gmd:accessConstraints)"/>
  	  </nkn:constAccess>
+	  </xsl:if>
         </xsl:if>
         <xsl:if
           test="/gmi:MI_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:resourceConstraints/gmd:MD_LegalConstraints/gmd:useConstraints[. != '']">
+          <xsl:if test="/gmi:MI_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:resourceConstraints/gmd:MD_LegalConstraints/gmd:useConstraints/gmd:MD_RestrictionCode[. != 'otherRestrictions']">
  	  <nkn:constUse>
             <xsl:value-of
               select="normalize-space(/gmi:MI_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:resourceConstraints/gmd:MD_LegalConstraints/gmd:useConstraints)"/>
  	  </nkn:constUse>
+          </xsl:if>
         </xsl:if>
 	<xsl:if 
 	  test="/gmi:MI_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:resourceConstraints/gmd:MD_LegalConstraints/gmd:otherConstraints[. != '']">
@@ -202,47 +210,64 @@
       <nkn:links>
         <xsl:for-each
           select="/gmi:MI_Metadata/gmd:distributionInfo/gmd:MD_Distribution/gmd:distributor/gmd:MD_Distributor/gmd:distributorTransferOptions/gmd:MD_DigitalTransferOptions/gmd:onLine/gmd:CI_OnlineResource">
+         <xsl:if test="gmd:linkage/gmd:URL[. != '']">
           <nkn:link>
             <nkn:linkUrl>
-              <xsl:value-of select="gmd:linkage/gmd:URL"/>
+                <xsl:value-of select="gmd:linkage/gmd:URL"/>
             </nkn:linkUrl>
             <nkn:linkType>
               <xsl:value-of select="gmd:function/gmd:CI_OnLineFunctionCode"/>
             </nkn:linkType>
+	    <xsl:if test="gmd:description/gco:CharacterString[. != '']">
+              <nkn:linkDesc>
+                <xsl:value-of select="gmd:description/gco:CharacterString"/>
+              </nkn:linkDesc>
+            </xsl:if>
             <nkn:linkTitle>
-             <!-- <xsl:value-of select="gmd:description/gco:CharacterString"/> -->
 		<xsl:choose>
 		  <xsl:when test="gmd:function/gmd:CI_OnLineFunctionCode[. != '']">
               	    <xsl:value-of select="gmd:function/gmd:CI_OnLineFunctionCode"/>
 		  </xsl:when>
 		  <xsl:otherwise>
-              	    <xsl:value-of select="gmd:linkage/gmd:URL"/>
+	            <xsl:if test="gmd:linkage/gmd:URL[. != '']">
+                      <xsl:value-of select="gmd:linkage/gmd:URL"/>
+	            </xsl:if>
 		  </xsl:otherwise>
 		</xsl:choose>
             </nkn:linkTitle>
           </nkn:link>
+	 </xsl:if>
         </xsl:for-each>
 
         <xsl:for-each
           select="/gmi:MI_Metadata/gmd:distributionInfo/gmd:MD_Distribution/gmd:transferOptions/gmd:MD_DigitalTransferOptions/gmd:onLine/gmd:CI_OnlineResource">
+	 <xsl:if test="gmd:linkage/gmd:URL[. != '']">
           <nkn:link>
             <nkn:linkUrl>
-              <xsl:value-of select="gmd:linkage/gmd:URL"/>
+                <xsl:value-of select="gmd:linkage/gmd:URL"/>
             </nkn:linkUrl>
             <nkn:linkType>
               <xsl:value-of select="gmd:function/gmd:CI_OnLineFunctionCode"/>
             </nkn:linkType>
+	    <xsl:if test="gmd:description/gco:CharacterString[. != '']">
+              <nkn:linkDesc>
+                <xsl:value-of select="gmd:description/gco:CharacterString"/>
+              </nkn:linkDesc>
+            </xsl:if>
             <nkn:linkTitle>
                 <xsl:choose>
                   <xsl:when test="gmd:function/gmd:CI_OnLineFunctionCode[. != '']">
                     <xsl:value-of select="gmd:function/gmd:CI_OnLineFunctionCode"/>
                   </xsl:when>
                   <xsl:otherwise>
-                    <xsl:value-of select="gmd:linkage/gmd:URL"/>
+	            <xsl:if test="gmd:linkage/gmd:URL[. != '']">
+                      <xsl:value-of select="gmd:linkage/gmd:URL"/>
+	            </xsl:if>
                   </xsl:otherwise>
                 </xsl:choose>
             </nkn:linkTitle>
           </nkn:link>
+         </xsl:if>
         </xsl:for-each>
       </nkn:links>
 

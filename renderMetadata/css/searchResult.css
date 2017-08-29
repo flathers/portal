@@ -132,7 +132,7 @@
 .abstract::before { content: "Abstract: "; }
 .descript:before { content: "Description: "; }
 .purpose::before { content: "Purpose: "; }
-.uuidDOI::before { content: "UUID or DOI: "; }
+.uuidDOI::before { content: "DOI or UUID: "; }
 .creator::before { content: "Creator/Originator: "; }
 .date::before { content: "Publish Date: "; }
 .publisher::before { content: "Publisher: "; }
