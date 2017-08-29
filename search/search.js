@@ -70,11 +70,22 @@ function doSearch(key) {
 	    query: {
 		 bool: {
 			
-			must_not: {
-				wildcard:{
-					collection: "*"
+			must_not: [{
+					wildcard:{
+						collection: "*"
+					}
+				},
+				{
+					match:{
+						keyword: "publication"
+					}
+				},
+				{
+					match_phrase_prefix:{
+						title:"Publication"	
+					}
 				}
-			},
+			],
 			must: { 
 				match_phrase_prefix: {
 					title: key,
@@ -91,28 +102,42 @@ function doSearch(key) {
 	    query: {
 	 	bool: {
 			
-			must_not:{
-				wildcard: {
-					collection: "*"
+			must_not: [{
+					wildcard: {
+						collection: "*"
+					}
+				},
+				{
+					match:{
+						keyword: "publication"
+					}
+				},
+				{
+					match_phrase_prefix:{
+						title:"Publication"	
+					}
 				}
-			},
+			],
 			must:{ 
 
 				multi_match: {
 					query: key,
 					//type: "best_fields",
-					fields: ["title^50000000", "abstract", "contacts", "identifiers", "keywords", "mdXmlPath", "sbeast", "sbnorth", "sbsouth", "sbwest", "record_source", "uid"]
+					fields: ["title^50000000", "abstract", "contacts", "identifiers", "keywords", "mdXmlPath", "sbeast", "sbnorth", "sbsouth", "sbwest", "record_source", "uid"],
 					//tie_breaker: 0.3
+					operator:"and"
         			}
     	    		}
 		}
 	    }
           });
   }
-  url = "/_search/"
+  url = "https://nknportal-prod.nkn.uidaho.edu/_search/"
   $.post(url, query,
     function(data) {
-      baseUrl = '/portal/renderMetadata/php/render.php?xml=';
+	console.log("Printing data: ");
+	console.log(data);
+      baseUrl = 'https://nknportal-prod.nkn.uidaho.edu/portal/renderMetadata/php/render.php?xml=';
       totalRecords = parseInt(data.hits.total);
       if(totalRecords == 0)
       	totalRecords++;
@@ -123,6 +148,7 @@ function doSearch(key) {
 
       $("#totalRecords").html('Records Found: ' + totalRecords + ' &nbsp; Showing Page ' + (pageVal+1) + ' of ' + totalPages);
       $.each(data.hits.hits, function(i, item) {
+	console.log(item._source.mdXmlPath);
         $.get(baseUrl + item._source.mdXmlPath, function(data){ 
           //$("#searchResultContainer").append(data + '<hr>');
           $("#searchResultContainer").append(data);
