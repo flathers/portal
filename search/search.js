@@ -49,6 +49,23 @@ function init() {
 }
 
 
+/** Checks the URL of the currently web page and returns the keyword that should
+ *  be used in the Elasticsearch record for that site. The reacchpna.org site
+ *  should only be searching its own records: not all records in the index.
+ */
+function checkCurrentSite(){
+	var currentSiteURL = document.URL;
+
+	if(currentSiteURL.indexOf("reacchpna.org") > -1){
+		return "reacch";
+	}else if(currentSiteURL.indexOf("idahoecosystems.org") > -1){
+		return "miles";
+	}else{
+		//If search should return all records regardless of source, then don't return keyword.
+		return "";
+	}	
+}
+
 function doSearch(key) {
   $("#searchResultContainer").html("");
 
@@ -58,20 +75,105 @@ function doSearch(key) {
   fields; and provides a scoring bonus to records for which
   the title includes the search key.
   */
+  
+  //Get keywords to ignore
+  var requiredKeywords = checkCurrentSite();
 
   var quoteRegex = /["]/g;
+  var query = "";
+
   //If query text from user has quotes in it, then run exact match query
   if(quoteRegex.test(key)){
 	key = key.replace(quoteRegex, "");
-	console.log("Printing key: " + key);
-	  var query = JSON.stringify({
+
+	if(requiredKeywords){
+		//Some keyword that must be matched is present and must be added to the JSON query.
+		console.log("Trying to match quoted text: " + requiredKeywords + " :: term :: " + key);
+	        query = JSON.stringify({
+		size: sizeVal,
+		from: fromVal,
+		query: {
+			 bool: {
+			
+				must_not: [{
+						wildcard:{
+							collection: "*"
+						}
+					},
+					{
+						match:{
+							keyword: "publication"
+						}
+					},
+					{
+						match_phrase_prefix:{
+							title:"Publication"	
+						}
+					}
+				],
+				must: [
+				  	{ 
+						match_phrase_prefix: {
+							title: key
+                				}
+					},	
+					{
+						match:{
+							record_source: requiredKeywords
+						}
+			  		}
+				]
+			}
+    	    	    }
+          	});
+	}else{
+		  query = JSON.stringify({
+		    size: sizeVal,
+		    from: fromVal,
+		    query: {
+			 bool: {
+			
+				must_not: [{
+						wildcard:{
+							collection: "*"
+						}
+					},
+					{
+						match:{
+							keyword: "publication"
+						}
+					},
+					{
+						match_phrase_prefix:{
+							title:"Publication"	
+						}
+					}
+				],
+				must: { 
+					match_phrase_prefix: {
+						title: key,
+                			}	
+			  	}
+			}
+    	    	    }
+          	});
+	}
+  }
+  /* If the user has not wrapped their query in double quotes, then search all 
+   * attributes in the record, however, matches in the title are boosted higher
+   * than matches in other attributes. 
+   */ 
+  else{
+	if(requiredKeywords){
+	    console.log("Printint required keywords: " + requiredKeywords);
+	    query = JSON.stringify({
 	    size: sizeVal,
 	    from: fromVal,
 	    query: {
-		 bool: {
+	 	bool: {
 			
 			must_not: [{
-					wildcard:{
+					wildcard: {
 						collection: "*"
 					}
 				},
@@ -86,17 +188,27 @@ function doSearch(key) {
 					}
 				}
 			],
-			must: { 
-				match_phrase_prefix: {
-					title: key,
-                		}	
-		  	}
+			must: [
+				{ 
+					multi_match: {
+						query: key,
+						fields: ["title^50000000", "abstract", "contacts", "identifiers", "keywords", "mdXmlPath", "sbeast", "sbnorth", "sbsouth", "sbwest", "record_source", "uid"],
+						operator:"and"
+        				}
+				},
+				{
+					match:{
+						record_source: requiredKeywords
+					}
+    	    			}
+			]
 		}
-    	    }
+	    }
           });
 
-  }else{
-	  var query = JSON.stringify({
+	}else{
+
+	    query = JSON.stringify({
 	    size: sizeVal,
 	    from: fromVal,
 	    query: {
@@ -122,15 +234,14 @@ function doSearch(key) {
 
 				multi_match: {
 					query: key,
-					//type: "best_fields",
 					fields: ["title^50000000", "abstract", "contacts", "identifiers", "keywords", "mdXmlPath", "sbeast", "sbnorth", "sbsouth", "sbwest", "record_source", "uid"],
-					//tie_breaker: 0.3
 					operator:"and"
         			}
     	    		}
 		}
 	    }
           });
+	}
   }
   url = "https://nknportal-prod.nkn.uidaho.edu/_search/"
   $.post(url, query,
