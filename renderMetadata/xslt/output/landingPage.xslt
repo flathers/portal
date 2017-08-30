@@ -107,8 +107,14 @@
 
       <!-- UUID or DOI -->
       <xsl:if test="/nkn:record/nkn:uuidDOI[. != '']">
+	<xsl:variable name="ident" select="/nkn:record/nkn:uuidDOI"/>
         <div class="uuidDOI">
-          <xsl:value-of select="/nkn:record/nkn:uuidDOI"/>
+	  <xsl:if test="starts-with($ident, 'http')">
+	    <a href="{normalize-space(nkn:creatorEmail)}"><xsl:value-of select="/nkn:record/nkn:uuidDOI"/></a>
+	  </xsl:if>
+	  <xsl:if test="not(starts-with($ident, 'http'))">
+            <xsl:value-of select="/nkn:record/nkn:uuidDOI"/>
+	  </xsl:if>
         </div>
       </xsl:if>
       <!-- Pub Date -->
@@ -127,7 +133,26 @@
       <xsl:if test="/nkn:record/nkn:creator[. != '']">
         <div class="creator">
 	  <xsl:for-each select="/nkn:record/nkn:creator">
-            <p><xsl:value-of select="."/></p>
+	    <xsl:choose>
+	      <xsl:when test="((nkn:creatorName[. != '']) or (nkn:creatorAddress[. != '']))">
+                <p>	
+	  	  <xsl:if test="nkn:creatorName[. != '']">
+	            <xsl:value-of select="nkn:creatorName"/><br />
+	       	  </xsl:if>
+		  <xsl:if test="nkn:creatorAddress[. != '']">
+                    <xsl:value-of select="nkn:creatorAddress"/><br />
+		  </xsl:if>
+		  <xsl:if test="nkn:creatorEmail[. != '']">
+		    <a href="mailto:{normalize-space(nkn:creatorEmail)}">
+                      <xsl:value-of select="nkn:creatorEmail"/>
+		    </a>
+		  </xsl:if>
+		</p>
+	      </xsl:when>
+	      <xsl:otherwise>
+                <p><xsl:value-of select="."/></p>
+	      </xsl:otherwise>
+	    </xsl:choose>
 	  </xsl:for-each>
         </div>
       </xsl:if>

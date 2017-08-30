@@ -87,18 +87,24 @@
           <nkn:creator>
 	      <xsl:variable name="indivName" select="gmd:CI_ResponsibleParty/gmd:individualName/gco:CharacterString[. != '']"/>
 	      <xsl:variable name="deliveryPt" select="gmd:CI_ResponsibleParty/gmd:contactInfo/gmd:CI_Contact/gmd:address/gmd:CI_Address/gmd:deliveryPoint/gco:CharacterString[. != '']"/>
-	      <xsl:value-of select="$indivName"/><xsl:text>, </xsl:text>
+	    <nkn:creatorName>
+	      <xsl:value-of select="$indivName"/>
+	    </nkn:creatorName>
 		<xsl:choose>
 		  <xsl:when test="not($indivName = $deliveryPt)">
-              	    <xsl:value-of select="$deliveryPt"/><xsl:text>, </xsl:text>
+	           <nkn:creatorAddress>
+              	    <xsl:value-of select="$deliveryPt"/>
+	           </nkn:creatorAddress>
 		  </xsl:when>
 		  <xsl:otherwise>
 		    <!-- do nothing -->
 		  </xsl:otherwise>
 		</xsl:choose>
+	     <nkn:creatorEmail>
               <a href="mailto:{normalize-space(gmd:CI_ResponsibleParty/gmd:contactInfo/gmd:CI_Contact/gmd:address/gmd:CI_Address/gmd:electronicMailAddress/gco:CharacterString)}">
                 <xsl:value-of select="gmd:CI_ResponsibleParty/gmd:contactInfo/gmd:CI_Contact/gmd:address/gmd:CI_Address/gmd:electronicMailAddress/gco:CharacterString[. != '']"/>
               </a>
+	     </nkn:creatorEmail>
           </nkn:creator>
 	</xsl:for-each>
       </xsl:if>

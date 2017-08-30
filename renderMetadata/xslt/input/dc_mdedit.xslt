@@ -60,11 +60,20 @@
         <xsl:value-of select="/rdf:RDF/rdf:Description/dc:date"/>
       </nkn:date>
 
+      <nkn:publisher>
+        <xsl:value-of select="/rdf:RDF/rdf:Description/dc:publisher"/>
+      </nkn:publisher>
+
       <nkn:uuidDOI>
         <xsl:value-of select="/rdf:RDF/rdf:Description/dc:identifier"/>
       </nkn:uuidDOI>
 
+      <nkn:creator>
+        <xsl:value-of select="/rdf:RDF/rdf:Description/dc:creator"/>
+      </nkn:creator>
+
       <!-- Contact Info -->
+      <!--
       <nkn:contact>
         <nkn:person>
           <xsl:value-of select="/rdf:RDF/rdf:Description/dc:creator"/>
@@ -73,6 +82,7 @@
           <xsl:value-of select="/rdf:RDF/rdf:Description/dc:publisher"/>
         </nkn:organization>
       </nkn:contact>
+      -->
 
       <!-- Constraints -->
 	<xsl:if test="(/rdf:RDF/rdf:Description/dc:rights != '')">

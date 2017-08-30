@@ -1,4 +1,4 @@
-nknDatastoreRoot=/datastore-pre/
+nknDatastoreRoot=/datastore-prod/
 HTTP_nknDatastoreRoot=$nknDatastoreRoot
 export nknDatastoreRoot
 export HTTP_nknDatastoreRoot
