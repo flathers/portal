@@ -52,19 +52,153 @@ function init() {
 /** Checks the URL of the currently web page and returns the keyword that should
  *  be used in the Elasticsearch record for that site. The reacchpna.org site
  *  should only be searching its own records: not all records in the index.
+ *  Return value: {array}
  */
 function checkCurrentSite(){
-	var currentSiteURL = document.URL;
-
+	var currentSiteURL = getURL();
+	var recordSourceList = [];
 	if(currentSiteURL.indexOf("reacchpna.org") > -1){
-		return "reacch";
+		//Nothing yet
 	}else if(currentSiteURL.indexOf("idahoecosystems.org") > -1){
-		return "miles";
+		recordSourceList.push("bsu-miles");
+		recordSourceList.push("metadata_editor");
 	}else{
 		//If search should return all records regardless of source, then don't return keyword.
-		return "";
-	}	
+	}
+	return recordSourceList;	
 }
+
+/** Checks what keywords to seach on based on what site is hosting the page
+ *  Return value: {array}
+ */
+
+function checkRequiredKeywords(){
+	var currentSiteURL = getURL();
+	var keywordsList = [];
+	if(currentSiteURL.indexOf("reacchpna.org") > -1){
+		//Nothing yet
+		keywordsList.push("reacch");
+	}else if(currentSiteURL.indexOf("idahoecosystems.org") > -1){
+		keywordsList.push("IIA-1301792");
+	}else{
+		//If search should return all records regardless of source, then don't return keyword.
+	}
+	return keywordsList;	
+}
+
+function getURL(){
+	return document.URL;
+}
+
+/** Check what site this script is on, and ignore publications in search resutls for certain sites
+ * @param {object} query
+ */
+
+function checkIgnorePublications(query){
+	var currentSiteURL = getURL();
+	if(currentSiteURL.indexOf("reacchpna.org") > -1){
+		//Nothing yet
+	}else if(currentSiteURL.indexOf("idahoecosystems.org") > -1){
+		//nothing yet
+        }else if(currentSiteURL.indexOf("northwestknowledge.net") > -1){
+		ignorePublications(query);
+	}else{
+		//If search should return all records regardless of source, then don't return keyword.
+	}
+}
+
+/** Puts the publication ignoring part of the query on the query object
+ *  @param {object} queryObject
+ */
+function ignorePublications(queryObject){
+	queryObject.query.bool.must_not.push({match:{keyword:"publication"}});
+	queryObject.query.bool.must_not.push({match_phrase_prefix:{title:"Publication"}});
+}
+
+/** Checks which site the script is on, and ignores collection level  
+ *  @param {object} query
+ */
+function checkIgnoreCollections(query){
+	var currentSiteURL = getURL();
+	if(currentSiteURL.indexOf("reacchpna.org") > -1){
+		//Nothing yet
+	}else if(currentSiteURL.indexOf("idahoecosystems.org") > -1){
+		//nothing yet
+        }else if(currentSiteURL.indexOf("northwestknowledge.net") > -1){
+		ignoreCollections(query);
+	}else{
+		//If search should return all records regardless of source, then don't return keyword.
+	}
+}
+
+/** Puts the collection ignoring part of the query on the query object
+ *  @param {object} queryObject
+ */
+function ignoreCollections(queryObject){
+	queryObject.query.bool.must_not.push({wildcard:{collection:"*"}});
+}
+
+/** Search and match all records for the respective sites.
+ *
+ */
+function searchAll(requiredSource, emptySearchKey){
+    var query = "";
+    var requiredKeywords = checkRequiredKeywords();
+    var queryObject = {
+			size:sizeVal,
+			from:fromVal,
+			query: {
+				 bool: {
+			
+					must_not: [],
+					must: [
+						{ 
+							match_all: { }
+						},
+						{
+							bool:{
+								should:[]
+							}
+						}
+					]
+				}
+			}
+		};
+	//If site is northwestknowledge.net, then ignore publications
+	checkIgnorePublications(queryObject);
+
+  	//Check if search results should ignore collection level records 
+	checkIgnoreCollections(queryObject);
+
+      requiredSource.forEach(function(source){
+		console.log("Adding source!!");
+        	queryObject.query.bool.must[1].bool.should.push({match:{record_source:source}});
+      });
+
+    requiredKeywords.forEach(function(item){
+	console.log("Adding keyword!" + item);
+	queryObject.query.bool.must[1].bool.should.push({match:{keywords:item}});
+    });
+      if((requiredSource.length > 0) || (requiredKeywords.length > 0))
+	 queryObject.query.bool.must[1].bool["minimum_number_should_match"] = 1;
+
+      console.log("Printing search object:");
+	console.log(queryObject);
+
+
+    //If no record sources specificed, search all sources
+    query = JSON.stringify(queryObject);
+  //Search Elasticsearch
+  queryElasticsearch(query, emptySearchKey);
+
+}
+
+$(document).ready(function(){
+  var recordSource = checkCurrentSite();
+  var emptySearchKey = "";
+  searchAll(recordSource, emptySearchKey);
+
+});
 
 function doSearch(key) {
   $("#searchResultContainer").html("");
@@ -77,177 +211,84 @@ function doSearch(key) {
   */
   
   //Get keywords to ignore
-  var requiredKeywords = checkCurrentSite();
+  var requiredSources = checkCurrentSite();
+  var requiredKeywords = checkRequiredKeywords();
 
   var quoteRegex = /["]/g;
   var query = "";
-
-  //If query text from user has quotes in it, then run exact match query
-  if(quoteRegex.test(key)){
-	key = key.replace(quoteRegex, "");
-
-	if(requiredKeywords){
-		//Some keyword that must be matched is present and must be added to the JSON query.
-		console.log("Trying to match quoted text: " + requiredKeywords + " :: term :: " + key);
-	        query = JSON.stringify({
-		size: sizeVal,
-		from: fromVal,
-		query: {
-			 bool: {
-			
-				must_not: [{
-						wildcard:{
-							collection: "*"
-						}
-					},
-					{
-						match:{
-							keyword: "publication"
-						}
-					},
-					{
-						match_phrase_prefix:{
-							title:"Publication"	
-						}
-					}
-				],
-				must: [
-				  	{ 
-						match_phrase_prefix: {
-							title: key
-                				}
-					},	
-					{
-						match:{
-							record_source: requiredKeywords
-						}
-			  		}
-				]
-			}
-    	    	    }
-          	});
-	}else{
-		  query = JSON.stringify({
-		    size: sizeVal,
-		    from: fromVal,
-		    query: {
-			 bool: {
-			
-				must_not: [{
-						wildcard:{
-							collection: "*"
-						}
-					},
-					{
-						match:{
-							keyword: "publication"
-						}
-					},
-					{
-						match_phrase_prefix:{
-							title:"Publication"	
-						}
-					}
-				],
-				must: { 
-					match_phrase_prefix: {
-						title: key,
-                			}	
-			  	}
-			}
-    	    	    }
-          	});
-	}
-  }
-  /* If the user has not wrapped their query in double quotes, then search all 
-   * attributes in the record, however, matches in the title are boosted higher
-   * than matches in other attributes. 
-   */ 
-  else{
-	if(requiredKeywords){
-	    console.log("Printint required keywords: " + requiredKeywords);
-	    query = JSON.stringify({
-	    size: sizeVal,
-	    from: fromVal,
-	    query: {
-	 	bool: {
-			
-			must_not: [{
-					wildcard: {
-						collection: "*"
-					}
-				},
+  var queryObject = {
+		  size: sizeVal,
+		  from: fromVal,
+		  query: {
+		      bool: {
+			  
+			  must_not: [],
+			  must: [
 				{
-					match:{
-						keyword: "publication"
-					}
-				},
-				{
-					match_phrase_prefix:{
-						title:"Publication"	
+					bool:{
+						should:[]
 					}
 				}
-			],
-			must: [
-				{ 
-					multi_match: {
-						query: key,
-						fields: ["title^50000000", "abstract", "contacts", "identifiers", "keywords", "mdXmlPath", "sbeast", "sbnorth", "sbsouth", "sbwest", "record_source", "uid"],
-						operator:"and"
-        				}
-				},
-				{
-					match:{
-						record_source: requiredKeywords
-					}
-    	    			}
-			]
-		}
-	    }
-          });
+			  ]
+		      }
+    	    	  }
+              };
 
-	}else{
+  //Check if we are on northwestknowledge.net, and if so, modify query to ignore in search results.
+  checkIgnorePublications(queryObject);
 
-	    query = JSON.stringify({
-	    size: sizeVal,
-	    from: fromVal,
-	    query: {
-	 	bool: {
-			
-			must_not: [{
-					wildcard: {
-						collection: "*"
-					}
-				},
-				{
-					match:{
-						keyword: "publication"
-					}
-				},
-				{
-					match_phrase_prefix:{
-						title:"Publication"	
-					}
-				}
-			],
-			must:{ 
+  //Check if search results should ignore collection level records 
+  checkIgnoreCollections(queryObject);
 
-				multi_match: {
-					query: key,
-					fields: ["title^50000000", "abstract", "contacts", "identifiers", "keywords", "mdXmlPath", "sbeast", "sbnorth", "sbsouth", "sbwest", "record_source", "uid"],
-					operator:"and"
-        			}
-    	    		}
-		}
-	    }
-          });
-	}
+  if(key == ""){
+      searchAll(checkCurrentSite(), "");
+  }else{
+      //If query text from user has quotes in it, then run exact match query
+      if(quoteRegex.test(key)){
+	  key = key.replace(quoteRegex, "");
+	  queryObject.query.bool.must.push({match_phrase_prefix:{title:key}});
+
+      }
+      /* If the user has not wrapped their query in double quotes, then search all 
+       * attributes in the record, however, matches in the title are boosted higher
+       * than matches in other attributes. 
+       */ 
+      else{
+	    queryObject.query.bool.must.push({multi_match:{query: key,fields: ["title^50000000", "abstract", "contacts", "identifiers", "keywords", "mdXmlPath", "sbeast", "sbnorth", "sbsouth", "sbwest", "record_source", "uid"],operator:"and"}});
+
+      }
+
+      //Some keyword that must be matched is present and must be added to the JSON query.
+      //queryObject.query.bool.must.push({match:[]});
+
+      requiredSources.forEach(function(source){
+		console.log("Adding source!!");
+        	queryObject.query.bool.must[0].bool.should.push({match:{record_source:source}});
+      });
+
+    requiredKeywords.forEach(function(item){
+	queryObject.query.bool.must[0].bool.should.push({match:{keywords:item}});
+    });
+      if((requiredSources.length > 0) || (requiredKeywords.length > 0))
+	 queryObject.query.bool.must[0].bool["minimum_number_should_match"] = 1;
+
+     console.log("Printing search object:");
+	console.log(queryObject);
+      query = JSON.stringify(queryObject);
+      
+      //Search Elasticsearch
+      queryElasticsearch(query, key);
   }
+}
+
+/** Use constructed JSON to query Elasticseach system and display results
+ *  @param {JSON} searchQuery
+ *
+ */
+function queryElasticsearch(searchQuery, key){
   url = "https://nknportal-prod.nkn.uidaho.edu/_search/"
-  $.post(url, query,
+  $.post(url, searchQuery,
     function(data) {
-	console.log("Printing data: ");
-	console.log(data);
       baseUrl = 'https://nknportal-prod.nkn.uidaho.edu/portal/renderMetadata/php/render.php?xml=';
       totalRecords = parseInt(data.hits.total);
       if(totalRecords == 0)
@@ -271,8 +312,8 @@ function doSearch(key) {
       page(key, 0);
     }
   );
-}
 
+}
 
 function page(key, direction) {
   if (direction === next)
