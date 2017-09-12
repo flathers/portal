@@ -169,7 +169,7 @@ def getXpaths(standard):
         listXpaths = {'contact': ['metadata/dataIdInfo/idPoC/rpIndName',
                                   'metadata/mdContact/rpIndName'],
                                   'identifier': ['.'],
-                      'keyword': ['metadata/dataIdInfo/searchKeys/keyword',
+                      'keywords': ['metadata/dataIdInfo/searchKeys/keyword',
                                   'metadata/dataIdInfo/themeKeys/keyword']
                     }
 
@@ -189,7 +189,7 @@ def getXpaths(standard):
                      }
         listXpaths = {'contact': ['rdf:Description/dc:creator'],
                       'identifier': ['rdf:Description/dc:identifier'],
-                      'keyword': ['rdf:Description/dc:subject']
+                      'keywords': ['rdf:Description/dc:subject']
                     }
 
     elif standard == 'eml210':
@@ -209,7 +209,7 @@ def getXpaths(standard):
         listXpaths = {'contact': ['dataset/associatedParty/individualName',
                                   'dataset/contact/individualName'],
                       'identifier': ['idinfo/datsetid'],
-                      'keyword': ['dataset/keywordSet/keyword']
+                      'keywords': ['dataset/keywordSet/keyword']
                     }
 
     elif standard == 'fgdc':
@@ -229,7 +229,7 @@ def getXpaths(standard):
         listXpaths = {'contact': ['idinfo/ptcontac/cntinfo/cntperp/cntper',
                                   'idinfo/foobar'],
                       'identifier': ['idinfo/datsetid'],
-                      'keyword': ['idinfo/keywords/theme/themekey',
+                      'keywords': ['idinfo/keywords/theme/themekey',
                                   'idinfo/keywords/place/placekey']
                     }
 
@@ -250,7 +250,7 @@ def getXpaths(standard):
                      }
         listXpaths = {'contact': [''],
                       'identifier': [''],
-                      'keyword': ['']
+                      'keywords': ['']
                     }
 
     elif standard == 'iso2':
@@ -270,7 +270,7 @@ def getXpaths(standard):
         listXpaths = {'contact': ['gmd:identificationInfo/gmd:MD_DataIdentification/gmd:pointOfContact/gmd:CI_ResponsibleParty/gmd:individualName/gco:CharacterString',
                                   'gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:citedResponsibleParty/gmd:CI_ResponsibleParty/gmd:individualName/gco:CharacterString'],
                       'identifier': ['gmd:fileIdentifier/gco:CharacterString'],
-                      'keyword': ['gmd:identificationInfo/gmd:MD_DataIdentification/gmd:topicCategory/gmd:MD_TopicCategoryCode',
+                      'keywords': ['gmd:identificationInfo/gmd:MD_DataIdentification/gmd:topicCategory/gmd:MD_TopicCategoryCode',
                                   'gmd:identificationInfo/gmd:MD_DataIdentification/gmd:descriptiveKeywords/gmd:MD_Keywords/gmd:keyword/gco:CharacterString']
                     }
 
@@ -291,7 +291,7 @@ def getXpaths(standard):
         listXpaths = {'contact': ['gmd:seriesMetadata/gmi:MI_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:pointOfContact/gmd:CI_ResponsibleParty/gmd:individualName/gco:CharacterString',
                                   'gmd:seriesMetadata/gmi:MI_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:citedResponsibleParty/gmd:CI_ResponsibleParty/gmd:individualName/gco:CharacterString'],
                       'identifier': ['gmd:seriesMetadata/gmi:MI_Metadata/gmd:fileIdentifier/gco:CharacterString'],
-                      'keyword': ['gmd:seriesMetadata/gmi:MI_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:topicCategory/gmd:MD_TopicCategoryCode',
+                      'keywords': ['gmd:seriesMetadata/gmi:MI_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:topicCategory/gmd:MD_TopicCategoryCode',
                                   'gmd:seriesMetadata/gmi:MI_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:descriptiveKeywords/gmd:MD_Keywords/gmd:keyword/gco:CharacterString']
                     }
     return itemXpaths, listXpaths
