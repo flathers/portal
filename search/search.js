@@ -71,7 +71,6 @@ function checkCurrentSite(){
 /** Checks what keywords to seach on based on what site is hosting the page
  *  Return value: {array}
  */
-
 function checkRequiredKeywords(){
 	var currentSiteURL = getURL();
 	var keywordsList = [];
@@ -93,11 +92,10 @@ function getURL(){
 /** Check what site this script is on, and ignore publications in search resutls for certain sites
  * @param {object} query
  */
-
 function checkIgnorePublications(query){
 	var currentSiteURL = getURL();
 	if(currentSiteURL.indexOf("reacchpna.org") > -1){
-		//Nothing yet
+		ignorePublications(query);
 	}else if(currentSiteURL.indexOf("idahoecosystems.org") > -1){
 		//nothing yet
         }else if(currentSiteURL.indexOf("northwestknowledge.net") > -1){
@@ -107,12 +105,16 @@ function checkIgnorePublications(query){
 	}
 }
 
-/** Puts the publication ignoring part of the query on the query object
+/** Puts the publication ignoring part of the query on the query object. Need a couple permutations
+ *  of the work "publication" because of a couple different versions used, and one misspelling.
  *  @param {object} queryObject
  */
 function ignorePublications(queryObject){
 	queryObject.query.bool.must_not.push({match:{keyword:"publication"}});
 	queryObject.query.bool.must_not.push({match_phrase_prefix:{title:"Publication"}});
+	queryObject.query.bool.must_not.push({match_phrase_prefix:{title:"Published"}});
+	//There is one publication that has the word "publication" misspelled. 
+	queryObject.query.bool.must_not.push({match_phrase_prefix:{title:"Publicatoin"}});
 }
 
 /** Checks which site the script is on, and ignores collection level  
@@ -139,7 +141,7 @@ function ignoreCollections(queryObject){
 }
 
 /** Search and match all records for the respective sites.
- *
+ *  @params {array} requiredSource, {string} emtpySearchKey
  */
 function searchAll(requiredSource, emptySearchKey){
     var query = "";
@@ -188,9 +190,8 @@ function searchAll(requiredSource, emptySearchKey){
 
     //If no record sources specificed, search all sources
     query = JSON.stringify(queryObject);
-  //Search Elasticsearch
-  queryElasticsearch(query, emptySearchKey);
-
+    //Search Elasticsearch
+    queryElasticsearch(query, emptySearchKey);
 }
 
 $(document).ready(function(){
