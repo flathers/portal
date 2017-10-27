@@ -50,7 +50,6 @@ function init() {
   });
 }
 
-
 /** Checks the URL of the currently web page and returns the keyword that should
  *  be used in the Elasticsearch record for that site. The reacchpna.org site
  *  should only be searching its own records: not all records in the index.
@@ -200,8 +199,12 @@ function addCoordinateCheckWithin(queryObject, east, west, north, south){
  *  @params {array} requiredSource, {string} emtpySearchKey
  */
 function searchAll(requiredSource, emptySearchKey){
-    var query = "";
-    var queryObject = {
+    //Remove previous page's search results
+    $("#searchResultContainer").html("");
+
+    lastSearchText = emptySearchKey;
+    let query = "";
+    let queryObject = {
 			size:sizeVal,
 			from:fromVal,
 			query: {
@@ -221,18 +224,19 @@ function searchAll(requiredSource, emptySearchKey){
 			}
 		};
 
-	//If site is northwestknowledge.net, then ignore publications
-	checkIgnorePublications(queryObject);
-
-  	//Check if search results should ignore collection level records 
-	checkIgnoreCollections(queryObject);
-
-	//Adding specific query parameters to the query based on what site the page is loaded on.
-	constructQuery(queryObject, "all");
-	
+    //If site is northwestknowledge.net, then ignore publications
+    checkIgnorePublications(queryObject);
+    
+    //Check if search results should ignore collection level records 
+    checkIgnoreCollections(queryObject);
+    
+    //Adding specific query parameters to the query based on what site the page is loaded on.
+    constructQuery(queryObject, "all");
+    
     //If no record sources specificed, search all sources
     query = JSON.stringify(queryObject);
     //Search Elasticsearch
+
     queryElasticsearch(query, emptySearchKey);
 }
 
@@ -249,7 +253,6 @@ function checkNestedProperty(obj, key){
 $(document).ready(function(){
   var emptySearchKey = "";
   searchAll(emptySearchKey);
-
 });
 
 function doSearch(key) {
@@ -261,9 +264,9 @@ function doSearch(key) {
   fields; and provides a scoring bonus to records for which
   the title includes the search key.
   */
-  var quoteRegex = /["]/g;
-  var query = "";
-  var queryObject = {
+  let quoteRegex = /["]/g;
+  let query = "";
+  let queryObject = {
 		  size: sizeVal,
 		  from: fromVal,
 		  query: {
@@ -282,7 +285,7 @@ function doSearch(key) {
               };
 
 
-  var spatialRelString="";
+  let spatialRelString="";
   if( searchRect ){
 	var southWestCorner = searchRect.getBounds().getSouthWest();
 	var northEastCorner = searchRect.getBounds().getNorthEast();
@@ -302,37 +305,28 @@ function doSearch(key) {
 		addCoordinateCheckWithin(queryObject, east, west, north, south);  	
 	}	
   }
-  
-  //Check if we are on northwestknowledge.net, and if so, modify query to ignore in search results.
-  checkIgnorePublications(queryObject);
-
-  //Check if search results should ignore collection level records 
-  checkIgnoreCollections(queryObject);
-
-  if(key == ""){
-      searchAll(checkCurrentSite(), "");
-  }else{
-      //If query text from user has quotes in it, then run exact match query
-      if(quoteRegex.test(key)){
-	  key = key.replace(quoteRegex, "");
-	  queryObject.query.bool.must.push({match_phrase_prefix:{title:key}});
-      }
-      /* If the user has not wrapped their query in double quotes, then search all 
-       * attributes in the record, however, matches in the title are boosted higher
-       * than matches in other attributes. 
-       */ 
-      else{
-	    queryObject.query.bool.must.push({multi_match:{query: key,fields: ["title^50000000", "abstract", "contacts", "identifiers", "keywords", "mdXmlPath", "record_source", "uid"],operator:"and"}});
-
-      }
-      //Adding specific query parameters to the query based on what site the page is loaded on.
-      constructQuery(queryObject, "");
-
-      query = JSON.stringify(queryObject);
-      
-      //Search Elasticsearch
-      queryElasticsearch(query, key);
-  }
+    
+    //Check if we are on northwestknowledge.net, and if so, modify query to ignore in search results.
+    checkIgnorePublications(queryObject);
+    
+    //Check if search results should ignore collection level records 
+    checkIgnoreCollections(queryObject);
+    
+    //If query text from user has quotes in it, then run exact match query
+    if(quoteRegex.test(key)){
+	key = key.replace(quoteRegex, "");
+	queryObject.query.bool.must.push({match_phrase_prefix:{title:key}});
+    }else{
+	/* If the user has not wrapped their query in double quotes, then search all                                                                                                       * attributes in the record, however, matches in the title are boosted higher                                                                                                      * than matches in other attributes.                                                                                                                                               */
+	queryObject.query.bool.must.push({multi_match:{query: key,fields: ["title^50000000", "abstract", "contacts", "identifiers", "keywords", "mdXmlPath", "record_source", "uid"],operator:"and"}});
+    }
+    //Adding specific query parameters to the query based on what site the page is loaded on.
+    constructQuery(queryObject, "");
+    
+    query = JSON.stringify(queryObject);
+    
+    //Search Elasticsearch
+    queryElasticsearch(query, key);
 }
 
 /** Use constructed JSON to query Elasticseach system and display results
@@ -395,5 +389,9 @@ function page(key, direction) {
 
   fromVal = sizeVal * pageVal;
 //  $("#currentPage").html('Current Page: ' + (pageVal+1) + ' of ' + totalPages);
-  doSearch(key);
+
+  if(key === "")
+      searchAll(checkCurrentSite(), key);
+  else
+      doSearch(key);
 }
