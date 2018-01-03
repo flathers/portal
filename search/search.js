@@ -69,7 +69,8 @@ function checkCurrentSite(){
 	return recordSourceList;	
 }
 
-/** Checks what keywords to seach on based on what site is hosting the page
+/** 
+ *  Checks what keywords to seach on based on what site is hosting the page
  *  Return value: {array}
  */
 //function checkRequiredKeywords(qureyObject){
@@ -77,7 +78,6 @@ function checkRequiredKeywords(){
 	var currentSiteURL = getURL();
 	var keywordsList = [];
 	if(currentSiteURL.indexOf("reacchpna.org") > -1){
-		//Nothing yet
 		keywordsList.push("reacch");
 	}else if(currentSiteURL.indexOf("idahoecosystems.org") > -1){
 		keywordsList.push("IIA-1301792");
@@ -103,10 +103,12 @@ function constructQuery(queryObject, searchType){
 	if(currentSiteURL.indexOf("reacchpna.org") > -1){
 		queryObject.query.bool.must[index].bool.should.push({match:{record_source:"reacch"}},{match:{keyword:"reacch"}});
 	}else if(currentSiteURL.indexOf("idahoecosystems.org") > -1){
-		queryObject.query.bool.must[index].bool.should.push({match:{record_source:"metadata_editor"}})
-		queryObject.query.bool.must[index].bool.should.push({match:{keyword:"IIA-1301792"}});
-//		queryObject.query.bool.must[index].bool.should.minimum_should_match = 2;
-		queryObject.query.bool.must[index].bool.should.push({match:{record_source:"bsu-miles"}});
+	    //Match records with the MILES award keyword "IIA-1301792" OR that come from the "BSU-MILES" harvested records.
+	    queryObject.query.bool.must[index].bool.should.push({bool:{must:[{match:{keywords:"IIA-1301792"}}]}});
+	    queryObject.query.bool.must[index].bool.should.push({match:{record_source:"bsu-miles"}});
+	    
+	    //We have to match at least one of these requirements. 
+	    queryObject.query.bool.must[index].bool.minimum_should_match = 1;
 	}
 }
 
@@ -114,13 +116,14 @@ function getURL(){
 	return document.URL;
 }
 
-/** Check what site this script is on, and ignore publications in search resutls for certain sites
+/** 
+ * Check what site this script is on, and ignore publications in search resutls for certain sites
  * @param {object} query
  */
 function checkIgnorePublications(query){
 	var currentSiteURL = getURL();
 	if(currentSiteURL.indexOf("reacchpna.org") > -1){
-		ignorePublications(query);
+		//nothing yet
 	}else if(currentSiteURL.indexOf("idahoecosystems.org") > -1){
 		//nothing yet
         }else if(currentSiteURL.indexOf("northwestknowledge.net") > -1){
@@ -142,7 +145,7 @@ function ignorePublications(queryObject){
 	queryObject.query.bool.must_not.push({match_phrase_prefix:{title:"Publicatoin"}});
 }
 
-/** Checks which site the script is on, and ignores collection level  
+/** Checks which site the script is on, and ignores collection level
  *  @param {object} query
  */
 function checkIgnoreCollections(query){
@@ -181,9 +184,14 @@ function addCoordinateCheckIntersecting(queryObject, east, west, north, south){
 	}
 }
 
-/** Adds to query a range section that checks if record has a query inside 
+/** 
+ * Adds to query a range section that checks if record has a query inside 
  * the map's user defined bounding box.
- * @params {object} queryObject, {string} east, {string} west, {string} north, {string} south
+ * @param {object} queryObject, 
+ * @param {string} east
+ * @param {string} west
+ * @param {string} north
+ * @param {string} south
  */
 function addCoordinateCheckWithin(queryObject, east, west, north, south){
 	if(typeof queryObject === 'object'){
@@ -196,7 +204,8 @@ function addCoordinateCheckWithin(queryObject, east, west, north, south){
 }
 
 /** Search and match all records for the respective sites.
- *  @params {array} requiredSource, {string} emtpySearchKey
+ *  @param {array} requiredSource
+ *  @param {string} emtpySearchKey
  */
 function searchAll(requiredSource, emptySearchKey){
     //Remove previous page's search results
@@ -216,7 +225,7 @@ function searchAll(requiredSource, emptySearchKey){
 						},
 						{
 							bool:{
-								should:[]
+							    should:[]
 							}
 						}
 					]
@@ -276,7 +285,7 @@ function doSearch(key) {
 			  must: [
 				{
 					bool:{
-						should:[]
+					    should:[]
 					}
 				}
 			  ]
